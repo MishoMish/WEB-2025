@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация на домашен любимец</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐕</text></svg>"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      /* ==================== MAIN CONTAINER ==================== */
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        max-width: 900px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      /* ==================== IMAGE CONTAINER ==================== */
+
+      .image-container {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        max-height: 500px;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+      }
+
+      .image-container img:hover {
+        transform: scale(1.05);
+      }
+
+      /* ==================== BARK TEXT (EASTER EGG) ==================== */
+
+      .bark-text {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #667eea;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 18px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
+        z-index: 10;
+      }
+
+      .bark-text.show {
+        opacity: 1;
+      }
+
+      /* ==================== FORM CONTAINER ==================== */
+
+      .form-container {
+        padding: 40px;
+        background-color: #ffffff;
+      }
+
+      .form-header {
+        margin-bottom: 30px;
+      }
+
+      .form-header h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: #666;
+        font-size: 14px;
+        min-height: 40px;
+        line-height: 20px;
+      }
+
+      /* ==================== FORM GROUPS & INPUTS ==================== */
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="date"],
+      .form-group input[type="number"],
+      .form-group select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background-color: #f9f9f9;
+      }
+
+      .form-group input[type="text"]:focus,
+      .form-group input[type="date"]:focus,
+      .form-group input[type="number"]:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      /* ==================== FILE UPLOAD ==================== */
+
+      .file-upload-wrapper {
+        position: relative;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .file-upload-wrapper input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .file-upload-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .file-upload-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      /* ==================== RADIO BUTTONS ==================== */
+
+      .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 8px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #667eea;
+      }
+
+      .radio-option label {
+        margin-bottom: 0 !important;
+        font-weight: 400 !important;
+        cursor: pointer;
+      }
+
+      /* ==================== NAVIGATION BUTTONS ==================== */
+
+      .navigation-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .nav-button {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-button.back {
+        background-color: #e0e0e0;
+        color: #333;
+      }
+
+      .nav-button.back:hover {
+        background-color: #d0d0d0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-button.next {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .nav-button.next:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      /* ==================== LANGUAGE SWITCHER ==================== */
+
+      .language-switcher {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+      }
+
+      .lang-button {
+        width: 45px;
+        height: 45px;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .lang-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .lang-button.active {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        transform: scale(1.05);
+      }
+
+      /* ==================== EASTER EGG ANIMATIONS ==================== */
+
+      /* Shake Animation */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0) rotate(0deg);
+        }
+        10% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        20% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        30% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        40% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        50% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        60% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        70% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+        80% {
+          transform: translateX(10px) rotate(5deg);
+        }
+        90% {
+          transform: translateX(-10px) rotate(-5deg);
+        }
+      }
+
+      .shake-animation {
+        animation: shake 0.6s ease-in-out;
+      }
+
+      /* Paw Prints Float Up */
+      .paw-print {
+        position: fixed;
+        font-size: 30px;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0;
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Hearts Pulse */
+      .heart-emoji {
+        position: fixed;
+        font-size: 40px;
+        pointer-events: none;
+        z-index: 9999;
+        animation: heartPulse 1s ease-in-out;
+      }
+
+      @keyframes heartPulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.3);
+          opacity: 1;
+        }
+      }
+
+      /* Background Flash */
+      .flash-effect {
+        animation: backgroundFlash 0.5s ease-in-out;
+      }
+
+      @keyframes backgroundFlash {
+        0%,
+        100% {
+          filter: brightness(1);
+        }
+        50% {
+          filter: brightness(1.3);
+        }
+      }
+
+      /* Confetti Fall */
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      @keyframes confettifall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* Container Wiggle */
+      .wiggle-effect {
+        animation: wiggleContainer 0.3s ease-in-out 2;
+      }
+
+      @keyframes wiggleContainer {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(2deg);
+        }
+        75% {
+          transform: rotate(-2deg);
+        }
+      }
+
+      /* ==================== RESPONSIVE DESIGN ==================== */
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .image-container {
+          padding: 30px;
+        }
+
+        .form-container {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+      <button class="lang-button active" data-lang="bg" title="Български">
+        🇧🇬
+      </button>
+      <button class="lang-button" data-lang="en" title="English">🇬🇧</button>
+    </div>
+
+    <div class="container">
+      <!-- Image Container -->
+      <div class="image-container">
+        <div class="bark-text" id="barkText">🐕 WOOF! WOOF! 🐕</div>
+        <img
+          src="dog.png"
+          alt="Домашен любимец"
+          id="dogImage"
+          title="Кликни ме! 🐶"
+        />
+      </div>
+
+      <!-- Form Container -->
+      <div class="form-container">
+        <div class="form-header">
+          <h1 data-i18n="formTitle">Регистрация на куче</h1>
+          <p data-i18n="formSubtitle">
+            Моля, попълнете информацията за вашия домашен любимец
+          </p>
+        </div>
+
+        <form>
+          <!-- Pet Name -->
+          <div class="form-group">
+            <label for="petName" data-i18n="petName"
+              >Име на домашния любимец</label
+            >
+            <input
+              type="text"
+              id="petName"
+              name="petName"
+              data-i18n-placeholder="petNamePlaceholder"
+              placeholder="Въведете име"
+              required
+            />
+          </div>
+
+          <!-- Photo Upload -->
+          <div class="form-group">
+            <label for="petPhoto" data-i18n="petPhoto"
+              >Снимка на домашния любимец</label
+            >
+            <div class="file-upload-wrapper">
+              <input
+                type="file"
+                id="petPhoto"
+                name="petPhoto"
+                accept="image/*"
+              />
+              <div class="file-upload-button" data-i18n="uploadPhoto">
+                📷 Качете снимка
+              </div>
+            </div>
+          </div>
+
+          <!-- Breed Selection -->
+          <div class="form-group">
+            <label for="breed" data-i18n="breed">Порода</label>
+            <select id="breed" name="breed" required>
+              <option value="" data-i18n="selectBreed">Изберете порода</option>
+              <option value="labrador" data-i18n="labrador">
+                Лабрадор ретрийвър
+              </option>
+              <option value="german-shepherd" data-i18n="germanShepherd">
+                Немска овчарка
+              </option>
+              <option value="golden-retriever" data-i18n="goldenRetriever">
+                Голдън ретрийвър
+              </option>
+              <option value="bulldog" data-i18n="bulldog">Булдог</option>
+              <option value="beagle" data-i18n="beagle">Бийгъл</option>
+              <option value="poodle" data-i18n="poodle">Пудел</option>
+              <option value="rottweiler" data-i18n="rottweiler">
+                Ротвайлер
+              </option>
+              <option value="husky" data-i18n="husky">Хъски</option>
+            </select>
+          </div>
+
+          <!-- Birthday -->
+          <div class="form-group">
+            <label for="birthday" data-i18n="birthday">Рожден ден</label>
+            <input type="date" id="birthday" name="birthday" required />
+          </div>
+
+          <!-- Gender -->
+          <div class="form-group">
+            <label data-i18n="gender">Пол</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  required
+                />
+                <label for="male" data-i18n="male">Мъжки</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="female"
+                  name="gender"
+                  value="female"
+                  required
+                />
+                <label for="female" data-i18n="female">Женски</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weight -->
+          <div class="form-group">
+            <label for="weight" data-i18n="weight">Тегло (кг)</label>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              min="0"
+              step="0.1"
+              data-i18n-placeholder="weightPlaceholder"
+              placeholder="Въведете тегло"
+              required
+            />
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="navigation-buttons">
+            <button type="button" class="nav-button back" data-i18n="back">
+              ← Back
+            </button>
+            <button type="button" class="nav-button next" data-i18n="next">
+              Next →
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      /* ==================== JAVASCRIPT - EASTER EGG ФУНКЦИОНАЛНОСТ ==================== */
+
+      // Елементи от DOM
+      const dogImage = document.getElementById("dogImage");
+      const barkText = document.getElementById("barkText");
+      let barkCount = 0;
+      let currentLang = "bg";
+
+      // Internationalization - Речник с преводи
+      const translations = {
+        bg: {
+          formTitle: "Регистрация на куче",
+          formSubtitle: "Моля, попълнете информацията за вашия домашен любимец",
+          petName: "Име на домашния любимец",
+          petNamePlaceholder: "Въведете име",
+          petPhoto: "Снимка на домашния любимец",
+          uploadPhoto: "📷 Качете снимка",
+          breed: "Порода",
+          selectBreed: "Изберете порода",
+          labrador: "Лабрадор ретрийвър",
+          germanShepherd: "Немска овчарка",
+          goldenRetriever: "Голдън ретрийвър",
+          bulldog: "Булдог",
+          beagle: "Бийгъл",
+          poodle: "Пудел",
+          rottweiler: "Ротвайлер",
+          husky: "Хъски",
+          birthday: "Рожден ден",
+          gender: "Пол",
+          male: "Мъжки",
+          female: "Женски",
+          weight: "Тегло (кг)",
+          weightPlaceholder: "Въведете тегло",
+          back: "← Назад",
+          next: "Напред →",
+          barkText: "🐕 БАУ! БАУ! 🐕",
+          secretFound: "🎉 ТИ ОТКРИ ТАЙНАТА! 🎉",
+          iLoveYou: "😍 ОБИЧАМ ТЕ! 😍",
+          clickMe: "Кликни ме! 🐶",
+        },
+        en: {
+          formTitle: "Dog Registration",
+          formSubtitle: "Please fill in the information for your pet",
+          petName: "Pet Name",
+          petNamePlaceholder: "Enter name",
+          petPhoto: "Pet Photo",
+          uploadPhoto: "📷 Upload Photo",
+          breed: "Breed",
+          selectBreed: "Select breed",
+          labrador: "Labrador Retriever",
+          germanShepherd: "German Shepherd",
+          goldenRetriever: "Golden Retriever",
+          bulldog: "Bulldog",
+          beagle: "Beagle",
+          poodle: "Poodle",
+          rottweiler: "Rottweiler",
+          husky: "Husky",
+          birthday: "Birthday",
+          gender: "Gender",
+          male: "Male",
+          female: "Female",
+          weight: "Weight (kg)",
+          weightPlaceholder: "Enter weight",
+          back: "← Back",
+          next: "Next →",
+          barkText: "🐕 WOOF! WOOF! 🐕",
+          secretFound: "🎉 YOU FOUND THE SECRET! 🎉",
+          iLoveYou: "😍 I LOVE YOU! 😍",
+          clickMe: "Click me! 🐶",
+        },
+      };
+
+      // Функция за смяна на езика
+      function switchLanguage(lang) {
+        currentLang = lang;
+
+        // Обновяване на всички текстове с data-i18n атрибут
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Обновяване на placeholder-и
+        document
+          .querySelectorAll("[data-i18n-placeholder]")
+          .forEach((element) => {
+            const key = element.getAttribute("data-i18n-placeholder");
+            if (translations[lang][key]) {
+              element.placeholder = translations[lang][key];
+            }
+          });
+
+        // Обновяване на bark текст и tooltip
+        barkText.textContent = translations[lang].barkText;
+        dogImage.title = translations[lang].clickMe;
+
+        // Обновяване на активния бутон
+        document.querySelectorAll(".lang-button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        document.querySelector(`[data-lang="${lang}"]`).classList.add("active");
+      }
+
+      // Event listeners за езиковите бутони
+      document.querySelectorAll(".lang-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          const lang = this.getAttribute("data-lang");
+          switchLanguage(lang);
+        });
+      });
+
+      // Аудио ефект за лай на куче
+      const barkSound = new Audio(
+        "https://www.myinstants.com/media/sounds/160092__jorickhoofd__dog-bark-1.mp3"
+      );
+      barkSound.volume = 0.5;
+
+      /* ==================== HELPER FUNCTIONS ==================== */
+
+      // Функция за възпроизвеждане на звук
+      function playBarkSound() {
+        barkSound.currentTime = 0;
+        barkSound.play().catch((error) => {
+          console.log("Audio play failed:", error);
+        });
+      }
+
+      // Функция за създаване на летящи лапички
+      function createPawPrints() {
+        const pawEmojis = ["🐾", "🐕", "🦴", "⭐"];
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => {
+            const paw = document.createElement("div");
+            paw.className = "paw-print";
+            paw.textContent =
+              pawEmojis[Math.floor(Math.random() * pawEmojis.length)];
+            paw.style.left = Math.random() * 100 + "vw";
+            paw.style.top = "100vh";
+            paw.style.animation = `floatUp ${
+              2 + Math.random() * 2
+            }s ease-out forwards`;
+            document.body.appendChild(paw);
+
+            setTimeout(() => paw.remove(), 4000);
+          }, i * 100);
+        }
+      }
+
+      // Функция за създаване на сърца
+      function createHearts() {
+        const heartEmojis = ["❤️", "💛", "💚", "💙", "💜", "🧡", "💖"];
+        for (let i = 0; i < 8; i++) {
+          setTimeout(() => {
+            const heart = document.createElement("div");
+            heart.className = "heart-emoji";
+            heart.textContent =
+              heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = Math.random() * 100 + "vh";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1000);
+          }, i * 80);
+        }
+      }
+
+      // Функция за създаване на конфети
+      function createConfetti() {
+        const colors = [
+          "#667eea",
+          "#764ba2",
+          "#a8edea",
+          "#fed6e3",
+          "#FFD93D",
+          "#FF6B6B",
+        ];
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor =
+              colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animation = `confettifall ${
+              2 + Math.random()
+            }s linear forwards`;
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 3000);
+          }, i * 30);
+        }
+      }
+
+      // Функция за flash ефект на фона
+      function flashBackground() {
+        document.body.classList.add("flash-effect");
+        setTimeout(() => {
+          document.body.classList.remove("flash-effect");
+        }, 500);
+      }
+
+      // Функция за wiggle ефект на контейнера
+      function wiggleContainer() {
+        const container = document.querySelector(".container");
+        container.classList.add("wiggle-effect");
+        setTimeout(() => {
+          container.classList.remove("wiggle-effect");
+        }, 600);
+      }
+
+      /* ==================== EVENT LISTENERS ==================== */
+
+      // Главен event listener за кликване на кучето
+      dogImage.addEventListener("click", function () {
+        barkCount++;
+
+        // Основни ефекти
+        playBarkSound();
+        barkText.classList.add("show");
+        dogImage.classList.add("shake-animation");
+
+        // Анимации
+        createPawPrints();
+        flashBackground();
+        wiggleContainer();
+
+        // Премахване на shake анимацията
+        setTimeout(() => {
+          dogImage.classList.remove("shake-animation");
+        }, 600);
+
+        // Скриване на текста
+        setTimeout(() => {
+          barkText.classList.remove("show");
+        }, 1000);
+
+        // Специална изненада на 5-ти клик
+        if (barkCount === 5) {
+          barkText.textContent = translations[currentLang].secretFound;
+          createHearts();
+          setTimeout(() => {
+            barkText.textContent = translations[currentLang].barkText;
+          }, 2000);
+        }
+
+        // Супер изненада на 10-ти клик
+        if (barkCount === 10) {
+          barkText.textContent = translations[currentLang].iLoveYou;
+          createConfetti();
+          createHearts();
+          setTimeout(() => {
+            barkText.textContent = translations[currentLang].barkText;
+          }, 2000);
+          barkCount = 0; // Нулиране на брояча
+        }
+      });
+
+      // Hover ефект за кучето
+      dogImage.addEventListener("mouseenter", function () {
+        this.style.transform = "scale(1.05)";
+      });
+
+      dogImage.addEventListener("mouseleave", function () {
+        if (!this.classList.contains("shake-animation")) {
+          this.style.transform = "scale(1)";
+        }
+      });
+    </script>
+  </body>
+</html>

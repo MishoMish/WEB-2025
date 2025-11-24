@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация на домашен любимец</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        max-width: 900px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+
+      .image-container {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        padding: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        max-height: 500px;
+      }
+
+      .form-container {
+        padding: 40px;
+        background-color: #ffffff;
+      }
+
+      .form-header {
+        margin-bottom: 30px;
+      }
+
+      .form-header h1 {
+        color: #333;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .form-header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="date"],
+      .form-group input[type="number"],
+      .form-group select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background-color: #f9f9f9;
+      }
+
+      .form-group input[type="text"]:focus,
+      .form-group input[type="date"]:focus,
+      .form-group input[type="number"]:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: #667eea;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      .file-upload-wrapper {
+        position: relative;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .file-upload-wrapper input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .file-upload-button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .file-upload-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      .radio-group {
+        display: flex;
+        gap: 20px;
+        margin-top: 8px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #667eea;
+      }
+
+      .radio-option label {
+        margin-bottom: 0 !important;
+        font-weight: 400 !important;
+        cursor: pointer;
+      }
+
+      .navigation-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .nav-button {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-button.back {
+        background-color: #e0e0e0;
+        color: #333;
+      }
+
+      .nav-button.back:hover {
+        background-color: #d0d0d0;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-button.next {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .nav-button.next:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+        }
+
+        .image-container {
+          padding: 30px;
+        }
+
+        .form-container {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Image Container -->
+      <div class="image-container">
+        <img src="dog.png" alt="Домашен любимец" />
+      </div>
+
+      <!-- Form Container -->
+      <div class="form-container">
+        <div class="form-header">
+          <h1>Регистрация на куче</h1>
+          <p>Моля, попълнете информацията за вашия домашен любимец</p>
+        </div>
+
+        <form>
+          <!-- Pet Name -->
+          <div class="form-group">
+            <label for="petName">Име на домашния любимец</label>
+            <input
+              type="text"
+              id="petName"
+              name="petName"
+              placeholder="Въведете име"
+              required
+            />
+          </div>
+
+          <!-- Photo Upload -->
+          <div class="form-group">
+            <label for="petPhoto">Снимка на домашния любимец</label>
+            <div class="file-upload-wrapper">
+              <input
+                type="file"
+                id="petPhoto"
+                name="petPhoto"
+                accept="image/*"
+              />
+              <div class="file-upload-button">📷 Качете снимка</div>
+            </div>
+          </div>
+
+          <!-- Breed Selection -->
+          <div class="form-group">
+            <label for="breed">Порода</label>
+            <select id="breed" name="breed" required>
+              <option value="">Изберете порода</option>
+              <option value="labrador">Лабрадор ретрийвър</option>
+              <option value="german-shepherd">Немска овчарка</option>
+              <option value="golden-retriever">Голдън ретрийвър</option>
+              <option value="bulldog">Булдог</option>
+              <option value="beagle">Бийгъл</option>
+              <option value="poodle">Пудел</option>
+              <option value="rottweiler">Ротвайлер</option>
+              <option value="husky">Хъски</option>
+            </select>
+          </div>
+
+          <!-- Birthday -->
+          <div class="form-group">
+            <label for="birthday">Рожден ден</label>
+            <input type="date" id="birthday" name="birthday" required />
+          </div>
+
+          <!-- Gender -->
+          <div class="form-group">
+            <label>Пол</label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  required
+                />
+                <label for="male">Мъжки</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  id="female"
+                  name="gender"
+                  value="female"
+                  required
+                />
+                <label for="female">Женски</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weight -->
+          <div class="form-group">
+            <label for="weight">Тегло (кг)</label>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              min="0"
+              step="0.1"
+              placeholder="Въведете тегло"
+              required
+            />
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="navigation-buttons">
+            <button type="button" class="nav-button back">← Назад</button>
+            <button type="button" class="nav-button next">Напред →</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
