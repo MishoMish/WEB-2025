@@ -24,6 +24,7 @@
         initScrollToTop();
         initScrollAnimations();
         initNavbarShrink();
+        initNavMenuToggle();
         
         console.log('✓ All features initialized successfully');
         console.log('🎨 Theme: Prompt Engineering and Web Development with ChatGPT');
@@ -424,7 +425,13 @@
             const code = block.querySelector('code');
             if (code) {
                 const lines = code.textContent.split('\n');
-                if (lines.length > 3) {
+                // Filter out trailing empty lines for proper count
+                const nonEmptyLines = lines.filter((line, idx) => {
+                    // Keep all lines except trailing empty ones
+                    return idx < lines.length - 1 || line.trim() !== '';
+                });
+                
+                if (nonEmptyLines.length > 3) {
                     const lineNumbers = document.createElement('div');
                     lineNumbers.className = 'line-numbers';
                     lineNumbers.style.cssText = `
@@ -432,14 +439,17 @@
                         left: 0;
                         top: 0;
                         padding: var(--spacing-md);
+                        padding-bottom: 3rem;
                         color: rgba(255,255,255,0.3);
                         user-select: none;
                         pointer-events: none;
+                        max-height: 100%;
+                        overflow: hidden;
                     `;
                     
-                    lineNumbers.innerHTML = lines.map((_, i) => `<div>${i + 1}</div>`).join('');
+                    lineNumbers.innerHTML = nonEmptyLines.map((_, i) => `<div>${i + 1}</div>`).join('');
                     block.style.position = 'relative';
-                    block.style.paddingLeft = '50px';
+                    code.style.paddingLeft = '50px';
                     block.appendChild(lineNumbers);
                 }
             }
@@ -592,11 +602,81 @@
             btn.setAttribute('aria-label', 'Print document');
             
             btn.addEventListener('click', function() {
-                window.print();
+                preparePrintView();
+                setTimeout(() => {
+                    window.print();
+                    restoreNormalView();
+                }, 100);
             });
             
             document.body.appendChild(btn);
         }
+    }
+    
+    function preparePrintView() {
+        // Hide interactive elements
+        const elementsToHide = document.querySelectorAll(
+            '#hero, .nav-menu-toggle, .floating-icon, .gradient-orb, ' +
+            '.scroll-to-top, .print-btn, .progress-bar, .copy-code-btn, ' +
+            '.nav-controls, .scroll-hint, #main-nav, footer, .nav-links, ' +
+            '.lang-switcher, .control-btn, .lang-btn'
+        );
+        elementsToHide.forEach(el => {
+            el.setAttribute('data-print-hidden', 'true');
+            el.style.display = 'none';
+        });
+        
+        // Simplify main container
+        const main = document.querySelector('main');
+        if (main) {
+            main.setAttribute('data-original-style', main.getAttribute('style') || '');
+            main.style.boxShadow = 'none';
+            main.style.margin = '0';
+            main.style.padding = '2rem';
+            main.style.background = 'white';
+            main.style.borderRadius = '0';
+        }
+        
+        // Remove animations
+        document.body.classList.add('printing');
+        
+        // Add print title at the top
+        const printHeader = document.createElement('div');
+        printHeader.id = 'print-header';
+        printHeader.innerHTML = `
+            <h1 style="text-align: center; margin-bottom: 1rem; color: #2c3e50;">
+                Prompt Engineering и Web разработка с ChatGPT
+            </h1>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 2rem;">
+                Уеб Технологии, 25 издание • Зимен семестър 2025-2026
+            </p>
+            <hr style="border: none; border-top: 2px solid #3498db; margin-bottom: 2rem;">
+        `;
+        main.insertBefore(printHeader, main.firstChild);
+    }
+    
+    function restoreNormalView() {
+        // Restore hidden elements
+        const hiddenElements = document.querySelectorAll('[data-print-hidden]');
+        hiddenElements.forEach(el => {
+            el.removeAttribute('data-print-hidden');
+            el.style.display = '';
+        });
+        
+        // Restore main
+        const main = document.querySelector('main');
+        if (main && main.hasAttribute('data-original-style')) {
+            main.setAttribute('style', main.getAttribute('data-original-style'));
+            main.removeAttribute('data-original-style');
+        }
+        
+        // Remove print header
+        const printHeader = document.getElementById('print-header');
+        if (printHeader) {
+            printHeader.remove();
+        }
+        
+        document.body.classList.remove('printing');
     }
     
     /**
@@ -678,6 +758,68 @@
         }
         
         window.addEventListener('scroll', throttle(handleScroll, 100));
+    }
+
+    /**
+     * Mobile three-dot menu toggle
+     */
+    function initNavMenuToggle() {
+        const nav = document.getElementById('main-nav');
+        const toggle = document.getElementById('nav-menu-toggle');
+        if (!nav || !toggle) return;
+
+        const focusableSelector = 'a, button, [tabindex]';
+
+        function setExpanded(expanded) {
+            if (expanded) {
+                nav.classList.add('expanded');
+                toggle.setAttribute('aria-expanded', 'true');
+                // Move focus to first link for accessibility
+                const firstLink = nav.querySelector('.nav-links a');
+                if (firstLink) firstLink.focus();
+            } else {
+                nav.classList.remove('expanded');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.focus();
+            }
+        }
+
+        toggle.addEventListener('click', () => {
+            const isExpanded = nav.classList.contains('expanded');
+            setExpanded(!isExpanded);
+        });
+
+        // Close on Escape key if open
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nav.classList.contains('expanded')) {
+                setExpanded(false);
+            }
+        });
+
+        // Trap focus inside expanded menu on mobile
+        document.addEventListener('keydown', (e) => {
+            if (!nav.classList.contains('expanded')) return;
+            if (e.key !== 'Tab') return;
+            const focusable = Array.from(nav.querySelectorAll(focusableSelector))
+                .filter(el => el.offsetParent !== null);
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        });
+
+        // Close when resizing to desktop
+        window.addEventListener('resize', debounce(() => {
+            if (window.innerWidth > 768 && nav.classList.contains('expanded')) {
+                setExpanded(false);
+            }
+        }, 150));
     }
     
     /**

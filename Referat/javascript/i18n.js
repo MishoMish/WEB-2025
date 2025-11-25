@@ -9,7 +9,7 @@ const translations = {
         pageTitle: 'Prompt Engineering и Web разработка с ChatGPT',
         heroSubtitle: 'Изследване на бъдещето на разработката с изкуствен интелект',
         heroMeta: 'Уеб Технологии, 25 издание • Зимен семестър 2025-2026',
-        scrollDown: 'Scroll Down',
+        scrollDown: 'Надолу',
         
         // Navigation
         navIntro: 'Въведение',
