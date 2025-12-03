@@ -1,0 +1,10 @@
+Problem: Design a database schema for a blog system.
+
+Think step-by-step:
+1. What entities do we need? (users, posts, comments, etc.)
+2. What relationships exist between entities?
+3. What are the key attributes for each entity?
+4. What indexes would optimize queries?
+5. Are there any normalization considerations?
+
+Provide your reasoning for each step, then the final schema.

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="theme-color" content="#2c3e50" />
+    <title data-i18n="pageTitle">Заглавие на реферат</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/site.css" />
+
+    <!-- JavaScript Files -->
+    <script src="javascript/i18n.js" defer></script>
+    <script src="javascript/main.js" defer></script>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-background">
+        <!-- Animated SVG Icons -->
+        <svg
+          class="floating-icon icon-1"
+          width="80"
+          height="80"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="none"
+            stroke="#3498db"
+            stroke-width="3"
+            opacity="0.6"
+          />
+          <path
+            d="M30 50 L45 35 L60 50 L45 65 Z"
+            fill="#3498db"
+            opacity="0.8"
+          />
+          <circle cx="50" cy="50" r="8" fill="#fff" />
+        </svg>
+
+        <svg
+          class="floating-icon icon-2"
+          width="60"
+          height="60"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="20"
+            y="20"
+            width="60"
+            height="60"
+            rx="10"
+            fill="none"
+            stroke="#e74c3c"
+            stroke-width="3"
+            opacity="0.6"
+          />
+          <circle cx="50" cy="50" r="15" fill="#e74c3c" opacity="0.7" />
+        </svg>
+
+        <svg
+          class="floating-icon icon-3"
+          width="70"
+          height="70"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polygon
+            points="50,15 90,85 10,85"
+            fill="none"
+            stroke="#27ae60"
+            stroke-width="3"
+            opacity="0.6"
+          />
+          <circle cx="50" cy="60" r="10" fill="#27ae60" opacity="0.7" />
+        </svg>
+
+        <svg
+          class="floating-icon icon-4"
+          width="50"
+          height="50"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M50 20 L60 40 L80 45 L65 60 L70 80 L50 70 L30 80 L35 60 L20 45 L40 40 Z"
+            fill="none"
+            stroke="#f39c12"
+            stroke-width="3"
+            opacity="0.6"
+          />
+        </svg>
+
+        <svg
+          class="floating-icon icon-5"
+          width="65"
+          height="65"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="30"
+            fill="none"
+            stroke="#9b59b6"
+            stroke-width="3"
+            opacity="0.5"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            fill="none"
+            stroke="#9b59b6"
+            stroke-width="2"
+            opacity="0.7"
+          />
+          <circle cx="50" cy="50" r="10" fill="#9b59b6" opacity="0.6" />
+        </svg>
+
+        <!-- Gradient Orbs -->
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="pageTitle">Заглавие на реферат</h1>
+        <p class="hero-subtitle">
+          <span data-i18n="heroSubtitle">Подзаглавие</span>
+        </p>
+        <div class="hero-meta">
+          <span data-i18n="heroMeta"
+            >Уеб Технологии, 25 издание • Зимен семестър 2025-2026</span
+          >
+        </div>
+        <button
+          class="scroll-hint"
+          onclick="document.querySelector('#main-nav').scrollIntoView({behavior: 'smooth'})"
+        >
+          <span>↓</span>
+          <span class="scroll-text" data-i18n="scrollDown">Scroll Down</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav id="main-nav">
+      <div class="container">
+        <button
+          id="nav-menu-toggle"
+          class="nav-menu-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="main-nav-sections"
+        >
+          ⋯
+        </button>
+        <div id="main-nav-sections" class="nav-links">
+          <a href="#introduction" data-i18n="navIntro">Въведение</a>
+          <a href="#main-content" data-i18n="navMain">Основна част</a>
+          <a href="#conclusion" data-i18n="navConclusion">Заключение</a>
+          <a href="#citations" data-i18n="navCitations">Литература</a>
+        </div>
+        <div class="nav-controls">
+          <div class="lang-switcher">
+            <button
+              onclick="switchLanguage('bg')"
+              class="lang-btn active"
+              data-lang="bg"
+              aria-label="Switch to Bulgarian"
+            >
+              БГ
+            </button>
+            <button
+              onclick="switchLanguage('en')"
+              class="lang-btn"
+              data-lang="en"
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+          </div>
+          <button
+            id="dark-mode-toggle"
+            class="control-btn"
+            aria-label="Toggle dark mode"
+            title="Toggle Dark Mode"
+          >
+            <span class="icon-light">☀️</span>
+            <span class="icon-dark" style="display: none">🌙</span>
+          </button>
+          <button
+            id="font-size-increase"
+            class="control-btn"
+            aria-label="Increase font size"
+            title="Increase Font Size"
+          >
+            A+
+          </button>
+          <button
+            id="font-size-decrease"
+            class="control-btn"
+            aria-label="Decrease font size"
+            title="Decrease Font Size"
+          >
+            A-
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Abstract -->
+      <section id="abstract">
+        <h2 data-i18n="abstractTitle">Резюме</h2>
+        <p data-i18n="abstractText">Текст на резюмето...</p>
+      </section>
+
+      <!-- Introduction -->
+      <section id="introduction">
+        <h2 data-i18n="introTitle">1. Въведение</h2>
+        <p>Въведение...</p>
+      </section>
+
+      <!-- Main Content -->
+      <section id="main-content">
+        <h2 data-i18n="mainTitle">2. Основна част</h2>
+        <p>Основно съдържание...</p>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion">
+        <h2 data-i18n="conclusionTitle">3. Заключение</h2>
+        <p>Заключение...</p>
+      </section>
+
+      <!-- Citations -->
+      <section id="citations">
+        <h2 data-i18n="citationsTitle">Цитирана литература</h2>
+        <div class="references">
+          <p id="ref-1">[1]</p>
+        </div>
+      </section>
+
+      <!-- Lists -->
+      <section id="lists">
+        <h2 data-i18n="listsTitle">Приложения</h2>
+
+        <article>
+          <h3 data-i18n="codeListTitle">Списък с примерен програмен код</h3>
+          <ol class="code-list">
+            <li></li>
+          </ol>
+        </article>
+
+        <article>
+          <h3 data-i18n="figureListTitle">Списък с фигури</h3>
+          <ol class="figure-list">
+            <li></li>
+          </ol>
+        </article>
+
+        <article>
+          <h3 data-i18n="tableListTitle">Списък с таблици</h3>
+          <ol class="table-list">
+            <li></li>
+          </ol>
+        </article>
+      </section>
+
+      <!-- Firugre -->
+      <figure id="figure-2" class="interactive-figure">
+        <div class="figure-content">
+          <img
+            src="img/temp.svg"
+            alt="Chain of Thought Diagram"
+            class="diagram-img"
+            loading="lazy"
+          />
+        </div>
+        <figcaption data-i18n="figure2Caption">
+          <strong>Фигура 2.</strong> Визуализация на Chain-of-Thought промптинг
+          <a href="#ref-18">[18]</a>
+        </figcaption>
+      </figure>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p data-i18n="footerText">
+          &copy; 2025 Факултет по математика и информатика, СУ "Св. Климент
+          Охридски"
+        </p>
+        <p data-i18n="footerCourse">
+          Курс по Уеб технологии, 25 издание (зимен семестър 2025-2026)
+        </p>
+        <p class="footer-author">
+          Име • Фак. номер •
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="github-link"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              style="vertical-align: middle; margin-right: 4px"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+            GitHub
+          </a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
