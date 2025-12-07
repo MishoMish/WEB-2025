@@ -28,7 +28,7 @@
 
     console.log("✓ All features initialized successfully");
     console.log(
-      "🎨 Theme: Prompt Engineering and Web Development with ChatGPT"
+      "🎨 Theme: Prompt Engineering and Web Development with ChatGPT",
     );
     console.log("📚 Course: Web Technologies 25ed (Winter 2025-2026)");
   });
@@ -649,7 +649,7 @@
 
     // Ensure all interactive elements are keyboard accessible
     const interactiveElements = document.querySelectorAll(
-      "a, button, [tabindex]"
+      "a, button, [tabindex]",
     );
     interactiveElements.forEach((element) => {
       if (
@@ -695,7 +695,7 @@
       "#hero, .nav-menu-toggle, .floating-icon, .gradient-orb, " +
         ".scroll-to-top, .print-btn, .progress-bar, .copy-code-btn, " +
         ".nav-controls, .scroll-hint, #main-nav, footer, .nav-links, " +
-        ".lang-switcher, .control-btn, .lang-btn"
+        ".lang-switcher, .control-btn, .lang-btn",
     );
     elementsToHide.forEach((el) => {
       el.setAttribute("data-print-hidden", "true");
@@ -707,7 +707,7 @@
     if (main) {
       main.setAttribute(
         "data-original-style",
-        main.getAttribute("style") || ""
+        main.getAttribute("style") || "",
       );
       main.style.boxShadow = "none";
       main.style.margin = "0";
@@ -880,7 +880,7 @@
       if (!nav.classList.contains("expanded")) return;
       if (e.key !== "Tab") return;
       const focusable = Array.from(
-        nav.querySelectorAll(focusableSelector)
+        nav.querySelectorAll(focusableSelector),
       ).filter((el) => el.offsetParent !== null);
       if (!focusable.length) return;
       const first = focusable[0];
@@ -901,7 +901,7 @@
         if (window.innerWidth > 768 && nav.classList.contains("expanded")) {
           setExpanded(false);
         }
-      }, 150)
+      }, 150),
     );
   }
 
@@ -918,12 +918,15 @@
         lastRan = Date.now();
       } else {
         clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          if (Date.now() - lastRan >= wait) {
-            func(...args);
-            lastRan = Date.now();
-          }
-        }, wait - (Date.now() - lastRan));
+        timeout = setTimeout(
+          () => {
+            if (Date.now() - lastRan >= wait) {
+              func(...args);
+              lastRan = Date.now();
+            }
+          },
+          wait - (Date.now() - lastRan),
+        );
       }
     };
   }

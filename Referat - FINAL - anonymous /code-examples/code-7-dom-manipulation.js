@@ -4,23 +4,23 @@
  * @param {string} containerId - Target container ID
  */
 function renderCards(data, containerId) {
-    const container = document.getElementById(containerId);
-    
-    if (!container) {
-        console.error(`Container ${containerId} not found`);
-        return;
-    }
-    
-    // Clear existing content
-    container.innerHTML = '';
-    
-    // Create and append cards
-    data.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.setAttribute('role', 'article');
-        
-        card.innerHTML = `
+  const container = document.getElementById(containerId);
+
+  if (!container) {
+    console.error(`Container ${containerId} not found`);
+    return;
+  }
+
+  // Clear existing content
+  container.innerHTML = "";
+
+  // Create and append cards
+  data.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.setAttribute("role", "article");
+
+    card.innerHTML = `
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.description)}</p>
             <a href="${escapeHtml(item.link)}" 
@@ -28,19 +28,19 @@ function renderCards(data, containerId) {
                 Read more
             </a>
         `;
-        
-        container.appendChild(card);
-    });
+
+    container.appendChild(card);
+  });
 }
 
 // Security: HTML escape function
 function escapeHtml(text) {
-    const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, m => map[m]);
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
+  };
+  return text.replace(/[&<>"']/g, (m) => map[m]);
 }
