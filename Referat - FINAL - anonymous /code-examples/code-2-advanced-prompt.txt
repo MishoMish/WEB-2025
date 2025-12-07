@@ -1,0 +1,11 @@
+Task: Create a responsive navigation menu
+Constraints:
+- Use semantic HTML5 <nav> element
+- Mobile-first approach
+- No JavaScript dependencies
+- Accessibility: ARIA labels, keyboard navigation
+- CSS only (no frameworks)
+Output format:
+1. HTML structure
+2. CSS styles
+3. Brief explanation of accessibility features

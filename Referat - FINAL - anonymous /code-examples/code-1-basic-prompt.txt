@@ -1,0 +1,8 @@
+You are an experienced web developer specializing in semantic HTML5.
+Create a contact form with the following fields:
+- Name (required)
+- Email (required, validated)
+- Message (textarea, required)
+- Submit button
+
+Use proper semantic HTML tags and accessibility attributes.
