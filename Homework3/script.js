@@ -23,7 +23,8 @@ const validators = {
     if (!value || value.trim() === "") {
       return "Потребителското име е задължително поле";
     }
-    if (value.length < 3 || value.length > 10) {
+    const trimmedValue = value.trim();
+    if (trimmedValue.length < 3 || trimmedValue.length > 10) {
       return "Потребителското име трябва да е между 3 и 10 символа";
     }
     return null;
@@ -33,7 +34,8 @@ const validators = {
     if (!value || value.trim() === "") {
       return "Името е задължително поле";
     }
-    if (value.length > 50) {
+    const trimmedValue = value.trim();
+    if (trimmedValue.length > 50) {
       return "Името не може да е повече от 50 символа";
     }
     return null;
@@ -43,7 +45,8 @@ const validators = {
     if (!value || value.trim() === "") {
       return "Фамилията е задължително поле";
     }
-    if (value.length > 50) {
+    const trimmedValue = value.trim();
+    if (trimmedValue.length > 50) {
       return "Фамилията не може да е повече от 50 символа";
     }
     return null;
@@ -64,12 +67,13 @@ const validators = {
     if (!value || value.trim() === "") {
       return "Паролата е задължително поле";
     }
-    if (value.length < 6 || value.length > 10) {
-      return "Паролата трябва да е между 6 и 10 символа";
+    const trimmedValue = value.trim();
+    if (trimmedValue.length < 6 || trimmedValue.length > 10) {
+      return "Паролата трябва да е між 6 и 10 символа";
     }
-    const hasUpperCase = /[A-Z]/.test(value);
-    const hasLowerCase = /[a-z]/.test(value);
-    const hasDigit = /[0-9]/.test(value);
+    const hasUpperCase = /[A-Z]/.test(trimmedValue);
+    const hasLowerCase = /[a-z]/.test(trimmedValue);
+    const hasDigit = /[0-9]/.test(trimmedValue);
 
     if (!hasUpperCase || !hasLowerCase || !hasDigit) {
       return "Паролата трябва да съдържа главни и малки букви и цифри";

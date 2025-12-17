@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" class="dynamic-svg">
+  <defs>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="apiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#e74c3c" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="var(--svg-bg)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="var(--svg-text)">
+    Recommended Backend Proxy Architecture
+  </text>
+  
+  <!-- Client Side -->
+  <g id="client">
+    <rect x="50" y="100" width="180" height="350" rx="15" fill="url(#clientGrad)" opacity="0.9"/>
+    <text x="140" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Client Side</text>
+    
+    <!-- Browser -->
+    <rect x="70" y="160" width="140" height="80" rx="8" fill="white" opacity="0.3"/>
+    <text x="140" y="185" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Web Browser</text>
+    <text x="140" y="205" text-anchor="middle" font-size="10" fill="white">React / Vue / HTML</text>
+    <text x="140" y="220" text-anchor="middle" font-size="10" fill="white">JavaScript / TypeScript</text>
+    
+    <!-- User Input -->
+    <rect x="70" y="260" width="140" height="60" rx="8" fill="white" opacity="0.3"/>
+    <text x="140" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="white">User Input</text>
+    <text x="140" y="298" text-anchor="middle" font-size="9" fill="white">Prompt / Query</text>
+    <text x="140" y="312" text-anchor="middle" font-size="9" fill="white">User Data</text>
+    
+    <!-- UI Display -->
+    <rect x="70" y="340" width="140" height="60" rx="8" fill="white" opacity="0.3"/>
+    <text x="140" y="360" text-anchor="middle" font-size="12" font-weight="bold" fill="white">UI Display</text>
+    <text x="140" y="378" text-anchor="middle" font-size="9" fill="white">Response Rendering</text>
+    <text x="140" y="392" text-anchor="middle" font-size="9" fill="white">Error Handling</text>
+    
+    <!-- No API Key -->
+    <rect x="60" y="415" width="160" height="25" rx="5" fill="#e74c3c" opacity="0.8"/>
+    <text x="140" y="432" text-anchor="middle" font-size="10" font-weight="bold" fill="white">🔒 No API Key Exposed</text>
+  </g>
+  
+  <!-- Backend Server -->
+  <g id="backend">
+    <rect x="310" y="80" width="200" height="410" rx="15" fill="url(#serverGrad)" opacity="0.9"/>
+    <text x="410" y="110" text-anchor="middle" font-size="16" font-weight="bold" fill="white">Backend Server</text>
+    
+    <!-- Express/Node -->
+    <rect x="330" y="140" width="160" height="60" rx="8" fill="white" opacity="0.3"/>
+    <text x="410" y="160" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Express / Fastify</text>
+    <text x="410" y="178" text-anchor="middle" font-size="10" fill="white">Node.js Runtime</text>
+    <text x="410" y="192" text-anchor="middle" font-size="9" fill="white">RESTful API Endpoints</text>
+    
+    <!-- Security Layer -->
+    <rect x="330" y="220" width="160" height="70" rx="8" fill="white" opacity="0.3"/>
+    <text x="410" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Security Layer</text>
+    <text x="410" y="257" text-anchor="middle" font-size="9" fill="white">✓ Rate Limiting</text>
+    <text x="410" y="271" text-anchor="middle" font-size="9" fill="white">✓ Input Validation</text>
+    <text x="410" y="285" text-anchor="middle" font-size="9" fill="white">✓ Authentication</text>
+    
+    <!-- Business Logic -->
+    <rect x="330" y="310" width="160" height="70" rx="8" fill="white" opacity="0.3"/>
+    <text x="410" y="330" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Business Logic</text>
+    <text x="410" y="347" text-anchor="middle" font-size="9" fill="white">Prompt Processing</text>
+    <text x="410" y="361" text-anchor="middle" font-size="9" fill="white">Response Formatting</text>
+    <text x="410" y="375" text-anchor="middle" font-size="9" fill="white">Error Handling</text>
+    
+    <!-- API Key Storage -->
+    <rect x="330" y="400" width="160" height="70" rx="8" fill="white" opacity="0.3"/>
+    <text x="410" y="420" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Secure Storage</text>
+    <text x="410" y="437" text-anchor="middle" font-size="9" fill="white">🔑 Environment Vars</text>
+    <text x="410" y="451" text-anchor="middle" font-size="9" fill="white">API Key Management</text>
+    <text x="410" y="465" text-anchor="middle" font-size="9" fill="white">Secrets Manager</text>
+  </g>
+  
+  <!-- OpenAI API -->
+  <g id="openai">
+    <rect x="590" y="100" width="180" height="350" rx="15" fill="url(#apiGrad)" opacity="0.9"/>
+    <text x="680" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="white">OpenAI API</text>
+    
+    <!-- API Gateway -->
+    <rect x="610" y="160" width="140" height="70" rx="8" fill="white" opacity="0.3"/>
+    <text x="680" y="180" text-anchor="middle" font-size="13" font-weight="bold" fill="white">API Gateway</text>
+    <text x="680" y="198" text-anchor="middle" font-size="10" fill="white">HTTPS Endpoint</text>
+    <text x="680" y="214" text-anchor="middle" font-size="9" fill="white">api.openai.com/v1</text>
+    
+    <!-- GPT Models -->
+    <rect x="610" y="250" width="140" height="90" rx="8" fill="white" opacity="0.3"/>
+    <text x="680" y="270" text-anchor="middle" font-size="12" font-weight="bold" fill="white">GPT Models</text>
+    <text x="680" y="288" text-anchor="middle" font-size="9" fill="white">🤖 GPT-4</text>
+    <text x="680" y="302" text-anchor="middle" font-size="9" fill="white">🤖 GPT-3.5-turbo</text>
+    <text x="680" y="316" text-anchor="middle" font-size="9" fill="white">🤖 Fine-tuned models</text>
+    <text x="680" y="330" text-anchor="middle" font-size="9" fill="white">Response Generation</text>
+    
+    <!-- Response -->
+    <rect x="610" y="360" width="140" height="70" rx="8" fill="white" opacity="0.3"/>
+    <text x="680" y="380" text-anchor="middle" font-size="12" font-weight="bold" fill="white">AI Response</text>
+    <text x="680" y="397" text-anchor="middle" font-size="9" fill="white">Generated Text</text>
+    <text x="680" y="411" text-anchor="middle" font-size="9" fill="white">JSON Format</text>
+    <text x="680" y="425" text-anchor="middle" font-size="9" fill="white">Token Usage Data</text>
+  </g>
+  
+  <!-- Request Arrows -->
+  <line x1="230" y1="200" x2="310" y2="200" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="270" y="190" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="bold">HTTP Request</text>
+  
+  <line x1="510" y1="250" x2="590" y2="250" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="550" y="240" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="bold">API Call + Key</text>
+  
+  <!-- Response Arrows -->
+  <line x1="590" y1="400" x2="510" y2="400" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="550" y="390" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">JSON Response</text>
+  
+  <line x1="310" y1="350" x2="230" y2="350" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="270" y="340" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="bold">Formatted Data</text>
+  
+  <!-- Benefits -->
+  <rect x="50" y="510" width="700" height="70" rx="10" fill="var(--svg-panel-bg)" stroke="var(--svg-border)" stroke-width="2"/>
+  <text x="400" y="532" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--svg-text)">Architecture Benefits</text>
+  <text x="140" y="555" text-anchor="middle" font-size="10" fill="var(--svg-text)">✓ Secure API Keys</text>
+  <text x="280" y="555" text-anchor="middle" font-size="10" fill="var(--svg-text)">✓ Rate Limiting</text>
+  <text x="400" y="555" text-anchor="middle" font-size="10" fill="var(--svg-text)">✓ Cost Control</text>
+  <text x="520" y="555" text-anchor="middle" font-size="10" fill="var(--svg-text)">✓ Input Validation</text>
+  <text x="660" y="555" text-anchor="middle" font-size="10" fill="var(--svg-text)">✓ Logging &amp; Analytics</text>
+</svg>

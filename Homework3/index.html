@@ -1,245 +1,485 @@
 <!DOCTYPE html>
 <html lang="bg">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация на потребител</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FMIHub - Защото рилс-ите по ООП са по-забавни от лекциите 🎬</title>
+    
+    <!-- 
+      ПРОЧЕТИ README.md за info за проекта!
+      Отвори test.html за да видиш 84 unit tests и да се убедиш че всичко работи
+      Или просто тествай на ръка като истински програмист :D
+    -->
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f2027 0%,
+          #203a43 50%,
+          #2c5364 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+      }
 
-        main {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-        }
+      .header-container {
+        text-align: center;
+        margin-bottom: 40px;
+        animation: fadeInDown 0.8s ease;
+      }
 
-        h1 {
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 28px;
-        }
+      .main-title {
+        font-size: 56px;
+        font-weight: 900;
+        background: linear-gradient(135deg, #fff 0%, #e0e0e0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        margin-bottom: 15px;
+        letter-spacing: -1px;
+      }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+      .subtitle {
+        font-size: 20px;
+        color: #e0e0e0;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
 
-        fieldset {
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-        }
+      .subtitle .emoji {
+        font-size: 24px;
+      }
 
-        legend {
-            color: #667eea;
-            font-weight: bold;
-            padding: 0 10px;
-            font-size: 16px;
-        }
+      .tagline {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+        margin-top: 8px;
+        font-style: italic;
+      }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 30px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        color: #fff;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-        label {
-            color: #555;
-            font-weight: 500;
-            font-size: 14px;
-        }
+      footer p {
+        margin: 8px 0;
+        font-size: 14px;
+      }
 
-        label .required {
-            color: #e74c3c;
-        }
+      footer .small {
+        font-size: 12px;
+        opacity: 0.8;
+        font-style: italic;
+      }
 
-        input {
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
+      footer a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        transition: border-color 0.3s ease;
+      }
 
-        input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+      footer a:hover {
+        border-bottom-color: #fff;
+      }
 
-        input.invalid {
-            border-color: #e74c3c;
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-        .error {
-            color: #e74c3c;
-            font-size: 13px;
-            display: none;
-            margin-top: 4px;
-        }
+      main {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        padding: 50px 45px;
+        max-width: 700px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+      }
 
-        .error.show {
-            display: block;
-        }
+      h1 {
+        color: #0f2027;
+        margin-bottom: 35px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
 
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            margin-top: 10px;
-        }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
+      fieldset {
+        border: 2px solid #2c5364;
+        border-radius: 15px;
+        padding: 25px;
+        background: linear-gradient(
+          135deg,
+          rgba(44, 83, 100, 0.05) 0%,
+          rgba(15, 32, 39, 0.05) 100%
+        );
+      }
 
-        button:active {
-            transform: translateY(0);
-        }
+      legend {
+        color: #2c5364;
+        font-weight: bold;
+        padding: 0 15px;
+        font-size: 18px;
+      }
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
 
-        #success {
-            background: #d4edda;
-            border: 2px solid #28a745;
-            color: #155724;
-            padding: 15px;
-            border-radius: 6px;
-            display: none;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 500;
+      @media (max-width: 600px) {
+        .form-row {
+          grid-template-columns: 1fr;
         }
+      }
 
-        #success.show {
-            display: block;
-        }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
 
-        .loading {
-            display: none;
-            text-align: center;
-            color: #667eea;
-            margin-top: 10px;
-            font-weight: 500;
-        }
+      label {
+        color: #555;
+        font-weight: 500;
+        font-size: 14px;
+      }
 
-        .loading.show {
-            display: block;
+      label .required {
+        color: #e74c3c;
+      }
+
+      input {
+        padding: 14px 16px;
+        border: 2px solid #d0d7de;
+        border-radius: 10px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #2c5364;
+        box-shadow: 0 0 0 4px rgba(44, 83, 100, 0.15);
+        transform: translateY(-1px);
+      }
+
+      input.invalid {
+        border-color: #dc3545;
+        background: #fff5f5;
+      }
+
+      .error {
+        color: #dc3545;
+        font-size: 13px;
+        display: none;
+        margin-top: 6px;
+        font-weight: 500;
+      }
+
+      .error.show {
+        display: block;
+        animation: slideIn 0.3s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      button {
+        background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+        color: white;
+        border: none;
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-size: 17px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 15px;
+        letter-spacing: 0.5px;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(44, 83, 100, 0.5);
+        background: linear-gradient(135deg, #2c5364 0%, #0f2027 100%);
+      }
+
+      button:active {
+        transform: translateY(-1px);
+      }
+
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      #success {
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        border: 2px solid #28a745;
+        border-left: 6px solid #28a745;
+        color: #155724;
+        padding: 18px 20px;
+        border-radius: 12px;
+        display: none;
+        margin-bottom: 25px;
+        text-align: center;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+      }
+
+      #success.show {
+        display: block;
+        animation: slideIn 0.4s ease;
+      }
+
+      .loading {
+        display: none;
+        text-align: center;
+        color: #2c5364;
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      .loading.show {
+        display: block;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
+    <div class="header-container">
+      <h1 class="main-title">FMIHub</h1>
+      <p class="subtitle">
+        Споделяй reel-четата си докато учиш <span class="emoji">📊🎬</span>
+      </p>
+      <p class="tagline">fmi: една идея по-малко suicidal</p>
+    </div>
+
     <main>
-        <h1>Регистрация на потребител</h1>
+      <h1>Регистрация за безсънни нощи</h1>
 
-        <div id="success"></div>
+      <div id="success"></div>
 
-        <form id="registration-form" novalidate>
-            <section>
-                <div class="form-group">
-                    <label for="username">
-                        Потребителско име <span class="required">*</span>
-                    </label>
-                    <input type="text" id="username" name="username"
-                        placeholder="Въведете потребителско име (3-10 символа)" required>
-                    <span class="error" id="username-error"></span>
-                </div>
+      <form id="registration-form" novalidate>
+        <section>
+          <div class="form-group">
+            <label for="username">
+              Потребителско име <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Въведете потребителско име (3-10 символа)"
+              required
+            />
+            <span class="error" id="username-error"></span>
+          </div>
 
-                <div class="form-group">
-                    <label for="name">
-                        Име <span class="required">*</span>
-                    </label>
-                    <input type="text" id="name" name="name" placeholder="Въведете име (макс. 50 символа)" required>
-                    <span class="error" id="name-error"></span>
-                </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name"> Име <span class="required">*</span> </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Въведете име (макс. 50 символа)"
+                required
+              />
+              <span class="error" id="name-error"></span>
+            </div>
 
-                <div class="form-group">
-                    <label for="family-name">
-                        Фамилия <span class="required">*</span>
-                    </label>
-                    <input type="text" id="family-name" name="family-name"
-                        placeholder="Въведете фамилия (макс. 50 символа)" required>
-                    <span class="error" id="family-name-error"></span>
-                </div>
+            <div class="form-group">
+              <label for="family-name">
+                Фамилия <span class="required">*</span>
+              </label>
+              <input
+                type="text"
+                id="family-name"
+                name="family-name"
+                placeholder="Въведете фамилия (макс. 50 символа)"
+                required
+              />
+              <span class="error" id="family-name-error"></span>
+            </div>
+          </div>
 
-                <div class="form-group">
-                    <label for="email">
-                        Имейл <span class="required">*</span>
-                    </label>
-                    <input type="email" id="email" name="email" placeholder="email@example.com" required>
-                    <span class="error" id="email-error"></span>
-                </div>
+          <div class="form-group">
+            <label for="email"> Имейл <span class="required">*</span> </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="email@example.com"
+              required
+            />
+            <span class="error" id="email-error"></span>
+          </div>
 
-                <div class="form-group">
-                    <label for="password">
-                        Парола <span class="required">*</span>
-                    </label>
-                    <input type="password" id="password" name="password"
-                        placeholder="6-10 символа (главни, малки букви и цифри)" required>
-                    <span class="error" id="password-error"></span>
-                </div>
-            </section>
+          <div class="form-group">
+            <label for="password">
+              Парола <span class="required">*</span>
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="6-10 символа (главни, малки букви и цифри)"
+              required
+            />
+            <span class="error" id="password-error"></span>
+          </div>
+        </section>
 
-            <fieldset>
-                <legend>Адрес (опционално)</legend>
+        <fieldset>
+          <legend>Адрес (опционално)</legend>
 
-                <div class="form-group">
-                    <label for="street">Улица</label>
-                    <input type="text" id="street" name="street" placeholder="Въведете улица">
-                    <span class="error" id="street-error"></span>
-                </div>
+          <div class="form-group">
+            <label for="street">Улица</label>
+            <input
+              type="text"
+              id="street"
+              name="street"
+              placeholder="Въведете улица"
+            />
+            <span class="error" id="street-error"></span>
+          </div>
 
-                <div class="form-group">
-                    <label for="city">Град</label>
-                    <input type="text" id="city" name="city" placeholder="Въведете град">
-                    <span class="error" id="city-error"></span>
-                </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">Град</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Въведете град"
+              />
+              <span class="error" id="city-error"></span>
+            </div>
 
-                <div class="form-group">
-                    <label for="postal-code">Пощенски код</label>
-                    <input type="text" id="postal-code" name="postal-code" placeholder="1111 или 11111-1111">
-                    <span class="error" id="postal-code-error"></span>
-                </div>
-            </fieldset>
+            <div class="form-group">
+              <label for="postal-code">Пощенски код</label>
+              <input
+                type="text"
+                id="postal-code"
+                name="postal-code"
+                placeholder="1111 или 11111-1111"
+              />
+              <span class="error" id="postal-code-error"></span>
+            </div>
+          </div>
+        </fieldset>
 
-            <button type="submit" id="register-btn">Регистрация</button>
-            <div class="loading" id="loading">Зареждане...</div>
-        </form>
+        <button type="submit" id="register-btn">Регистрация</button>
+        <div class="loading" id="loading">Зареждане...</div>
+      </form>
     </main>
 
-    <script src="script.js"></script>
-</body>
+    <footer>
+      <p><strong>FMIHub™</strong> - Платформата за споделяне на reels от ФМИ</p>
+      <p>
+        🎓
+        <a href="https://www.fmi.uni-sofia.bg/en" target="_blank" rel="noopener"
+          >Faculty of Mathematics and Informatics</a
+        >
+        - София, България
+      </p>
+      <p class="small">
+        ⚠️ Внимание: Регистрацията НЕ гарантира оценка 6 на изпита (Дори и
+        оценка 3 не е гарантирана)
+      </p>
+      <p class="small">
+        💡 Fun fact: 67% от регистрираните потребители все още не са завършили
+      </p>
+      <p class="small">
+        🎬 Най-гледаният рилс: "Как да debugne-ш segmentation fault в 3 часа
+        през нощта"
+      </p>
+      <p class="small">
+        ☕ Топ 3 напитка сред потребителите: 1. Кафе 2. Бял Monster 3. Redbull
+        когато е на аванта
+      </p>
+      <p class="small">
+        🐛 Девиз на платформата: "99 little bugs in the code, take one down,
+        patch it around... 127 little bugs in the code"
+      </p>
+      <p class="small">
+        📚 Най-популярната тема: "Защо изпитът не е като домашното?"
+      </p>
+      <p class="small">
+        ⏰ Средно време за регистрация: 5 минути (или 3 часа ако забравиш
+        парола)
+      </p>
+      <p class="small">🎯 Chance of success: While (true) { tryAgain(); }</p>
+      <p class="small" style="margin-top: 15px; opacity: 0.6">
+        © 2025 FMIHub | Всички безсънни нощи запазени
+      </p>
+    </footer>
 
+    <script src="script.js"></script>
+  </body>
 </html>

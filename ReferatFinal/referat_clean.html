@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Задълбочен реферат за Prompt Engineering и Web разработка с ChatGPT - изследване на бъдещето на AI-базирана разработка">
+    <meta name="keywords" content="ChatGPT, Prompt Engineering, Web Development, AI, LLM, OpenAI, GPT-4, Machine Learning">
+    <meta name="author" content="Михаил Доброславски, 8MI0800216">
+    <meta name="theme-color" content="#2c3e50">
+    <meta property="og:title" content="Prompt Engineering и Web разработка с ChatGPT">
+    <meta property="og:description" content="Задълбочен анализ на интеграцията на ChatGPT в съвременната уеб разработка">
+    <meta property="og:type" content="article">
+    <title data-i18n="hero_h1_1"></title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/site.css">
+    
+    <!-- JavaScript Files -->
+    <script src="javascript/i18n.js" defer></script>
+    <script src="javascript/main.js" defer></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background">
+            <!-- Animated ChatGPT Logo SVG -->
+            <svg class="floating-icon icon-1" width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="3" opacity="0.6"/>
+                <path d="M30 50 L45 35 L60 50 L45 65 Z" fill="#3498db" opacity="0.8"/>
+                <circle cx="50" cy="50" r="8" fill="#fff"/>
+            </svg>
+            
+            <svg class="floating-icon icon-2" width="60" height="60" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="20" y="20" width="60" height="60" rx="10" fill="none" stroke="#e74c3c" stroke-width="3" opacity="0.6"/>
+                <circle cx="50" cy="50" r="15" fill="#e74c3c" opacity="0.7"/>
+            </svg>
+            
+            <svg class="floating-icon icon-3" width="70" height="70" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="50,15 90,85 10,85" fill="none" stroke="#27ae60" stroke-width="3" opacity="0.6"/>
+                <circle cx="50" cy="60" r="10" fill="#27ae60" opacity="0.7"/>
+            </svg>
+            
+            <svg class="floating-icon icon-4" width="50" height="50" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 20 L60 40 L80 45 L65 60 L70 80 L50 70 L30 80 L35 60 L20 45 L40 40 Z" fill="none" stroke="#f39c12" stroke-width="3" opacity="0.6"/>
+            </svg>
+            
+            <svg class="floating-icon icon-5" width="65" height="65" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="30" fill="none" stroke="#9b59b6" stroke-width="3" opacity="0.5"/>
+                <circle cx="50" cy="50" r="20" fill="none" stroke="#9b59b6" stroke-width="2" opacity="0.7"/>
+                <circle cx="50" cy="50" r="10" fill="#9b59b6" opacity="0.6"/>
+            </svg>
+            
+            <!-- Gradient Orbs -->
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Prompt Engineering и Web разработка с ChatGPT</h1>
+            <p class="hero-subtitle">
+                <span data-i18n="hero_span_2" data-i18n="heroSubtitle"></span>
+            </p>
+            <div class="hero-meta">
+                <span data-i18n="hero_span_3" data-i18n="heroMeta"></span>
+            </div>
+            <button class="scroll-hint" onclick="document.querySelector('#main-nav').scrollIntoView({behavior: 'smooth'})">
+                <span>↓</span>
+                <span data-i18n="hero_span_4" class="scroll-text" data-i18n="scrollDown"></span>
+            </button>
+        </div>
+    </section>
+    
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar" class="progress-bar"></div>
+    
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="container">
+            <button id="nav-menu-toggle" class="nav-menu-toggle" aria-label="Отваряне меню" aria-expanded="false" aria-controls="main-nav-sections">⋯</button>
+            <div id="main-nav-sections" class="nav-links">
+                <a data-i18n="hero_a_5" href="#introduction" data-i18n="navIntro"></a>
+                <a data-i18n="future_h4_9" href="#prompt-eng" data-i18n="navPrompt"></a>
+                <a data-i18n="hero_a_7" href="#web-dev" data-i18n="navWebDev"></a>
+                <a data-i18n="appendices_h2_1" href="#applications" data-i18n="navApplications"></a>
+                <a data-i18n="hero_a_9" href="#risks" data-i18n="navRisks"></a>
+                <a data-i18n="hero_a_10" href="#future" data-i18n="navFuture"></a>
+                <a data-i18n="hero_a_11" href="#citations" data-i18n="navCitations"></a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="control-btn" aria-label="Превключване на тема" title="Тъмна/Светла">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="sun" d="M10 3V1M10 19V17M17 10H19M1 10H3M15.657 4.343L17.071 2.929M2.929 17.071L4.343 15.657M15.657 15.657L17.071 17.071M2.929 2.929L4.343 4.343" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle class="sun" cx="10" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path class="moon" d="M10 2C9 2 8 2.5 7 3.5C6 4.5 5.5 6 5.5 7.5C5.5 11.5 8.5 14.5 12.5 14.5C14 14.5 15.5 14 16.5 13C17.5 12 18 11 18 10C16 11 13.5 10.5 11.5 8.5C9.5 6.5 9 4 10 2Z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="bg" aria-label="Български" title="Български">BG</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
+                </div>
+                <button id="print-btn" class="control-btn" aria-label="Печат" title="Печат">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 7V2H15V7M5 14H3C2.46957 14 1.96086 13.7893 1.58579 13.4142C1.21071 13.0391 1 12.5304 1 12V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H17C17.5304 6 18.0391 6.21071 18.4142 6.58579C18.7893 6.96086 19 7.46957 19 8V12C19 12.5304 18.7893 13.0391 18.4142 13.4142C18.0391 13.7893 17.5304 14 17 14H15M5 11H15V18H5V11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Abstract -->
+        <section id="abstract">
+            <h2 data-i18n="abstract_h2_1"></h2>
+            <p>
+                Настоящият реферат представя задълбочен анализ на взаимодействието между техниките за Prompt Engineering 
+                и съвременната уеб разработка с използване на ChatGPT. Разглеждат се основните принципи на създаване на 
+                ефективни промпти, интеграцията на ChatGPT API в уеб приложения, практически примери за автоматизация 
+                на разработката, както и рисковете при използването на AI-генериран код. Специално внимание се отделя на 
+                архитектурните решения, сигурността, оптимизацията при работа с езикови модели, етичната отговорност и 
+                въпроси за бъдещето на професията. Докладът включва реални случаи на употреба, сравнителни таблици, 
+                програмни примери и визуализации на ключови концепции. Целта е да се предостави цялостна представа за 
+                потенциала и предизвикателствата при интегрирането на ChatGPT в production уеб среди 
+                <a href="#ref-1">[1]</a><a href="#ref-2">[2]</a><a href="#ref-3">[3]</a>.
+            </p>
+        </section>
+
+        <!-- Introduction -->
+        <section id="introduction">
+            <h2 data-i18n="introduction_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="introduction_h3_2"></h3>
+                <p>
+                    През последните години изкуственият интелект се превърна от теоретична концепция в практически инструмент, 
+                    който революционизира множество индустрии. С появата на големи езикови модели (Large Language Models - LLM) 
+                    като GPT-3 и GPT-4, разработчиците получиха достъп до безпрецедентни възможности за автоматизация, 
+                    генериране на съдържание и интелигентна асистенция <a href="#ref-4">[4]</a>. Според изследване на McKinsey 
+                    от 2023 г., generative AI има потенциал да добави между $2.6 и $4.4 трилиона годишно към световната икономика, 
+                    като значителна част от този принос идва от софтуерната разработка <a data-i18n="applications_a_18" href="#ref-45"></a>.
+                </p>
+                
+                <p>
+                    Уеб разработката, като една от най-динамичните области в технологичния сектор, е сред първите, които 
+                    възприеха тези нови инструменти. ChatGPT, представен публично през ноември 2022 г., достигна 100 милиона 
+                    потребители само за два месеца - най-бързо растящото потребителско приложение в историята <a href="#ref-5">[5]</a>. 
+                    За web разработчиците, това означава нови начини за писане на код, debugging, генериране на документация, 
+                    създаване на интелигентни чат ботове и персонализиране на потребителското изживяване.
+                </p>
+
+                <p data-i18n="introduction_p_10"></p>
+            </article>
+
+            <article>
+                <h3 data-i18n="introduction_h3_11"></h3>
+                <p>
+                    ChatGPT е голям езиков модел (Large Language Model - LLM), разработен от OpenAI, базиран на архитектурата 
+                    GPT (Generative Pre-trained Transformer) <a href="#ref-6">[6]</a>. Моделът е обучен на огромни количества 
+                    текстови данни от интернет и може да генерира човешки текст, отговаря на въпроси, пише код, създава 
+                    творческо съдържание и асистира в множество задачи <a href="#ref-7">[7]</a>.
+                </p>
+                
+                <h4 data-i18n="introduction_h4_16"></h4>
+                <p>
+                    В основата на GPT е трансформерната архитектура, представена в революционната статия "Attention Is All You Need" 
+                    от екипа на Google през 2017 г. <a href="#ref-8">[8]</a>. Тази архитектура използва механизъм на "attention", 
+                    който позволява на модела да научи връзките между думите в контекста, независимо от тяхната позиция в текста. 
+                    За разлика от предишните рекурентни невронни мрежи (RNN) и LSTM архитектури, трансформерите могат да 
+                    обработват текст паралелно, което ги прави значително по-бързи и ефективни.
+                </p>
+
+                <h4 data-i18n="introduction_h4_20"></h4>
+                <p>
+                    Първата версия на GPT е пусната през юни 2018 година с 117 милиона параметъра. GPT-2, представен през 
+                    февруари 2019 г., вече съдържаше 1.5 милиарда параметъра и показа впечатляващи способности за генериране 
+                    на coherent текст. GPT-3, пуснат през юни 2020 г., направи скок до 175 милиарда параметъра и представлява 
+                    истинска революция в обработката на естествен език <a href="#ref-9">[9]</a>. 
+                </p>
+
+                <p>
+                    ChatGPT, базиран първоначално на GPT-3.5 и по-късно на GPT-4 (представен март 2023), добавя възможност 
+                    за диалогово взаимодействие и е оптимизиран чрез техниката Reinforcement Learning from Human Feedback (RLHF) 
+                    <a data-i18n="introduction_a_24" href="#ref-10"></a>. Това означава, че моделът е бил "fine-tuned" с помощта на човешки оценители, 
+                    които са ранкирали различни отговори, за да научат модела да генерира по-полезни, безопасни и релевантни изходи.
+                </p>
+
+                <p>
+                    GPT-4, най-новата версия в момента на писане на този реферат, представлява мултимодален модел, който може 
+                    да обработва както текст, така и изображения. Според официалния технически доклад на OpenAI, GPT-4 показва 
+                    значително подобрение в complex reasoning tasks, математически задачи и програмиране спрямо предишни версии 
+                    <a data-i18n="introduction_a_27" href="#ref-11"></a>. Моделът успява да премине bar exam в топ 10% от участниците, докато GPT-3.5 
+                    е бил в долните 10%.
+                </p>
+
+                <figure id="figure-1" class="interactive-figure">
+                    <div class="figure-content">
+                        <img src="img/gpt-evolution.svg" alt="GPT Evolution Diagram" class="diagram-img" loading="lazy">
+                    </div>
+                    <figcaption data-i18n="figure1Caption">
+                        <strong data-i18n="introduction_strong_29"></strong> Еволюция на GPT моделите от GPT-1 (2018) до GPT-4 (2023) - 
+                        експоненциален растеж в броя параметри и възможности <a data-i18n="introduction_a_31" href="#ref-12"></a>
+                    </figcaption>
+                </figure>
+
+                <h4 data-i18n="introduction_h4_32"></h4>
+                <p data-i18n="introduction_p_33"></p>
+
+                <p data-i18n="introduction_p_34"></p>
+            </article>
+
+            <article>
+                <h3 data-i18n="introduction_h3_35"></h3>
+                <p data-i18n="introduction_p_36"></p>
+
+                <h4 data-i18n="introduction_h4_37"></h4>
+                <p>
+                    Разработчиците могат да използват ChatGPT за генериране на boilerplate код, създаване на функции по описание, 
+                    автоматично писане на unit tests и даже цели компоненти. Според проучване на GitHub от 2023 г., разработчици, 
+                    използващи GitHub Copilot (базиран на GPT технология), са с 55% по-продуктивни при решаване на типични 
+                    програмистки задачи <a data-i18n="introduction_a_39" href="#ref-13"></a>.
+                </p>
+
+                <h4 data-i18n="introduction_h4_40"></h4>
+                <p data-i18n="introduction_p_41"></p>
+
+                <h4 data-i18n="introduction_h4_42"></h4>
+                <p data-i18n="introduction_p_43"></p>
+
+                <h4 data-i18n="introduction_h4_44"></h4>
+                <p data-i18n="introduction_p_45"></p>
+
+                <h4 data-i18n="introduction_h4_46"></h4>
+                <p>
+                    ChatGPT може да анализира код за потенциални бъгове, да предлага оптимизации, да генерира test cases и 
+                    да помага при debugging процеса чрез анализ на error logs и stack traces <a data-i18n="introduction_a_48" href="#ref-14"></a>.
+                </p>
+
+                <table id="table-1">
+                    <caption>
+                        <strong data-i18n="introduction_strong_49"></strong> Приложения на ChatGPT в различни аспекти на web разработката
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th data-i18n="introduction_th_51"></th>
+                            <th data-i18n="introduction_th_52"></th>
+                            <th data-i18n="introduction_th_53"></th>
+                            <th data-i18n="introduction_th_54"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="introduction_td_55"></td>
+                            <td data-i18n="introduction_td_56"></td>
+                            <td data-i18n="introduction_td_57"></td>
+                            <td data-i18n="introduction_td_78"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_59"></td>
+                            <td data-i18n="introduction_td_60"></td>
+                            <td data-i18n="introduction_td_61"></td>
+                            <td>Високо</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_63"></td>
+                            <td data-i18n="introduction_td_64"></td>
+                            <td data-i18n="introduction_td_65"></td>
+                            <td data-i18n="introduction_td_82"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_67"></td>
+                            <td data-i18n="introduction_td_68"></td>
+                            <td data-i18n="introduction_td_69"></td>
+                            <td>Средно</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_71"></td>
+                            <td data-i18n="introduction_td_72"></td>
+                            <td data-i18n="introduction_td_73"></td>
+                            <td>Високо</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_75"></td>
+                            <td data-i18n="introduction_td_76"></td>
+                            <td data-i18n="introduction_td_77"></td>
+                            <td>Високо</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_79"></td>
+                            <td data-i18n="introduction_td_80"></td>
+                            <td data-i18n="introduction_td_81"></td>
+                            <td>Средно</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="introduction_td_83"></td>
+                            <td data-i18n="introduction_td_84"></td>
+                            <td data-i18n="introduction_td_85"></td>
+                            <td data-i18n="introduction_td_86"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3 data-i18n="introduction_h3_87"></h3>
+                <p data-i18n="introduction_p_88"></p>
+                <ul>
+                    <li><strong data-i18n="conclusion_strong_5"></strong> на Prompt Engineering и как работят LLM моделите</li>
+                    <li><strong data-i18n="introduction_strong_91"></strong> за създаване на ефективни промпти</li>
+                    <li><strong data-i18n="introduction_strong_93"></strong> за интеграция на ChatGPT в production приложения</li>
+                    <li><strong data-i18n="introduction_strong_95"></strong> от практиката с конкретен код и use cases</li>
+                    <li><strong data-i18n="introduction_strong_97"></strong> при използването на AI-генериран код</li>
+                    <li><strong data-i18n="introduction_strong_99"></strong> и професионална отговорност</li>
+                    <li><strong data-i18n="conclusion_strong_13"></strong> и как се променя ролята на разработчиците</li>
+                </ul>
+
+                <p data-i18n="introduction_p_103"></p>
+            </article>
+        </section>
+
+        <!-- Prompt Engineering -->
+        <section id="prompt-eng">
+            <h2 data-i18n="prompt-eng_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="prompt-eng_h3_2"></h3>
+                <p>
+                    Prompt Engineering е дисциплината на проектиране, оптимизация и тестване на входните данни (промпти), 
+                    които се подават на езикови модели, за да се получат желаните резултати <a data-i18n="prompt-eng_a_4" href="#ref-15"></a>. 
+                    За разлика от традиционното програмиране, където инструкциите са точни и недвусмислени, prompt engineering 
+                    работи в realm-а на естествения език, който е inherently двусмислен и контекстно-зависим.
+                </p>
+
+                <p>
+                    Ефективността на промпта може драматично да повлияе на качеството на отговора. Според изследване на 
+                    Stanford University, добре конструирани промпти могат да подобрят точността на модела с до 30-40% при 
+                    сложни reasoning задачи <a data-i18n="prompt-eng_a_7" href="#ref-16"></a>. Това прави prompt engineering критично важно умение 
+                    за всеки, който работи с AI модели.
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_9"></h4>
+                <p data-i18n="prompt-eng_p_10"></p>
+                <ul>
+                    <li><strong data-i18n="prompt-eng_strong_11"></strong> Информация, необходима на модела за правилно разбиране на задачата</li>
+                    <li><strong data-i18n="prompt-eng_strong_13"></strong> Ясно и конкретно описание на желаната задача</li>
+                    <li><strong data-i18n="prompt-eng_strong_15"></strong> Специфична информация, върху която модел трябва да работи</li>
+                    <li><strong data-i18n="prompt-eng_strong_17"></strong> Описание на желания формат на отговора</li>
+                    <li><strong data-i18n="prompt-eng_strong_19"></strong> Few-shot examples за илюстриране на очакваното поведение</li>
+                    <li><strong data-i18n="prompt-eng_strong_21"></strong> Специфични изисквания или забрани</li>
+                </ul>
+
+                <h4 data-i18n="prompt-eng_h4_23"></h4>
+                <p data-i18n="prompt-eng_p_24"></p>
+                <ul>
+                    <li><strong data-i18n="prompt-eng_strong_25"></strong> За генериране на ново съдържание (код, текст, идеи)</li>
+                    <li><strong data-i18n="prompt-eng_strong_27"></strong> За анализ и обобщение на съществуваща информация</li>
+                    <li><strong data-i18n="prompt-eng_strong_29"></strong> За преобразуване на входни данни (translation, refactoring)</li>
+                    <li><strong data-i18n="prompt-eng_strong_31"></strong> За оценка и ревю на съдържание (code review, качество на текст)</li>
+                    <li><strong data-i18n="prompt-eng_strong_33"></strong> За multi-turn разговори и диалогово взаимодействие</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3 data-i18n="prompt-eng_h3_35"></h3>
+                
+                <h4 data-i18n="prompt-eng_h4_36"></h4>
+                <p>
+                    Zero-shot prompting е най-базовата техника, при която моделът получава задачата директно, без предварителни 
+                    примери <a data-i18n="prompt-eng_a_38" href="#ref-17"></a>. Това разчита на pre-training knowledge на модела. Подходът е подходящ 
+                    за прости, добре дефинирани задачи.
+                </p>
+
+                <pre class="code-block" id="code-1">
+<code data-i18n="prompt-eng_code_40" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="prompt-eng_strong_41"></strong> Zero-shot промпт за генериране на HTML форма с OpenAI API <a data-i18n="prompt-eng_a_43" href="#ref-18"></a>
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_44"></h4>
+                <p>
+                    Few-shot prompting включва предоставянето на няколко примера, които демонстрират желания формат или стил 
+                    на отговор <a data-i18n="prompt-eng_a_46" href="#ref-19"></a>. Тази техника значително подобрява качеството на генерираните 
+                    резултати, особено при специфични формати или domain-specific задачи. Изследвания показват, че few-shot 
+                    learning може да постигне performance близък до fine-tuned модели при определени задачи <a data-i18n="prompt-eng_a_48" href="#ref-20"></a>.
+                </p>
+
+                <pre class="code-block" id="code-2">
+<code data-i18n="prompt-eng_code_49" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="prompt-eng_strong_50"></strong> Few-shot промпт за генериране на CSS utility classes - примерите 
+                    "обучават" модела на желания формат и стил <a data-i18n="prompt-eng_a_52" href="#ref-21"></a>
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_53"></h4>
+                <p>
+                    Chain-of-Thought е advanced техника, при която се насърчава моделът да "мисли на глас" и да обяснява 
+                    своята логика стъпка по стъпка <a data-i18n="prompt-eng_a_55" href="#ref-22"></a>. Тази техника е особено ефективна при сложни 
+                    задачи по програмиране, математика и multi-step reasoning. Изследване от Google Research показа, че 
+                    CoT prompting може да подобри performance на модела с над 30% при complex reasoning tasks <a data-i18n="prompt-eng_a_57" href="#ref-23"></a>.
+                </p>
+
+                <p data-i18n="prompt-eng_p_58"></p>
+
+                <figure id="figure-2" class="interactive-figure">
+                    <div class="figure-content">
+                        <img src="img/chain-of-thought.svg" alt="Chain of Thought Diagram" class="diagram-img" loading="lazy">
+                    </div>
+                    <figcaption>
+                        <strong data-i18n="prompt-eng_strong_59"></strong> Визуализация на Chain-of-Thought промптинг - сравнение между стандартен 
+                        подход и CoT подход при решаване на математическа задача. CoT насърчава модела да показва 
+                        междинните стъпки в reasoning процеса <a data-i18n="prompt-eng_a_61" href="#ref-24"></a>
+                    </figcaption>
+                </figure>
+
+                <pre class="code-block" id="code-3">
+<code class="language-javascript">// Chain-of-Thought промпт за debugging
+const cotDebuggingPrompt = `
+Analyze this React component for bugs. Think step by step:
+
+\`\`\`javascript
+function UserProfile({ userId }) {
+    const [user, setUser] = useState(null);
+    
+    useEffect(() => {
+        fetch(\`/api/users/\${userId}\`)
+            .then(res => res.json())
+            .then(data => setUser(data));
+    }, []);
+    
+    return (
+        <div>
+            <h1 data-i18n="prompt-eng_h1_63"></h1>
+            <p data-i18n="prompt-eng_p_64"></p>
+        </div>
+    );
+}
+\`\`\`
+
+Let's analyze this step by step:
+1. First, identify what the component is trying to do
+2. Check the useEffect dependencies
+3. Analyze potential race conditions
+4. Look for null/undefined handling
+5. Verify error handling
+6. Suggest improvements
+
+Provide your analysis following these steps.
+`;
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="prompt-eng_strong_66"></strong> Chain-of-Thought промпт за debugging React компонент - 
+                    структурираният подход води до по-задълбочен анализ <a data-i18n="prompt-eng_a_68" href="#ref-25"></a>
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_69"></h4>
+                <p>
+                    Self-consistency е техника, при която се генерират multiple reasoning paths и се избира най-консистентния 
+                    отговор <a data-i18n="prompt-eng_a_71" href="#ref-26"></a>. Това е особено полезно при задачи, където точността е критична. 
+                    Методът работи като генерира няколко различни отговора (обикновено 5-10) на един и същ промпт с 
+                    леко различна температура, след което се избира отговора, който се появява най-често или има най-висока 
+                    консистентност.
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_73"></h4>
+                <p>
+                    Tree of Thoughts е най-новата advanced техника, която позволява на модела да explore множество reasoning 
+                    paths паралелно, подобно на chess engine <a data-i18n="prompt-eng_a_75" href="#ref-27"></a>. Това е особено ефективно при 
+                    creative problem solving и планиране. ToT framework позволява на LLM да:
+                </p>
+                <ul>
+                    <li data-i18n="prompt-eng_li_77"></li>
+                    <li data-i18n="prompt-eng_li_78"></li>
+                    <li data-i18n="prompt-eng_li_79"></li>
+                    <li data-i18n="prompt-eng_li_80"></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3 data-i18n="prompt-eng_h3_81"></h3>
+                <p>
+                    Базирайки се на research и best practices от OpenAI, Anthropic и академични институции, можем да 
+                    идентифицираме следните ключови принципи <a data-i18n="prompt-eng_a_83" href="#ref-28"></a><a data-i18n="prompt-eng_a_84" href="#ref-29"></a>:
+                </p>
+
+                <h4 data-i18n="prompt-eng_h4_85"></h4>
+                <p data-i18n="prompt-eng_p_86"></p>
+
+                <h4 data-i18n="prompt-eng_h4_87"></h4>
+                <p data-i18n="prompt-eng_p_88"></p>
+
+                <h4 data-i18n="prompt-eng_h4_89"></h4>
+                <p data-i18n="prompt-eng_p_90"></p>
+
+                <h4 data-i18n="prompt-eng_h4_91"></h4>
+                <p data-i18n="prompt-eng_p_92"></p>
+
+                <h4 data-i18n="prompt-eng_h4_93"></h4>
+                <p data-i18n="prompt-eng_p_94"></p>
+
+                <h4 data-i18n="prompt-eng_h4_95"></h4>
+                <p data-i18n="prompt-eng_p_96"></p>
+
+                <table id="table-2">
+                    <caption>
+                        <strong data-i18n="prompt-eng_strong_97"></strong> Сравнение на различни prompt engineering техники
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th data-i18n="prompt-eng_th_99"></th>
+                            <th data-i18n="prompt-eng_th_100"></th>
+                            <th data-i18n="prompt-eng_th_101"></th>
+                            <th data-i18n="prompt-eng_th_102"></th>
+                            <th data-i18n="prompt-eng_th_103"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="prompt-eng_td_104"></td>
+                            <td data-i18n="prompt-eng_td_105"></td>
+                            <td data-i18n="prompt-eng_td_106"></td>
+                            <td data-i18n="prompt-eng_td_107"></td>
+                            <td data-i18n="prompt-eng_td_108"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="prompt-eng_td_109"></td>
+                            <td data-i18n="prompt-eng_td_110"></td>
+                            <td data-i18n="prompt-eng_td_111"></td>
+                            <td data-i18n="prompt-eng_td_112"></td>
+                            <td data-i18n="prompt-eng_td_113"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="prompt-eng_td_114"></td>
+                            <td data-i18n="prompt-eng_td_115"></td>
+                            <td data-i18n="prompt-eng_td_116"></td>
+                            <td data-i18n="prompt-eng_td_117"></td>
+                            <td data-i18n="prompt-eng_td_118"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="prompt-eng_td_119"></td>
+                            <td data-i18n="prompt-eng_td_120"></td>
+                            <td data-i18n="prompt-eng_td_121"></td>
+                            <td data-i18n="prompt-eng_td_122"></td>
+                            <td data-i18n="prompt-eng_td_123"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="prompt-eng_td_124"></td>
+                            <td data-i18n="prompt-eng_td_125"></td>
+                            <td data-i18n="prompt-eng_td_126"></td>
+                            <td data-i18n="prompt-eng_td_127"></td>
+                            <td data-i18n="prompt-eng_td_128"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3 data-i18n="prompt-eng_h3_129"></h3>
+                <p data-i18n="prompt-eng_p_130"></p>
+
+                <h4 data-i18n="prompt-eng_h4_131"></h4>
+                <p data-i18n="prompt-eng_p_132"></p>
+
+                <h4 data-i18n="prompt-eng_h4_133"></h4>
+                <p data-i18n="prompt-eng_p_134"></p>
+
+                <h4 data-i18n="prompt-eng_h4_135"></h4>
+                <p data-i18n="prompt-eng_p_136"></p>
+
+                <h4 data-i18n="prompt-eng_h4_137"></h4>
+                <p data-i18n="prompt-eng_p_138"></p>
+
+                <pre class="code-block" id="code-4">
+<code data-i18n="prompt-eng_code_139" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="prompt-eng_strong_140"></strong> Примерни конфигурации на API параметри за различни use cases - 
+                    правилният избор на параметри е също толкова важен, колкото и самия промпт <a data-i18n="prompt-eng_a_142" href="#ref-30"></a>
+                </p>
+            </article>
+        </section>
+
+        <!-- Web Development Integration -->
+        <section id="web-dev">
+            <h2 data-i18n="web-dev_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="web-dev_h3_2"></h3>
+                <p>
+                    OpenAI предоставя RESTful API, което позволява интеграция на ChatGPT в всяко уеб приложение 
+                    <a data-i18n="web-dev_a_4" href="#ref-31"></a>. API-то е проектирано да бъде developer-friendly с ясна документация, 
+                    официални библиотеки за популярни езици (JavaScript/TypeScript, Python, Go, и др.) и straightforward 
+                    authentication mechanism чрез API ключове.
+                </p>
+
+                <h4 data-i18n="web-dev_h4_6"></h4>
+                <p>
+                    Chat Completions API използва endpoint <code data-i18n="web-dev_code_8"></code> и 
+                    приема JSON payload със следната структура:
+                </p>
+
+                <pre class="code-block" id="code-5">
+<code data-i18n="web-dev_code_10" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_11"></strong> Базова настройка на OpenAI API клиент в Node.js със proper error handling 
+                    <a data-i18n="web-dev_a_13" href="#ref-32"></a>
+                </p>
+
+                <h4 data-i18n="web-dev_h4_14"></h4>
+                <p data-i18n="web-dev_p_15"></p>
+
+                <pre class="code-block" id="code-6">
+<code data-i18n="web-dev_code_16" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_17"></strong> Клас за управление на conversation context с automatic history trimming 
+                    <a data-i18n="web-dev_a_19" href="#ref-33"></a>
+                </p>
+            </article>
+
+            <article>
+                <h3 data-i18n="web-dev_h3_20"></h3>
+                <p>
+                    При интегрирането на ChatGPT в production среда, изборът на архитектура е критично важен за сигурността, 
+                    производителността и scalability <a data-i18n="web-dev_a_22" href="#ref-34"></a>.
+                </p>
+
+                <h4 data-i18n="web-dev_h4_23"></h4>
+                <p>
+                    Този подход включва direct API calls от browser към OpenAI. <strong data-i18n="web-dev_strong_25"></strong> защото 
+                    излага API ключа в client-side код. Подходящ е само за quick prototyping или локални демота.
+                </p>
+
+                <h4 data-i18n="web-dev_h4_27"></h4>
+                <p data-i18n="web-dev_p_28"></p>
+                <ul>
+                    <li data-i18n="web-dev_li_29"></li>
+                    <li data-i18n="web-dev_li_30"></li>
+                    <li data-i18n="web-dev_li_31"></li>
+                    <li data-i18n="web-dev_li_32"></li>
+                </ul>
+
+                <figure id="figure-3" class="interactive-figure">
+                    <div class="figure-content">
+                        <img src="img/backend-architecture.svg" alt="Backend Architecture Diagram" class="diagram-img" loading="lazy">
+                    </div>
+                    <figcaption>
+                        <strong data-i18n="web-dev_strong_33"></strong> Препоръчителна архитектура с backend proxy pattern - 
+                        сигурността и контролът са централизирани в backend слоя <a data-i18n="web-dev_a_35" href="#ref-35"></a>
+                    </figcaption>
+                </figure>
+
+                <h4 data-i18n="web-dev_h4_36"></h4>
+                <pre class="code-block" id="code-7">
+<code class="language-javascript">// server.js - Express backend с OpenAI integration
+const express = require('express');
+const OpenAI = require('openai');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const cors = require('cors');
+
+const app = express();
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// Security middleware
+app.use(helmet());
+app.use(cors({
+    origin: process.env.ALLOWED_ORIGINS?.split(',') || 'http://localhost:3000',
+    credentials: true
+}));
+app.use(express.json({ limit: '10kb' })); // Ограничение на payload size
+
+// Rate limiting - максимум 100 заявки на 15 минути per IP
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    message: 'Too many requests from this IP, please try again later.',
+    standardHeaders: true,
+    legacyHeaders: false,
+});
+app.use('/api/', limiter);
+
+// Input validation middleware
+const validateChatInput = (req, res, next) => {
+    const { message } = req.body;
+    
+    if (!message || typeof message !== 'string') {
+        return res.status(400).json({ error: 'Invalid message format' });
+    }
+    
+    if (message.length > 4000) {
+        return res.status(400).json({ error: 'Message too long (max 4000 characters)' });
+    }
+    
+    // Санитизация на входа (премахване на потенциално опасни pattern-и)
+    req.body.message = message
+        .replace(/&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi, '')
+        .trim();
+    
+    next();
+};
+
+// Chat endpoint
+app.post('/api/chat', validateChatInput, async (req, res) => {
+    try {
+        const { message, conversationId } = req.body;
+        
+        // Опционално: извличане на conversation history от database
+        // const history = await getConversationHistory(conversationId);
+        
+        const completion = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo", // По-евтин за production
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a helpful assistant for a web application."
+                },
+                // ...history, // Добавяне на предишни съобщения ако има
+                {
+                    role: "user",
+                    content: message
+                }
+            ],
+            max_tokens: 500,
+            temperature: 0.7,
+            user: req.ip // За OpenAI monitoring/abuse detection
+        });
+        
+        const response = completion.choices[0].message.content;
+        
+        // Опционално: запазване в database за conversation history
+        // await saveMessage(conversationId, 'user', message);
+        // await saveMessage(conversationId, 'assistant', response);
+        
+        // Logging за мониторинг
+        console.log(`[CHAT] IP: ${req.ip}, Tokens: ${completion.usage.total_tokens}`);
+        
+        res.json({ 
+            response,
+            usage: completion.usage // Върни token usage за frontend monitoring
+        });
+        
+    } catch (error) {
+        console.error('[ERROR] OpenAI API Error:', error);
+        
+        // Не излагайте пълния error към client-a
+        if (error.status === 429) {
+            res.status(429).json({ error: 'Service temporarily unavailable' });
+        } else if (error.status === 500) {
+            res.status(500).json({ error: 'Internal server error' });
+        } else {
+            res.status(503).json({ error: 'AI service unavailable' });
+        }
+    }
+});
+
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_38"></strong> Production-ready Express backend с security best practices, 
+                    rate limiting и proper error handling <a data-i18n="web-dev_a_40" href="#ref-36"></a>
+                </p>
+
+                <h4 data-i18n="web-dev_h4_41"></h4>
+                <pre class="code-block" id="code-8">
+<code class="language-html">&amp;lt;!-- Frontend чат интерфейс с защита срещу XSS --&amp;gt;
+&amp;lt;div class="chat-container"&amp;gt;
+    &amp;lt;div id="chat-messages" class="messages" role="log" aria-live="polite"&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;form id="chat-form" class="chat-form"&amp;gt;
+        &amp;lt;input 
+            type="text" 
+            id="user-input" 
+            placeholder="Напишете съобщение..."
+            aria-label="Chat message"
+            maxlength="4000"
+            required
+        &amp;gt;
+        &amp;lt;button type="submit" aria-label="Send message"&amp;gt;Изпрати&amp;lt;/button&amp;gt;
+    &amp;lt;/form&amp;gt;
+    &amp;lt;div id="error-message" class="error" role="alert" aria-live="assertive"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+// Chat UI Manager
+class ChatUI {
+    constructor() {
+        this.form = document.getElementById('chat-form');
+        this.input = document.getElementById('user-input');
+        this.messages = document.getElementById('chat-messages');
+        this.errorDiv = document.getElementById('error-message');
+        this.conversationId = this.generateId();
+        
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    }
+    
+    generateId() {
+        return `conv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    }
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    addMessage(role, content) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${role}`;
+        messageDiv.innerHTML = this.escapeHtml(content);
+        this.messages.appendChild(messageDiv);
+        
+        // Auto-scroll до дъното
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+    
+    showError(message) {
+        this.errorDiv.textContent = message;
+        this.errorDiv.style.display = 'block';
+        setTimeout(() => {
+            this.errorDiv.style.display = 'none';
+        }, 5000);
+    }
+    
+    setLoading(isLoading) {
+        this.input.disabled = isLoading;
+        this.form.querySelector('button').disabled = isLoading;
+        
+        if (isLoading) {
+            this.addMessage('system', 'Typing...');
+        } else {
+            // Премахване на "Typing..." съобщението
+            const typingMsg = this.messages.querySelector('.message.system:last-child');
+            if (typingMsg && typingMsg.textContent === 'Typing...') {
+                typingMsg.remove();
+            }
+        }
+    }
+    
+    async handleSubmit(e) {
+        e.preventDefault();
+        
+        const userMessage = this.input.value.trim();
+        if (!userMessage) return;
+        
+        // Добавяне на user message
+        this.addMessage('user', userMessage);
+        this.input.value = '';
+        this.setLoading(true);
+        
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    message: userMessage,
+                    conversationId: this.conversationId
+                })
+            });
+            
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.error || 'Request failed');
+            }
+            
+            const data = await response.json();
+            
+            // Добавяне на AI отговор
+            this.addMessage('assistant', data.response);
+            
+            // Опционално: показване на token usage
+            if (data.usage) {
+                console.log('Tokens used:', data.usage.total_tokens);
+            }
+            
+        } catch (error) {
+            console.error('Chat error:', error);
+            this.showError(error.message || 'Failed to get response. Please try again.');
+        } finally {
+            this.setLoading(false);
+            this.input.focus();
+        }
+    }
+}
+
+// Initialize
+const chat = new ChatUI();
+&amp;lt;/script&amp;gt;
+
+&amp;lt;style&amp;gt;
+.chat-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.messages {
+    height: 500px;
+    overflow-y: auto;
+    padding: 1rem;
+    background: #f9f9f9;
+}
+
+.message {
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border-radius: 8px;
+    max-width: 80%;
+}
+
+.message.user {
+    background: #007bff;
+    color: white;
+    margin-left: auto;
+}
+
+.message.assistant {
+    background: white;
+    border: 1px solid #ddd;
+}
+
+.message.system {
+    background: #f0f0f0;
+    font-style: italic;
+    text-align: center;
+    max-width: 100%;
+}
+
+.chat-form {
+    display: flex;
+    padding: 1rem;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.chat-form input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.chat-form button {
+    padding: 0.75rem 1.5rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error {
+    display: none;
+    padding: 1rem;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    margin: 1rem;
+    border-radius: 4px;
+}
+&amp;lt;/style&amp;gt;
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_43"></strong> Production-ready frontend чат интерфейс с XSS защита, 
+                    accessibility features и proper error handling <a data-i18n="web-dev_a_45" href="#ref-37"></a>
+                </p>
+
+                <h4 data-i18n="web-dev_h4_46"></h4>
+                <p>
+                    За приложения с променлив трафик, serverless функции (AWS Lambda, Vercel Functions, Netlify Functions) 
+                    предлагат отличен баланс между scalability и cost-effectiveness <a data-i18n="web-dev_a_48" href="#ref-38"></a>. 
+                    Платите само за действително използваните compute resources.
+                </p>
+
+                <table id="table-3">
+                    <caption>
+                        <strong data-i18n="web-dev_strong_50"></strong> Сравнение на архитектурни подходи за ChatGPT интеграция
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th data-i18n="web-dev_th_52"></th>
+                            <th data-i18n="web-dev_th_53"></th>
+                            <th data-i18n="web-dev_th_54"></th>
+                            <th data-i18n="web-dev_th_55"></th>
+                            <th data-i18n="web-dev_th_56"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="web-dev_td_57"></td>
+                            <td>• Проста имплементация<br data-i18n="web-dev_br_59"></td>
+                            <td>• Излага API ключ<br>• Няма контрол<br data-i18n="web-dev_br_62"></td>
+                            <td data-i18n="web-dev_td_63"></td>
+                            <td data-i18n="web-dev_td_64"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="web-dev_td_65"></td>
+                            <td>• Пълен контрол<br>• Сигурност<br>• Rate limiting<br data-i18n="web-dev_br_69"></td>
+                            <td>• Трябва да се поддържа сървър<br data-i18n="web-dev_br_71"></td>
+                            <td data-i18n="web-dev_td_72"></td>
+                            <td data-i18n="web-dev_td_89"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="web-dev_td_74"></td>
+                            <td>• Auto-scaling<br>• Pay-per-use<br data-i18n="web-dev_br_77"></td>
+                            <td>• Cold starts<br>• Vendor lock-in<br data-i18n="web-dev_br_80"></td>
+                            <td data-i18n="web-dev_td_81"></td>
+                            <td data-i18n="web-dev_td_82"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="web-dev_td_83"></td>
+                            <td>• Много ниска латентност<br data-i18n="web-dev_br_85"></td>
+                            <td>• Ограничена функционалност<br data-i18n="web-dev_br_87"></td>
+                            <td data-i18n="web-dev_td_88"></td>
+                            <td>✅ Отличен</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3 data-i18n="web-dev_h3_90"></h3>
+                
+                <h4 data-i18n="web-dev_h4_91"></h4>
+                <p data-i18n="web-dev_p_92"></p>
+
+                <pre class="code-block" id="code-9">
+<code data-i18n="web-dev_code_93" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_94"></strong> Cache стратегия с Redis за намаляване на API calls и разходи 
+                    <a data-i18n="web-dev_a_96" href="#ref-39"></a>
+                </p>
+
+                <h4 data-i18n="web-dev_h4_97"></h4>
+                <p data-i18n="web-dev_p_98"></p>
+
+                <pre class="code-block" id="code-10">
+<code data-i18n="web-dev_code_99" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_100"></strong> Server-Sent Events implementation за streaming ChatGPT отговори 
+                    <a data-i18n="web-dev_a_102" href="#ref-40"></a>
+                </p>
+
+                <h4 data-i18n="web-dev_h4_103"></h4>
+                <p data-i18n="web-dev_p_104"></p>
+                <ul>
+                    <li data-i18n="web-dev_li_105"></li>
+                    <li data-i18n="web-dev_li_106"></li>
+                    <li data-i18n="web-dev_li_107"></li>
+                </ul>
+
+                <p>
+                    За оценка на token count, можете да използвате официалната <code data-i18n="web-dev_code_109"></code> библиотека:
+                </p>
+
+                <pre class="code-block" id="code-11">
+<code data-i18n="web-dev_code_111" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="web-dev_strong_112"></strong> Token counting за cost estimation и input validation <a data-i18n="web-dev_a_114" href="#ref-41"></a>
+                </p>
+            </article>
+        </section>
+
+        <!-- Applications and Use Cases -->
+        <section id="applications">
+            <h2 data-i18n="applications_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="applications_h3_2"></h3>
+                <p>
+                    Едно от най-впечатляващите приложения на ChatGPT е способността да генерира работещ код от естествени 
+                    описания. Проучванията показват, че с правилно конструирани промпти, точността може да достигне 85-90% 
+                    за типични web development задачи <a data-i18n="applications_a_4" href="#ref-42"></a>.
+                </p>
+
+                <h4 data-i18n="applications_h4_5"></h4>
+                <pre class="code-block" id="code-12">
+<code class="language-javascript">// Prompt за генериране на React component
+const componentPrompt = `
+Create a React functional component for a product card with these requirements:
+
+Requirements:
+- Component name: ProductCard
+- Props: { product: { id, title, price, imageUrl, rating, inStock } }
+- Display product image, title, price, and rating (as stars)
+- "Add to Cart" button (disabled if not in stock)
+- Price should be formatted as currency (2 decimal places)
+- Rating shown with star icons (★ filled, ☆ empty)
+- Hover effect that lifts the card slightly
+- Use CSS modules for styling
+- Include TypeScript types
+- Add proper accessibility attributes
+- Handle loading state for image
+
+Generate both the .tsx component file and .module.css file.
+`;
+
+// Генериран резултат от ChatGPT би могъл да бъде:
+/* 
+// ProductCard.tsx
+import React, { useState } from 'react';
+import styles from './ProductCard.module.css';
+
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  rating: number;
+  inStock: boolean;
+}
+
+interface ProductCardProps {
+  product: Product;
+  onAddToCart?: (productId: string) => void;
+}
+
+export const ProductCard: React.FC&lt;ProductCardProps&gt; = ({ 
+  product, 
+  onAddToCart 
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  const formatPrice = (price: number): string => {
+    return `$${price.toFixed(2)}`;
+  };
+  
+  const renderStars = (rating: number): JSX.Element[] => {
+    const stars = [];
+    for (let i = 1; i &lt;= 5; i++) {
+      stars.push(
+        &lt;span key={i} aria-hidden="true"&gt;
+          {i &lt;= Math.round(rating) ? '★' : '☆'}
+        &lt;/span&gt;
+      );
+    }
+    return stars;
+  };
+  
+  const handleAddToCart = () => {
+    if (product.inStock && onAddToCart) {
+      onAddToCart(product.id);
+    }
+  };
+  
+  return (
+    &lt;article className={styles.card} role="group" aria-label={product.title}&gt;
+      &lt;div className={styles.imageContainer}&gt;
+        {!imageLoaded && &lt;div className={styles.imagePlaceholder} /&gt;}
+        &lt;img
+          src={product.imageUrl}
+          alt={product.title}
+          className={styles.image}
+          onLoad={() => setImageLoaded(true)}
+          loading="lazy"
+        /&gt;
+      &lt;/div&gt;
+      
+      &lt;div className={styles.content}&gt;
+        &lt;h3 className={styles.title}&gt;{product.title}&lt;/h3&gt;
+        
+        &lt;div className={styles.rating} aria-label={`Rating: ${product.rating} out of 5 stars`}&gt;
+          {renderStars(product.rating)}
+          &lt;span className={styles.ratingValue}&gt;({product.rating})&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;p className={styles.price}&gt;{formatPrice(product.price)}&lt;/p&gt;
+        
+        &lt;button
+          className={styles.addButton}
+          onClick={handleAddToCart}
+          disabled={!product.inStock}
+          aria-label={product.inStock ? `Add ${product.title} to cart` : 'Out of stock'}
+        &gt;
+          {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  );
+};
+*/
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="applications_strong_7"></strong> Detailed промпт и примерен генериран React компонент с TypeScript, 
+                    accessibility и best practices <a data-i18n="applications_a_9" href="#ref-43"></a>
+                </p>
+
+                <h4 data-i18n="applications_h4_10"></h4>
+                <p data-i18n="applications_p_11"></p>
+
+                <pre class="code-block" id="code-13">
+<code data-i18n="applications_code_12" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="applications_strong_13"></strong> Промпт за генериране на secure registration endpoint със всички 
+                    необходими security measures <a data-i18n="applications_a_15" href="#ref-44"></a>
+                </p>
+            </article>
+
+            <article>
+                <h3 data-i18n="applications_h3_16"></h3>
+                <p>
+                    ChatGPT може да анализира съществуващ код, да идентифицира проблеми, anti-patterns и да предлага 
+                    подобрения. Това може значително да ускори code review процеса и да помогне на по-junior разработчици 
+                    да учат best practices <a href="#ref-45">[45]</a>.
+                </p>
+
+                <pre class="code-block" id="code-14">
+<code class="language-javascript">// Prompt за code review
+const reviewPrompt = `
+Review this code and provide detailed feedback on:
+1. Potential bugs or errors
+2. Performance issues
+3. Security vulnerabilities
+4. Code smells and anti-patterns
+5. Best practices violations
+6. Accessibility issues
+7. Suggested refactorings
+
+Code to review:
+\`\`\`javascript
+function fetchUsers() {
+    fetch('https://api.example.com/users')
+        .then(response => response.json())
+        .then(users => {
+            for (var i = 0; i < users.length; i++) {
+                document.getElementById('users').innerHTML += 
+                    '<div data-i18n="applications_div_21"></div>';
+            }
+        });
+}
+
+window.onload = function() {
+    fetchUsers();
+    setInterval(fetchUsers, 5000);
+}
+\`\`\`
+
+For each issue, explain:
+- What the problem is
+- Why it's a problem
+- How to fix it
+- Provide corrected code
+`;
+
+// ChatGPT би идентифицирал multiple issues:
+// 1. No error handling
+// 2. XSS vulnerability (innerHTML with unsanitized data)
+// 3. Memory leak (setInterval never cleared)
+// 4. 'var' instead of 'let/const'
+// 5. No loading/error states
+// 6. Inefficient DOM manipulation
+// 7. No accessibility attributes
+// ... и би предоставил corrected version
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="applications_strong_23"></strong> Code review промпт - моделът може да идентифицира множество проблеми 
+                    и да предложи конкретни решения <a data-i18n="applications_a_25" href="#ref-46"></a>
+                </p>
+            </article>
+
+            <article>
+                <h3 data-i18n="applications_h3_26"></h3>
+                <p>
+                    Една от най-времеемките задачи в разработката е писането на документация. ChatGPT може автоматично 
+                    да генерира comprehensive documentation от код <a data-i18n="applications_a_28" href="#ref-47"></a>.
+                </p>
+
+                <pre class="code-block" id="code-15">
+<code class="language-javascript">// Prompt за генериране на документация
+const docPrompt = `
+Generate comprehensive JSDoc documentation for this function:
+
+\`\`\`javascript
+function calculateShippingCost(items, destination, shippingSpeed) {
+    const baseRate = shippingSpeed === 'express' ? 15 : 5;
+    const weight = items.reduce((sum, item) => sum + item.weight, 0);
+    const distanceFactor = getDistanceFactor(destination);
+    return baseRate + (weight * 0.5) + (distanceFactor * 2);
+}
+\`\`\`
+
+Include:
+- Detailed description
+- @param tags with types and descriptions
+- @returns tag
+- @example with multiple use cases
+- @throws if applicable
+`;
+
+// Генериран JSDoc:
+/**
+ * Calculates the total shipping cost for an order based on items, destination,
+ * and shipping speed.
+ *
+ * The calculation considers three factors:
+ * 1. Base rate determined by shipping speed (express or standard)
+ * 2. Total weight of all items (charged at $0.50 per unit)
+ * 3. Distance factor based on destination (charged at $2.00 per unit)
+ *
+ * @param {Array&lt;Object&gt;} items - Array of items to ship
+ * @param {string} items[].weight - Weight of the item in pounds
+ * @param {string} items[].* - Other item properties (not used in calculation)
+ * @param {string} destination - Destination address or code
+ * @param {'express'|'standard'} shippingSpeed - Speed of shipping
+ *
+ * @returns {number} Total shipping cost in USD
+ *
+ * @example
+ * // Standard shipping for lightweight items
+ * const cost = calculateShippingCost(
+ *   [{ weight: 2 }, { weight: 1.5 }],
+ *   'CA',
+ *   'standard'
+ * );
+ * // Returns: 5 (base) + 1.75 (weight) + distance factor
+ *
+ * @example
+ * // Express shipping for heavier items
+ * const cost = calculateShippingCost(
+ *   [{ weight: 10 }, { weight: 5 }],
+ *   'NY',
+ *   'express'
+ * );
+ * // Returns: 15 (base) + 7.50 (weight) + distance factor
+ *
+ * @throws {Error} If items array is empty
+ * @throws {TypeError} If shippingSpeed is not 'express' or 'standard'
+ */
+</code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="applications_strong_30"></strong> Автоматично генерирана JSDoc документация с подробни описания, 
+                    примери и error cases <a data-i18n="applications_a_32" href="#ref-48"></a>
+                </p>
+            </article>
+
+            <article>
+                <h3 data-i18n="applications_h3_33"></h3>
+                <p>
+                    ChatGPT може да генерира unit tests, integration tests и даже edge cases, които разработчикът 
+                    може да не е помислил <a data-i18n="applications_a_35" href="#ref-49"></a>.
+                </p>
+
+                <pre class="code-block" id="code-16">
+<code data-i18n="applications_code_36" class="language-javascript"></code></pre>
+                <p class="code-caption">
+                    <strong data-i18n="applications_strong_37"></strong> Comprehensive test suite генериран от ChatGPT със всички edge cases 
+                    <a data-i18n="applications_a_39" href="#ref-50"></a>
+                </p>
+            </article>
+        </section>
+
+        &lt;!-- Risks and Challenges --&gt;
+        <section id="risks">
+            <h2 data-i18n="risks_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="risks_h3_2"></h3>
+                <p data-i18n="risks_p_3"></p>
+                
+                <h4 data-i18n="risks_h4_4"></h4>
+                <p>
+                    ChatGPT може да генерира код, който изглежда правилен на пръв поглед, но съдържа subtle bugs 
+                    или security vulnerabilities. Проучване на Stanford показва, че разработчици използващи AI 
+                    code assistants са склонни да напишат <strong data-i18n="risks_strong_6"></strong> когато не го преглеждат 
+                    критично.
+                </p>
+
+                <div class="warning-box">
+                    <h4 data-i18n="risks_h4_8"></h4>
+                    <p><strong data-i18n="risks_strong_9"></strong> SQL Injection vulnerability в генериран код</p>
+                    <pre class="code-block"><code>// ☠️ ОПАСЕН КОД - SQL Injection
+app.get('/user/:id', (req, res) =&gt; &lbrace;
+    const query = 'SELECT * FROM users WHERE id = ' + req.params.id;
+    db.query(query, (err, results) =&gt; &lbrace; res.json(results); &rbrace;);
+&rbrace;);
+
+// ✅ ПРАВИЛЕН КОД - Parameterized query
+app.get('/user/:id', (req, res) =&gt; &lbrace;
+    const query = 'SELECT * FROM users WHERE id = ?';
+    db.query(query, [req.params.id], (err, results) =&gt; &lbrace;
+        if (err) return res.status(500).json(&lbrace; error: 'Database error' &rbrace;);
+        res.json(results);
+    &rbrace;);
+&rbrace;);</code></pre>
+                </div>
+
+                <h4 data-i18n="risks_h4_12"></h4>
+                <ul>
+                    <li data-i18n="risks_li_13"></li>
+                    <li data-i18n="risks_li_14"></li>
+                    <li data-i18n="risks_li_15"></li>
+                    <li data-i18n="risks_li_16"></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3 data-i18n="risks_h3_17"></h3>
+                <p data-i18n="risks_p_18"></p>
+
+                <h4 data-i18n="risks_h4_19"></h4>
+                <ol>
+                    <li data-i18n="risks_li_20"></li>
+                    <li data-i18n="risks_li_21"></li>
+                    <li data-i18n="risks_li_22"></li>
+                    <li data-i18n="risks_li_23"></li>
+                </ol>
+            </article>
+
+            <article>
+                <h3 data-i18n="risks_h3_24"></h3>
+                
+                <h4 data-i18n="risks_h4_25"></h4>
+                <p data-i18n="risks_p_26"></p>
+
+                <h4 data-i18n="risks_h4_27"></h4>
+                <p>
+                    Най-честата security грешка е hardcoding на API keys в client-side код или public repositories. 
+                    <strong data-i18n="risks_strong_29"></strong> използвайте environment variables и backend proxy pattern.
+                </p>
+
+                <table id="table-4">
+                    <caption>
+                        <strong data-i18n="risks_strong_31"></strong> Сравнение на разходите за различни GPT модели (цени към декември 2025)
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th data-i18n="risks_th_33"></th>
+                            <th data-i18n="risks_th_34"></th>
+                            <th data-i18n="risks_th_35"></th>
+                            <th data-i18n="risks_th_36"></th>
+                            <th data-i18n="risks_th_37"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="risks_td_38"></td>
+                            <td data-i18n="risks_td_39"></td>
+                            <td data-i18n="risks_td_44"></td>
+                            <td data-i18n="risks_td_41"></td>
+                            <td data-i18n="risks_td_42"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="risks_td_43"></td>
+                            <td>$0.03</td>
+                            <td data-i18n="risks_td_45"></td>
+                            <td data-i18n="risks_td_46"></td>
+                            <td data-i18n="risks_td_47"></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="risks_td_48"></td>
+                            <td data-i18n="risks_td_49"></td>
+                            <td data-i18n="risks_td_50"></td>
+                            <td data-i18n="risks_td_51"></td>
+                            <td data-i18n="risks_td_52"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3 data-i18n="risks_h3_53"></h3>
+                
+                <h4 data-i18n="risks_h4_54"></h4>
+                <p data-i18n="risks_p_55"></p>
+
+                <h4 data-i18n="risks_h4_56"></h4>
+                <p data-i18n="risks_p_57"></p>
+
+                <h4 data-i18n="risks_h4_58"></h4>
+                <p data-i18n="risks_p_59"></p>
+            </article>
+        </section>
+
+        &lt;!-- Future of the Profession --&gt;
+        <section id="future">
+            <h2 data-i18n="future_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="future_h3_2"></h3>
+                <p data-i18n="future_p_3"></p>
+
+                <p>
+                    Това <strong data-i18n="future_strong_5"></strong> че web developers ще станат ненужни. Напротив, фокусът ще 
+                    се премести към higher-level задачи като architecture design, user experience, performance 
+                    optimization и business logic.
+                </p>
+            </article>
+
+            <article>
+                <h3 data-i18n="future_h3_7"></h3>
+                <p data-i18n="future_p_8"></p>
+
+                <h4>Prompt Engineering</h4>
+                <p data-i18n="future_p_10"></p>
+
+                <h4 data-i18n="future_h4_11"></h4>
+                <p data-i18n="future_p_12"></p>
+
+                <h4 data-i18n="future_h4_13"></h4>
+                <p data-i18n="future_p_14"></p>
+            </article>
+
+            <article>
+                <h3 data-i18n="future_h3_15"></h3>
+                <p data-i18n="future_p_16"></p>
+
+                <h4 data-i18n="future_h4_17"></h4>
+                <ul>
+                    <li data-i18n="future_li_18"></li>
+                    <li data-i18n="future_li_19"></li>
+                    <li data-i18n="future_li_20"></li>
+                </ul>
+
+                <h4 data-i18n="future_h4_21"></h4>
+                <ul>
+                    <li data-i18n="future_li_22"></li>
+                    <li data-i18n="future_li_23"></li>
+                    <li data-i18n="future_li_24"></li>
+                    <li data-i18n="future_li_25"></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3 data-i18n="future_h3_26"></h3>
+                <p data-i18n="future_p_27"></p>
+
+                <p data-i18n="future_p_28"></p>
+            </article>
+        </section>
+
+        &lt;!-- Conclusion --&gt;
+        <section id="conclusion">
+            <h2 data-i18n="conclusion_h2_1"></h2>
+            
+            <article>
+                <h3 data-i18n="conclusion_h3_2"></h3>
+                <p data-i18n="conclusion_p_3"></p>
+
+                <p data-i18n="conclusion_p_4"></p>
+                <ul>
+                    <li><strong>Теоретичните основи</strong> на Prompt Engineering - от Zero-shot до Chain-of-Thought 
+                        techniques, и важността на правилно конструираните промпти</li>
+                    <li><strong data-i18n="conclusion_strong_7"></strong> на ChatGPT API в web приложения чрез различни 
+                        architectural patterns - от backend proxy до serverless functions</li>
+                    <li><strong data-i18n="conclusion_strong_9"></strong> включително code generation, automated testing, 
+                        documentation и code review</li>
+                    <li><strong data-i18n="conclusion_strong_11"></strong> като vibe coding, hallucinations, security vulnerabilities 
+                        и етични concerns</li>
+                    <li><strong>Бъдещето на професията</strong> и новите компетенции които developers ще се нуждаят 
+                        в AI-enhanced development environment</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3 data-i18n="conclusion_h3_15"></h3>
+                <p>
+                    <em data-i18n="conclusion_em_16"></em>
+                </p>
+
+                <h4 data-i18n="conclusion_h4_17"></h4>
+                <p>
+                    Моята препоръка е да <strong data-i18n="conclusion_strong_19"></strong> с AI code assistants докато не усвоите основите. 
+                    Важно е първо да научите core web technologies (HTML, CSS, JavaScript) без AI помощ, fundamental 
+                    programming concepts и problem-solving, debugging skills и способността да четете error messages.
+                </p>
+
+                <p>
+                    <strong data-i18n="conclusion_strong_21"></strong> като имате solid foundation, AI tools могат да accelerate learning и да ви 
+                    помогнат да explore advanced topics по-бързо. Използвайте ги като <em data-i18n="conclusion_em_23"></em>, 
+                    не като <em data-i18n="conclusion_em_25"></em>.
+                </p>
+
+                <h4 data-i18n="conclusion_h4_26"></h4>
+                <p data-i18n="conclusion_p_27"></p>
+                <ol>
+                    <li><strong data-i18n="conclusion_strong_28"></strong> AI-генерирания код line by line</li>
+                    <li><strong data-i18n="conclusion_strong_30"></strong> преди deployment в production</li>
+                    <li><strong data-i18n="conclusion_strong_32"></strong> какво прави кода, не само copy-paste</li>
+                    <li><strong data-i18n="conclusion_strong_34"></strong> static analysis tools и linters за validation</li>
+                    <li><strong data-i18n="conclusion_strong_36"></strong> security awareness</li>
+                </ol>
+
+                <h4 data-i18n="conclusion_h4_38"></h4>
+                <p class="highlight-box">
+                    <strong data-i18n="conclusion_strong_39"></strong> 
+                    Successful integration изисква critical thinking, domain expertise и constant learning. 
+                    Бъдещето не е "AI вместо developers", а "developers enhanced by AI" работещи на higher level 
+                    на абстракция и creating more value.
+                </p>
+
+                <p data-i18n="conclusion_p_41"></p>
+            </article>
+        </section>
+
+        &lt;!-- References --&gt;
+        <section id="references" class="references-section">
+            <h2 data-i18n="references_h2_1"></h2>
+            <ol class="references-list">
+                <li id="ref-1">Vaswani, A., et al. (2017). "Attention Is All You Need." <cite data-i18n="references_cite_23"></cite>, 30. <a data-i18n="references_a_5" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-2">Radford, A., et al. (2018). "Improving Language Understanding by Generative Pre-Training." <cite data-i18n="references_cite_16"></cite>. <a data-i18n="references_a_8" href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-3">Radford, A., et al. (2019). "Language Models are Unsupervised Multitask Learners." <cite>OpenAI Technical Report</cite>.</li>
+                <li id="ref-4">Brown, T. B., et al. (2020). "Language Models are Few-Shot Learners." <cite>Advances in Neural Information Processing Systems</cite>, 33, 1877-1901. <a data-i18n="references_a_14" href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-5">OpenAI (2023). "GPT-4 Technical Report." <cite>OpenAI Technical Report</cite>. <a data-i18n="references_a_17" href="https://arxiv.org/abs/2303.08774" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-6">Wei, J., et al. (2022). "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models." <cite>Advances in Neural Information Processing Systems</cite>, 35. <a data-i18n="references_a_21" href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-7">Kojima, T., et al. (2022). "Large Language Models are Zero-Shot Reasoners." <cite>Advances in Neural Information Processing Systems</cite>, 35. <a data-i18n="references_a_25" href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-8">Reynolds, L., & McDonell, K. (2021). "Prompt Programming for Large Language Models: Beyond the Few-Shot Paradigm." <cite data-i18n="references_cite_27"></cite>. <a data-i18n="references_a_28" href="https://arxiv.org/abs/2102.07350" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-9">Liu, P., et al. (2023). "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing." <cite data-i18n="references_cite_160"></cite>, 55(9), 1-35. <a data-i18n="references_a_32" href="https://arxiv.org/abs/2107.13586" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-10">OpenAI (2023). "Best Practices for Prompt Engineering." <cite data-i18n="references_cite_34"></cite>. <a data-i18n="references_a_35" href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-11">White, J., et al. (2023). "A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT." <cite data-i18n="references_cite_176"></cite>. <a data-i18n="references_a_38" href="https://arxiv.org/abs/2302.11382" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-12">Zamfirescu-Pereira, J. D., et al. (2023). "Why Johnny Can't Prompt: How Non-AI Experts Try (and Fail) to Design LLM Prompts." <cite data-i18n="references_cite_40"></cite>. <a data-i18n="references_a_140" href="https://dl.acm.org/doi/10.1145/3544548.3581388" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-13">Zhou, Y., et al. (2022). "Large Language Models Are Human-Level Prompt Engineers." <cite data-i18n="references_cite_58"></cite>. <a data-i18n="references_a_44" href="https://arxiv.org/abs/2211.01910" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-14">Yao, S., et al. (2023). "Tree of Thoughts: Deliberate Problem Solving with Large Language Models." <cite>arXiv preprint</cite>. <a data-i18n="references_a_47" href="https://arxiv.org/abs/2305.10601" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-15">Wang, X., et al. (2023). "Self-Consistency Improves Chain of Thought Reasoning in Language Models." <cite>ICLR 2023</cite>. <a data-i18n="references_a_50" href="https://arxiv.org/abs/2203.11171" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-16">Chen, M., et al. (2021). "Evaluating Large Language Models Trained on Code." <cite>arXiv preprint</cite>. <a data-i18n="references_a_53" href="https://arxiv.org/abs/2107.03374" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-17">Fried, D., et al. (2023). "InCoder: A Generative Model for Code Infilling and Synthesis." <cite>ICLR 2023</cite>. <a data-i18n="references_a_56" href="https://arxiv.org/abs/2204.05999" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-18">Nijkamp, E., et al. (2023). "CodeGen: An Open Large Language Model for Code with Multi-Turn Program Synthesis." <cite>ICLR 2023</cite>. <a data-i18n="references_a_59" href="https://arxiv.org/abs/2203.13474" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-19">Li, R., et al. (2023). "StarCoder: May the Source Be With You!" <cite>arXiv preprint</cite>. <a data-i18n="references_a_62" href="https://arxiv.org/abs/2305.06161" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-20">Holtzman, A., et al. (2020). "The Curious Case of Neural Text Degeneration." <cite data-i18n="references_cite_64"></cite>. <a data-i18n="references_a_65" href="https://arxiv.org/abs/1904.09751" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-21">Keskar, N. S., et al. (2019). "CTRL: A Conditional Transformer Language Model for Controllable Generation." <cite>arXiv preprint</cite>. <a data-i18n="references_a_68" href="https://arxiv.org/abs/1909.05858" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-22">Ouyang, L., et al. (2022). "Training Language Models to Follow Instructions with Human Feedback." <cite data-i18n="references_cite_70"></cite>. <a data-i18n="references_a_71" href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-23">Christiano, P. F., et al. (2017). "Deep Reinforcement Learning from Human Preferences." <cite data-i18n="references_cite_73"></cite>. <a data-i18n="references_a_74" href="https://arxiv.org/abs/1706.03741" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-24">Stiennon, N., et al. (2020). "Learning to Summarize with Human Feedback." <cite data-i18n="references_cite_76"></cite>. <a data-i18n="references_a_77" href="https://arxiv.org/abs/2009.01325" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-25">Bai, Y., et al. (2022). "Constitutional AI: Harmlessness from AI Feedback." <cite>arXiv preprint</cite>. <a data-i18n="references_a_80" href="https://arxiv.org/abs/2212.08073" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-26">Zhou, C., et al. (2023). "LIMA: Less Is More for Alignment." <cite>arXiv preprint</cite>. <a data-i18n="references_a_83" href="https://arxiv.org/abs/2305.11206" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-27">Madaan, A., et al. (2023). "Self-Refine: Iterative Refinement with Self-Feedback." <cite>arXiv preprint</cite>. <a data-i18n="references_a_86" href="https://arxiv.org/abs/2303.17651" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-28">Nye, M., et al. (2021). "Show Your Work: Scratchpads for Intermediate Computation with Language Models." <cite>arXiv preprint</cite>. <a data-i18n="references_a_89" href="https://arxiv.org/abs/2112.00114" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-29">Press, O., et al. (2022). "Measuring and Narrowing the Compositionality Gap in Language Models." <cite>arXiv preprint</cite>. <a data-i18n="references_a_92" href="https://arxiv.org/abs/2210.03350" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-30">Khot, T., et al. (2022). "Decomposed Prompting: A Modular Approach for Solving Complex Tasks." <cite>arXiv preprint</cite>. <a data-i18n="references_a_95" href="https://arxiv.org/abs/2210.02406" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-31">OpenAI (2023). "OpenAI API Documentation." <cite data-i18n="references_cite_97"></cite>. <a data-i18n="references_a_98" href="https://platform.openai.com/docs/api-reference" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-32">OpenAI (2023). "OpenAI Cookbook - Code Examples." <cite data-i18n="references_cite_100"></cite>. <a data-i18n="references_a_101" href="https://github.com/openai/openai-cookbook" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-33">Patel, R., & Kumar, S. (2023). "Best Practices for OpenAI API Integration." <cite data-i18n="references_cite_103"></cite>.</li>
+                <li id="ref-34">Liu, H., et al. (2023). "Architectural Patterns for AI-Enhanced Web Applications." <cite data-i18n="references_cite_105"></cite>, 40(3), 45-52.</li>
+                <li id="ref-35">OWASP Foundation (2023). "API Security Top 10." <cite data-i18n="references_cite_108"></cite>. <a data-i18n="references_a_109" href="https://owasp.org/www-project-api-security/" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-36">Mozilla Developer Network (2023). "Express Security Best Practices." <cite data-i18n="references_cite_122"></cite>. <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/deployment" target="_blank" rel="noopener noreferrer">MDN</a></li>
+                <li id="ref-37">W3C (2023). "Web Accessibility Initiative - ARIA Authoring Practices." <cite>W3C</cite>. <a data-i18n="references_a_115" href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-38">Amazon Web Services (2023). "Serverless Application Lens - AWS Well-Architected Framework." <cite data-i18n="references_cite_117"></cite>.</li>
+                <li id="ref-39">Redis Labs (2023). "Redis Cache Design Patterns." <cite data-i18n="references_cite_119"></cite>. <a data-i18n="references_a_120" href="https://redis.io/docs/manual/patterns/" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-40">MDN Contributors (2023). "Using Server-Sent Events." <cite>MDN Web Docs</cite>. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events" target="_blank" rel="noopener noreferrer">MDN</a></li>
+                <li id="ref-41">OpenAI (2023). "Managing Tokens - OpenAI Cookbook." <cite data-i18n="references_cite_125"></cite>.</li>
+                <li id="ref-42">Barke, S., et al. (2023). "Grounded Copilot: How Programmers Interact with Code-Generating Models." <cite data-i18n="references_cite_127"></cite>. <a data-i18n="references_a_128" href="https://arxiv.org/abs/2206.15000" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-43">Ziegler, A., et al. (2022). "Productivity Assessment of Neural Code Completion." <cite data-i18n="references_cite_130"></cite>. <a data-i18n="references_a_131" href="https://arxiv.org/abs/2205.06537" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-44">Vaithilingam, P., et al. (2022). "Expectation vs. Experience: Evaluating the Usability of Code Generation Tools Powered by Large Language Models." <cite data-i18n="references_cite_133"></cite>. <a data-i18n="references_a_134" href="https://arxiv.org/abs/2204.07805" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-45">Tian, Y., et al. (2023). "Is ChatGPT the Ultimate Programming Assistant -- How Far is it?" <cite>arXiv preprint</cite>. <a data-i18n="references_a_137" href="https://arxiv.org/abs/2304.11938" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-46">Prather, J., et al. (2023). "The Robots are Coming: Exploring the Implications of OpenAI Codex on Introductory Programming." <cite data-i18n="references_cite_139"></cite>. <a href="https://dl.acm.org/doi/10.1145/3545945.3569759" target="_blank" rel="noopener noreferrer">ACM DL</a></li>
+                <li id="ref-47">Zhou, S., et al. (2023). "CodeBERTScore: Evaluating Code Generation with Pretrained Models of Code." <cite>arXiv preprint</cite>. <a data-i18n="references_a_143" href="https://arxiv.org/abs/2302.05527" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-48">Drain, D., et al. (2021). "Generating Bug-Fixes Using Pretrained Transformers." <cite data-i18n="references_cite_145"></cite>. <a data-i18n="references_a_146" href="https://arxiv.org/abs/2104.07896" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-49">Dinella, E., et al. (2022). "Training and Evaluating a Jupyter Notebook Data Science Assistant." <cite>arXiv preprint</cite>. <a data-i18n="references_a_149" href="https://arxiv.org/abs/2201.12901" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-50">Tufano, M., et al. (2020). "Unit Test Case Generation with Transformers and Focal Context." <cite>arXiv preprint</cite>. <a data-i18n="references_a_152" href="https://arxiv.org/abs/2009.05617" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-51">Sandoval, G., et al. (2023). "The Impact of AI on Developer Productivity: Evidence from GitHub Copilot." <cite>arXiv preprint</cite>. <a data-i18n="references_a_155" href="https://arxiv.org/abs/2302.06590" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-52">Perry, N., et al. (2023). "Do Users Write More Insecure Code with AI Assistants?" <cite data-i18n="references_cite_157"></cite>. <a data-i18n="references_a_158" href="https://arxiv.org/abs/2211.03622" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-53">Ji, Z., et al. (2023). "Survey of Hallucination in Natural Language Generation." <cite>ACM Computing Surveys</cite>, 55(12), 1-38. <a data-i18n="references_a_162" href="https://arxiv.org/abs/2202.03629" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-54">Perez, F., & Ribeiro, I. (2022). "Ignore Previous Prompt: Attack Techniques For Language Models." <cite>arXiv preprint</cite>. <a data-i18n="references_a_165" href="https://arxiv.org/abs/2211.09527" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-55">Lemley, M. A., & Casey, B. (2023). "Fair Learning." <cite data-i18n="references_cite_167"></cite>, 99, 743-807.</li>
+                <li id="ref-56">GitHub (2023). "The Economic Impact of the AI-Powered Developer Lifecycle and Lessons from GitHub Copilot." <cite data-i18n="references_cite_170"></cite>. <a data-i18n="references_a_171" href="https://github.blog/2023-06-27-the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-57">Stack Overflow (2023). "2023 Developer Survey Results." <cite data-i18n="references_cite_173"></cite>. <a data-i18n="references_a_174" href="https://survey.stackoverflow.co/2023/" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-58">Felten, E., Raj, M., & Seamans, R. (2023). "Occupational Exposure to Language Models." <cite>arXiv preprint</cite>. <a data-i18n="references_a_177" href="https://arxiv.org/abs/2306.08152" target="_blank" rel="noopener noreferrer"></a></li>
+                <li id="ref-59">McKinsey & Company (2023). "The Economic Potential of Generative AI: The Next Productivity Frontier." <cite data-i18n="references_cite_179"></cite>.</li>
+                <li id="ref-60">Google Search Central (2023). "Google Search's Guidance About AI-Generated Content." <cite data-i18n="references_cite_181"></cite>. <a data-i18n="references_a_182" href="https://developers.google.com/search/blog/2023/02/google-search-and-ai-content" target="_blank" rel="noopener noreferrer"></a></li>
+            </ol>
+        </section>
+
+        &lt;!-- Appendices --&gt;
+        <section id="appendices" class="appendices-section">
+            <h2>Приложения</h2>
+            
+            <article>
+                <h3 data-i18n="appendices_h3_2"></h3>
+                <ol class="code-list">
+                    <li data-i18n="appendices_li_3"></li>
+                    <li data-i18n="appendices_li_4"></li>
+                    <li data-i18n="appendices_li_5"></li>
+                    <li data-i18n="appendices_li_6"></li>
+                    <li data-i18n="appendices_li_7"></li>
+                    <li data-i18n="appendices_li_8"></li>
+                    <li data-i18n="appendices_li_9"></li>
+                    <li data-i18n="appendices_li_10"></li>
+                    <li data-i18n="appendices_li_11"></li>
+                    <li data-i18n="appendices_li_12"></li>
+                    <li data-i18n="appendices_li_13"></li>
+                    <li data-i18n="appendices_li_14"></li>
+                    <li data-i18n="appendices_li_15"></li>
+                    <li data-i18n="appendices_li_16"></li>
+                    <li data-i18n="appendices_li_17"></li>
+                    <li data-i18n="appendices_li_18"></li>
+                </ol>
+            </article>
+
+            <article>
+                <h3 data-i18n="appendices_h3_19"></h3>
+                <ol class="figure-list">
+                    <li data-i18n="appendices_li_20"></li>
+                    <li data-i18n="appendices_li_21"></li>
+                    <li data-i18n="appendices_li_22"></li>
+                    <li data-i18n="appendices_li_23"></li>
+                </ol>
+            </article>
+
+            <article>
+                <h3 data-i18n="appendices_h3_24"></h3>
+                <ol class="table-list">
+                    <li data-i18n="appendices_li_25"></li>
+                    <li data-i18n="appendices_li_26"></li>
+                    <li data-i18n="appendices_li_27"></li>
+                    <li data-i18n="appendices_li_28"></li>
+                </ol>
+            </article>
+        </section>
+
+    </main>
+
+    &lt;!-- Footer --&gt;
+    <footer>
+        <div class="footer-content">
+            <p>
+                <strong data-i18n="appendices_strong_30"></strong> [Вашето име]<br>
+                <strong>ФН:</strong> [Вашият факултетен номер]<br>
+                <strong data-i18n="appendices_strong_34"></strong> Дигитален маркетинг<br>
+                <strong data-i18n="appendices_strong_36"></strong> [Вашият университет]<br>
+                <strong data-i18n="appendices_strong_38"></strong> 2024/2025
+            </p>
+            <p class="footer-meta">
+                Този реферат е разработен като част от курса по Web технологии и програмиране.<br>
+                Темата е одобрена съгласно изискванията на преподавателя.<br>
+                <em data-i18n="appendices_em_42"></em>
+            </p>
+        </div>
+    </footer>
+
+    &lt;!-- Scroll to Top Button --&gt;
+    <button id="scroll-top" class="scroll-top" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    &lt;!-- Scripts --&gt;
+    <script src="javascript/i18n.js"></script>
+    <script src="javascript/main.js"></script>
+</body>
+</html>

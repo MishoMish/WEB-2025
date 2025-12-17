@@ -1,0 +1,54 @@
+USER:
+Create CSS utility classes following a consistent naming pattern.
+
+Example 1:
+Input: margin-top: 1rem
+Output: .mt-1 { margin-top: 1rem; }
+
+Example 2:
+Input: padding: 2rem
+Output: .p-2 { padding: 2rem; }
+
+Example 3:
+Input: display: flex
+Output: .d-flex { display: flex; }
+
+Now create utility classes for:
+1. Text alignment (left, center, right, justify)
+2. Font weights (light, normal, bold, extra-bold)
+3. Background colors (primary, secondary, success, danger, warning)
+
+ASSISTANT:
+Following the pattern from the examples:
+
+/* Text Alignment Utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Font Weight Utilities */
+.fw-light { font-weight: 300; }
+.fw-normal { font-weight: 400; }
+.fw-bold { font-weight: 700; }
+.fw-extra-bold { font-weight: 900; }
+
+/* Background Color Utilities */
+.bg-primary { background-color: #3498db; }
+.bg-secondary { background-color: #7f8c8d; }
+.bg-success { background-color: #27ae60; }
+.bg-danger { background-color: #e74c3c; }
+.bg-warning { background-color: #f39c12; }
+
+/* Responsive variants (following the pattern) */
+@media (min-width: 768px) {
+    .text-md-left { text-align: left; }
+    .text-md-center { text-align: center; }
+    .text-md-right { text-align: right; }
+}
+
+@media (min-width: 992px) {
+    .text-lg-left { text-align: left; }
+    .text-lg-center { text-align: center; }
+    .text-lg-right { text-align: right; }
+}

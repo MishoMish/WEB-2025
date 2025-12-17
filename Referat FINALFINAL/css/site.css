@@ -1470,7 +1470,9 @@ footer p {
     
     figure,
     table,
-    .code-block {
+    .code-block,
+    article,
+    section {
         page-break-inside: avoid;
         margin: 1rem 0;
     }
@@ -1493,6 +1495,7 @@ footer p {
     img, svg {
         max-width: 100%;
         page-break-inside: avoid;
+        page-break-after: avoid;
     }
     
     #abstract {

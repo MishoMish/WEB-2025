@@ -1,0 +1,318 @@
+USER:
+I need to implement a secure user authentication system for a web application.
+Walk through the process step-by-step and provide the implementation.
+
+Requirements:
+- Password hashing with bcrypt
+- JWT token generation
+- Input validation
+- SQL injection prevention
+- Session management
+- Password strength validation
+
+Think through this step by step.
+
+ASSISTANT:
+I'll walk through implementing a secure authentication system step-by-step.
+
+Step 1: First, let's think about what we need:
+- User registration with secure password storage
+- Login with JWT token generation
+- Password validation rules
+- Protection against common attacks
+- Proper session management
+
+Step 2: Set up the dependencies and database schema
+
+// package.json dependencies needed:
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "express-validator": "^7.0.1",
+    "mysql2": "^3.6.0",
+    "dotenv": "^16.0.3"
+  }
+}
+
+-- Database schema
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP NULL,
+    INDEX idx_email (email),
+    INDEX idx_username (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+Step 3: Environment configuration
+
+// .env file
+DB_HOST=localhost
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=your_database
+JWT_SECRET=your_very_long_and_random_secret_key_here
+JWT_EXPIRES_IN=1h
+BCRYPT_ROUNDS=12
+
+Step 4: Database connection with prepared statements
+
+// db.js
+const mysql = require('mysql2/promise');
+require('dotenv').config();
+
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
+
+module.exports = pool;
+
+Step 5: Password validation utilities
+
+// validators.js
+const { body } = require('express-validator');
+
+const passwordStrengthRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+const registerValidation = [
+    body('username')
+        .trim()
+        .isLength({ min: 3, max: 50 })
+        .withMessage('Username must be 3-50 characters')
+        .matches(/^[a-zA-Z0-9_]+$/)
+        .withMessage('Username can only contain letters, numbers, and underscores'),
+    
+    body('email')
+        .trim()
+        .isEmail()
+        .normalizeEmail()
+        .withMessage('Invalid email address'),
+    
+    body('password')
+        .isLength({ min: 8 })
+        .withMessage('Password must be at least 8 characters')
+        .matches(passwordStrengthRegex)
+        .withMessage('Password must contain uppercase, lowercase, number, and special character')
+];
+
+const loginValidation = [
+    body('email').trim().isEmail().normalizeEmail(),
+    body('password').notEmpty()
+];
+
+module.exports = { registerValidation, loginValidation };
+
+Step 6: Authentication controller
+
+// authController.js
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { validationResult } = require('express-validator');
+const db = require('./db');
+
+class AuthController {
+    // Register new user
+    async register(req, res) {
+        try {
+            // Validate input
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({ errors: errors.array() });
+            }
+            
+            const { username, email, password } = req.body;
+            
+            // Check if user already exists (using prepared statement)
+            const [existingUsers] = await db.execute(
+                'SELECT id FROM users WHERE email = ? OR username = ?',
+                [email, username]
+            );
+            
+            if (existingUsers.length > 0) {
+                return res.status(409).json({ 
+                    error: 'User with this email or username already exists' 
+                });
+            }
+            
+            // Hash password
+            const saltRounds = parseInt(process.env.BCRYPT_ROUNDS) || 12;
+            const passwordHash = await bcrypt.hash(password, saltRounds);
+            
+            // Insert user (prepared statement prevents SQL injection)
+            const [result] = await db.execute(
+                'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)',
+                [username, email, passwordHash]
+            );
+            
+            // Generate JWT token
+            const token = jwt.sign(
+                { userId: result.insertId, email },
+                process.env.JWT_SECRET,
+                { expiresIn: process.env.JWT_EXPIRES_IN }
+            );
+            
+            res.status(201).json({
+                message: 'User registered successfully',
+                token,
+                user: { id: result.insertId, username, email }
+            });
+            
+        } catch (error) {
+            console.error('Registration error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    }
+    
+    // Login user
+    async login(req, res) {
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({ errors: errors.array() });
+            }
+            
+            const { email, password } = req.body;
+            
+            // Find user
+            const [users] = await db.execute(
+                'SELECT id, username, email, password_hash FROM users WHERE email = ?',
+                [email]
+            );
+            
+            if (users.length === 0) {
+                return res.status(401).json({ error: 'Invalid credentials' });
+            }
+            
+            const user = users[0];
+            
+            // Verify password
+            const isValidPassword = await bcrypt.compare(password, user.password_hash);
+            
+            if (!isValidPassword) {
+                return res.status(401).json({ error: 'Invalid credentials' });
+            }
+            
+            // Update last login
+            await db.execute(
+                'UPDATE users SET last_login = NOW() WHERE id = ?',
+                [user.id]
+            );
+            
+            // Generate JWT token
+            const token = jwt.sign(
+                { userId: user.id, email: user.email },
+                process.env.JWT_SECRET,
+                { expiresIn: process.env.JWT_EXPIRES_IN }
+            );
+            
+            res.json({
+                message: 'Login successful',
+                token,
+                user: {
+                    id: user.id,
+                    username: user.username,
+                    email: user.email
+                }
+            });
+            
+        } catch (error) {
+            console.error('Login error:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    }
+    
+    // Verify token middleware
+    async verifyToken(req, res, next) {
+        try {
+            const token = req.headers.authorization?.split(' ')[1];
+            
+            if (!token) {
+                return res.status(401).json({ error: 'No token provided' });
+            }
+            
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            req.user = decoded;
+            next();
+            
+        } catch (error) {
+            if (error.name === 'TokenExpiredError') {
+                return res.status(401).json({ error: 'Token expired' });
+            }
+            return res.status(401).json({ error: 'Invalid token' });
+        }
+    }
+}
+
+module.exports = new AuthController();
+
+Step 7: Routes setup
+
+// routes.js
+const express = require('express');
+const router = express.Router();
+const authController = require('./authController');
+const { registerValidation, loginValidation } = require('./validators');
+
+router.post('/register', registerValidation, authController.register);
+router.post('/login', loginValidation, authController.login);
+
+// Protected route example
+router.get('/profile', authController.verifyToken, (req, res) => {
+    res.json({ message: 'Protected route', user: req.user });
+});
+
+module.exports = router;
+
+Step 8: Main application
+
+// app.js
+const express = require('express');
+const routes = require('./routes');
+require('dotenv').config();
+
+const app = express();
+
+// Security middleware
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// CORS (configure properly for production)
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    next();
+});
+
+// Routes
+app.use('/api/auth', routes);
+
+// Error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+This implementation includes:
+✓ Bcrypt password hashing with configurable rounds
+✓ JWT token generation and verification
+✓ Comprehensive input validation
+✓ SQL injection prevention via prepared statements
+✓ Password strength requirements
+✓ Proper error handling
+✓ Session management through JWT
+✓ Security best practices
