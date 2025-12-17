@@ -1,23 +1,7 @@
 // API endpoints
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
-// Get form elements
-const form = document.getElementById("registration-form");
-const registerBtn = document.getElementById("register-btn");
-const successMessage = document.getElementById("success");
-const loadingMessage = document.getElementById("loading");
-
-// Get input fields
-const usernameInput = document.getElementById("username");
-const nameInput = document.getElementById("name");
-const familyNameInput = document.getElementById("family-name");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const streetInput = document.getElementById("street");
-const cityInput = document.getElementById("city");
-const postalCodeInput = document.getElementById("postal-code");
-
-// Validation functions
+// Validation functions (exported for testing)
 const validators = {
   username: (value) => {
     if (!value || value.trim() === "") {
@@ -69,7 +53,7 @@ const validators = {
     }
     const trimmedValue = value.trim();
     if (trimmedValue.length < 6 || trimmedValue.length > 10) {
-      return "Паролата трябва да е між 6 и 10 символа";
+      return "Паролата трябва да е между 6 и 10 символа";
     }
     const hasUpperCase = /[A-Z]/.test(trimmedValue);
     const hasLowerCase = /[a-z]/.test(trimmedValue);
@@ -96,96 +80,7 @@ const validators = {
   },
 };
 
-// Show error message
-const showError = (fieldId, message) => {
-  const errorElement = document.getElementById(`${fieldId}-error`);
-  const inputElement = document.getElementById(fieldId);
-
-  if (errorElement && inputElement) {
-    errorElement.textContent = message;
-    errorElement.classList.add("show");
-    inputElement.classList.add("invalid");
-  }
-};
-
-// Clear error message
-const clearError = (fieldId) => {
-  const errorElement = document.getElementById(`${fieldId}-error`);
-  const inputElement = document.getElementById(fieldId);
-
-  if (errorElement && inputElement) {
-    errorElement.textContent = "";
-    errorElement.classList.remove("show");
-    inputElement.classList.remove("invalid");
-  }
-};
-
-// Clear all errors
-const clearAllErrors = () => {
-  const errorElements = document.querySelectorAll(".error");
-  errorElements.forEach((el) => {
-    el.textContent = "";
-    el.classList.remove("show");
-  });
-
-  const inputs = document.querySelectorAll("input");
-  inputs.forEach((input) => {
-    input.classList.remove("invalid");
-  });
-};
-
-// Validate single field
-const validateField = (fieldId, value, validatorKey) => {
-  const error = validators[validatorKey](value);
-  if (error) {
-    showError(fieldId, error);
-    return false;
-  } else {
-    clearError(fieldId);
-    return true;
-  }
-};
-
-// Validate all required fields
-const validateForm = () => {
-  let isValid = true;
-
-  // Validate username
-  if (!validateField("username", usernameInput.value, "username")) {
-    isValid = false;
-  }
-
-  // Validate name
-  if (!validateField("name", nameInput.value, "name")) {
-    isValid = false;
-  }
-
-  // Validate family name
-  if (!validateField("family-name", familyNameInput.value, "familyName")) {
-    isValid = false;
-  }
-
-  // Validate email
-  if (!validateField("email", emailInput.value, "email")) {
-    isValid = false;
-  }
-
-  // Validate password
-  if (!validateField("password", passwordInput.value, "password")) {
-    isValid = false;
-  }
-
-  // Validate postal code (if provided)
-  if (postalCodeInput.value.trim() !== "") {
-    if (!validateField("postal-code", postalCodeInput.value, "postalCode")) {
-      isValid = false;
-    }
-  }
-
-  return isValid;
-};
-
-// Fetch existing users
+// Fetch existing users (exported for testing)
 const fetchUsers = async () => {
   try {
     const response = await fetch(API_URL);
@@ -199,154 +94,262 @@ const fetchUsers = async () => {
   }
 };
 
-// Check if username exists
+// Check if username exists (exported for testing)
 const checkUsernameExists = (username, users) => {
   return users.some(
     (user) => user.username.toLowerCase() === username.toLowerCase()
   );
 };
 
-// Register new user
-const registerUser = async (userData) => {
-  try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
+// Only execute DOM-dependent code if we're in the actual page (not in tests)
+if (typeof document !== 'undefined' && document.getElementById("registration-form")) {
+  // Get form elements
+  const form = document.getElementById("registration-form");
+  const registerBtn = document.getElementById("register-btn");
+  const successMessage = document.getElementById("success");
+  const loadingMessage = document.getElementById("loading");
+
+  // Get input fields
+  const usernameInput = document.getElementById("username");
+  const nameInput = document.getElementById("name");
+  const familyNameInput = document.getElementById("family-name");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const streetInput = document.getElementById("street");
+  const cityInput = document.getElementById("city");
+  const postalCodeInput = document.getElementById("postal-code");
+
+  // Show error message
+  const showError = (fieldId, message) => {
+    const errorElement = document.getElementById(`${fieldId}-error`);
+    const inputElement = document.getElementById(fieldId);
+
+    if (errorElement && inputElement) {
+      errorElement.textContent = message;
+      errorElement.classList.add("show");
+      inputElement.classList.add("invalid");
+    }
+  };
+
+  // Clear error message
+  const clearError = (fieldId) => {
+    const errorElement = document.getElementById(`${fieldId}-error`);
+    const inputElement = document.getElementById(fieldId);
+
+    if (errorElement && inputElement) {
+      errorElement.textContent = "";
+      errorElement.classList.remove("show");
+      inputElement.classList.remove("invalid");
+    }
+  };
+
+  // Clear all errors
+  const clearAllErrors = () => {
+    const errorElements = document.querySelectorAll(".error");
+    errorElements.forEach((el) => {
+      el.textContent = "";
+      el.classList.remove("show");
     });
 
-    if (!response.ok) {
-      throw new Error("Грешка при регистрация");
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach((input) => {
+      input.classList.remove("invalid");
+    });
+  };
+
+  // Validate single field
+  const validateField = (fieldId, value, validatorKey) => {
+    const error = validators[validatorKey](value);
+    if (error) {
+      showError(fieldId, error);
+      return false;
+    } else {
+      clearError(fieldId);
+      return true;
+    }
+  };
+
+  // Validate all required fields
+  const validateForm = () => {
+    let isValid = true;
+
+    // Validate username
+    if (!validateField("username", usernameInput.value, "username")) {
+      isValid = false;
     }
 
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    throw new Error("Грешка при регистрация: " + error.message);
-  }
-};
+    // Validate name
+    if (!validateField("name", nameInput.value, "name")) {
+      isValid = false;
+    }
 
-// Show success message
-const showSuccess = (message) => {
-  successMessage.textContent = message;
-  successMessage.classList.add("show");
+    // Validate family name
+    if (!validateField("family-name", familyNameInput.value, "familyName")) {
+      isValid = false;
+    }
 
-  // Hide after 5 seconds
-  setTimeout(() => {
-    successMessage.classList.remove("show");
-  }, 5000);
-};
+    // Validate email
+    if (!validateField("email", emailInput.value, "email")) {
+      isValid = false;
+    }
 
-// Show loading state
-const setLoading = (isLoading) => {
-  if (isLoading) {
-    loadingMessage.classList.add("show");
-    registerBtn.disabled = true;
-  } else {
-    loadingMessage.classList.remove("show");
-    registerBtn.disabled = false;
-  }
-};
+    // Validate password
+    if (!validateField("password", passwordInput.value, "password")) {
+      isValid = false;
+    }
 
-// Handle form submission
-const handleSubmit = async (event) => {
-  event.preventDefault();
+    // Validate postal code (if provided)
+    if (postalCodeInput.value.trim() !== "") {
+      if (!validateField("postal-code", postalCodeInput.value, "postalCode")) {
+        isValid = false;
+      }
+    }
 
-  // Clear previous messages
-  clearAllErrors();
-  successMessage.classList.remove("show");
+    return isValid;
+  };
 
-  // Validate form
-  if (!validateForm()) {
-    return;
-  }
+  // Register new user
+  const registerUser = async (userData) => {
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Грешка при регистрация");
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      throw new Error("Грешка при регистрация: " + error.message);
+    }
+  };
+
+  // Show success message
+  const showSuccess = (message) => {
+    successMessage.textContent = message;
+    successMessage.classList.add("show");
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      successMessage.classList.remove("show");
+    }, 5000);
+  };
 
   // Show loading state
-  setLoading(true);
+  const setLoading = (isLoading) => {
+    if (isLoading) {
+      loadingMessage.classList.add("show");
+      registerBtn.disabled = true;
+    } else {
+      loadingMessage.classList.remove("show");
+      registerBtn.disabled = false;
+    }
+  };
 
-  try {
-    // Fetch existing users
-    const users = await fetchUsers();
+  // Handle form submission
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    // Check if username already exists
-    const usernameExists = checkUsernameExists(usernameInput.value, users);
+    // Clear previous messages
+    clearAllErrors();
+    successMessage.classList.remove("show");
 
-    if (usernameExists) {
-      showError(
-        "username",
-        "Потребител с това потребителско име вече съществува"
-      );
-      setLoading(false);
+    // Validate form
+    if (!validateForm()) {
       return;
     }
 
-    // Prepare user data
-    const userData = {
-      username: usernameInput.value.trim(),
-      name: `${nameInput.value.trim()} ${familyNameInput.value.trim()}`,
-      email: emailInput.value.trim(),
-      address: {
-        street: streetInput.value.trim() || "",
-        city: cityInput.value.trim() || "",
-        zipcode: postalCodeInput.value.trim() || "",
-      },
-    };
+    // Show loading state
+    setLoading(true);
 
-    // Register user
-    const result = await registerUser(userData);
+    try {
+      // Fetch existing users
+      const users = await fetchUsers();
 
-    // Show success message
-    showSuccess(
-      `Успешна регистрация! Добре дошли, ${nameInput.value}! Вашият акаунт беше създаден успешно.`
-    );
+      // Check if username already exists
+      const usernameExists = checkUsernameExists(usernameInput.value, users);
 
-    // Reset form
-    form.reset();
-  } catch (error) {
-    showError("username", error.message);
-  } finally {
-    setLoading(false);
-  }
-};
+      if (usernameExists) {
+        showError(
+          "username",
+          "Потребител с това потребителско име вече съществува"
+        );
+        setLoading(false);
+        return;
+      }
 
-// Add real-time validation
-usernameInput.addEventListener("blur", () => {
-  if (usernameInput.value.trim() !== "") {
-    validateField("username", usernameInput.value, "username");
-  }
-});
+      // Prepare user data
+      const userData = {
+        username: usernameInput.value.trim(),
+        name: `${nameInput.value.trim()} ${familyNameInput.value.trim()}`,
+        email: emailInput.value.trim(),
+        address: {
+          street: streetInput.value.trim() || "",
+          city: cityInput.value.trim() || "",
+          zipcode: postalCodeInput.value.trim() || "",
+        },
+      };
 
-nameInput.addEventListener("blur", () => {
-  if (nameInput.value.trim() !== "") {
-    validateField("name", nameInput.value, "name");
-  }
-});
+      // Register user
+      const result = await registerUser(userData);
 
-familyNameInput.addEventListener("blur", () => {
-  if (familyNameInput.value.trim() !== "") {
-    validateField("family-name", familyNameInput.value, "familyName");
-  }
-});
+      // Show success message
+      showSuccess(
+        `Успешна регистрация! Добре дошли, ${nameInput.value}! Вашият акаунт беше създаден успешно.`
+      );
 
-emailInput.addEventListener("blur", () => {
-  if (emailInput.value.trim() !== "") {
-    validateField("email", emailInput.value, "email");
-  }
-});
+      // Reset form
+      form.reset();
+    } catch (error) {
+      showError("username", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-passwordInput.addEventListener("blur", () => {
-  if (passwordInput.value.trim() !== "") {
-    validateField("password", passwordInput.value, "password");
-  }
-});
+  // Add real-time validation
+  usernameInput.addEventListener("blur", () => {
+    if (usernameInput.value.trim() !== "") {
+      validateField("username", usernameInput.value, "username");
+    }
+  });
 
-postalCodeInput.addEventListener("blur", () => {
-  if (postalCodeInput.value.trim() !== "") {
-    validateField("postal-code", postalCodeInput.value, "postalCode");
-  }
-});
+  nameInput.addEventListener("blur", () => {
+    if (nameInput.value.trim() !== "") {
+      validateField("name", nameInput.value, "name");
+    }
+  });
 
-// Add form submit event listener
-form.addEventListener("submit", handleSubmit);
+  familyNameInput.addEventListener("blur", () => {
+    if (familyNameInput.value.trim() !== "") {
+      validateField("family-name", familyNameInput.value, "familyName");
+    }
+  });
+
+  emailInput.addEventListener("blur", () => {
+    if (emailInput.value.trim() !== "") {
+      validateField("email", emailInput.value, "email");
+    }
+  });
+
+  passwordInput.addEventListener("blur", () => {
+    if (passwordInput.value.trim() !== "") {
+      validateField("password", passwordInput.value, "password");
+    }
+  });
+
+  postalCodeInput.addEventListener("blur", () => {
+    if (postalCodeInput.value.trim() !== "") {
+      validateField("postal-code", postalCodeInput.value, "postalCode");
+    }
+  });
+
+  // Add form submit event listener
+  form.addEventListener("submit", handleSubmit);
+}

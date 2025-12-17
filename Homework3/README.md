@@ -20,11 +20,11 @@
 
 ### `test.html` ⚡ <- ТОВА Е ВАЖНО
 
-**Comprehensive test suite** с 84 unit tests за ВСИЧКО:
-- Validation functions (52 теста)
-- Database username checks за всички 10 юзъра от JSONPlaceholder (18 теста)
-- API integration tests (6 теста)  
-- Full workflow tests (8 теста)
+**Comprehensive test suite** с 94 unit tests за ВСИЧКО:
+- Validation functions 
+- Database username checks за всички 10 юзъра от JSONPlaceholder 
+- API integration tests 
+- Full workflow tests 
 
 **Как да го ползваш:**
 1. Отвори `test.html` в браузър
