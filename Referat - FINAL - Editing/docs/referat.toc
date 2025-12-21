@@ -1,0 +1,58 @@
+\babel@toc {bulgarian}{}\relax 
+\contentsline {section}{\numberline {1}Увод}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Актуалност на темата}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Цели на реферата}{7}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Какво е Prompt Engineering}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Дефиниция и основни концепции}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Роля при взаимодействие с LLM}{8}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Основни техники и подходи в Prompt Engineering}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Поставяне на роля и контекст}{9}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Ограничения, формати и изходни структури}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Итеративни промптове и рефайнмент}{9}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Few-shot промптове}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Chain-of-thought (CoT)}{10}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Self-consistency и Toolformer-стил}{10}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Тестове, проверка и валидация}{11}{subsection.3.7}%
+\contentsline {section}{\numberline {4}ChatGPT и Prompt Engineering в Web разработката}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Генериране на HTML/CSS/JS шаблони}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}CSS генериране и layout системи}{12}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}JavaScript и DOM манипулация}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Архитектура, документация и тестове}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}i18n и локализация}{14}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Добри практики за интеграция в pipeline}{15}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Рискове при ``blind AI-код''}{15}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Етика и професионална отговорност}{16}{subsection.4.8}%
+\contentsline {paragraph}{Халюцинации}{16}{section*.8}%
+\contentsline {paragraph}{Проверими източници}{16}{section*.9}%
+\contentsline {paragraph}{Авторство и лицензиране}{16}{section*.10}%
+\contentsline {subsection}{\numberline {4.9}Дигитален маркетинг и SEO}{17}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}Бъдещето на професиите}{17}{subsection.4.10}%
+\contentsline {paragraph}{Автоматизация}{17}{section*.11}%
+\contentsline {paragraph}{Ефект върху обучението}{17}{section*.12}%
+\contentsline {paragraph}{Junior разработчици}{17}{section*.13}%
+\contentsline {paragraph}{Разработвателни pipeline-и}{18}{section*.14}%
+\contentsline {section}{\numberline {5}Приложения в уеб - примери и демонстрации}{18}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Демонстрация на различни типове промптове}{18}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Генериран код с добра структура}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Мини-казуси: кога AI помага и кога пречи}{18}{subsection.5.3}%
+\contentsline {paragraph}{Случай 1: Успешна помощ}{18}{section*.15}%
+\contentsline {paragraph}{Случай 2: Проблематично използване}{18}{section*.16}%
+\contentsline {paragraph}{Случай 3: Оптимален workflow}{19}{section*.17}%
+\contentsline {subsection}{\numberline {5.4}Как да валидираме резултата}{19}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Рискове и ограничения}{19}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Етически предизвикателства}{19}{subsection.6.1}%
+\contentsline {paragraph}{Прозрачност}{19}{section*.19}%
+\contentsline {paragraph}{Bias и дискриминация}{19}{section*.20}%
+\contentsline {subsection}{\numberline {6.2}Надеждност и халюцинации}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Сигурност}{20}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Неправилни цитати}{20}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Критични контролни точки}{20}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Заключение}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Авторско мнение}{21}{subsection.7.1}%
+\contentsline {paragraph}{Подходящи сценарии:}{21}{section*.21}%
+\contentsline {paragraph}{Неподходящи сценарии:}{21}{section*.22}%
+\contentsline {subsection}{\numberline {7.2}Отговорни практики}{21}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Бъдещи перспективи}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Финални думи}{22}{subsection.7.4}%
+\contentsline {section}{Цитирана литература}{23}{section*.23}%
+\contentsline {section}{Приложения}{27}{section*.24}%

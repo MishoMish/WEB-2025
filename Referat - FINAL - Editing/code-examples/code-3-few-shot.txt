@@ -1,0 +1,12 @@
+Create CSS class names following this pattern:
+
+Example 1:
+Component: Button, State: Primary, Size: Large
+Class: .btn-primary-lg
+
+Example 2:
+Component: Card, State: Featured, Size: Medium
+Class: .card-featured-md
+
+Now create for:
+Component: Modal, State: Success, Size: Small

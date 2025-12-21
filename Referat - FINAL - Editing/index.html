@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prompt Engineering и Web разработка с ChatGPT - Реферат по Уеб технологии" />
+  <meta name="keywords"
+    content="prompt engineering, ChatGPT, web development, AI, уеб разработка, изкуствен интелект" />
+  <meta name="author" content="Student FMI" />
+  <meta name="theme-color" content="#2c3e50" />
+  <title data-i18n="pageTitle">Prompt Engineering и Web разработка с ChatGPT</title>
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/site.css" />
+
+  <!-- JavaScript Files -->
+  <script src="javascript/i18n.js" defer></script>
+  <script src="javascript/code-loader.js" defer></script>
+  <script src="javascript/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-background">
+      <!-- Animated SVG Icons - AI & ChatGPT Themed -->
+      <img src="img/icons/chatgpt-logo.svg" alt="ChatGPT Logo" class="floating-icon icon-1" />
+      <img src="img/icons/neural-network.svg" alt="Neural Network" class="floating-icon icon-2" />
+      <img src="img/icons/brain-ai.svg" alt="AI Brain" class="floating-icon icon-3" />
+      <img src="img/icons/code-brackets.svg" alt="Code Brackets" class="floating-icon icon-4" />
+      <img src="img/icons/openai-spark.svg" alt="OpenAI Spark" class="floating-icon icon-5" />
+      <img src="img/icons/robot-head.svg" alt="Robot Head" class="floating-icon icon-6" />
+      <img src="img/icons/data-nodes.svg" alt="Data Nodes" class="floating-icon icon-7" />
+      <img src="img/icons/prompt-message.svg" alt="Prompt Message" class="floating-icon icon-8" />
+      <img src="img/icons/concentric-circles.svg" alt="Concentric Circles" class="floating-icon icon-9" />
+
+      <!-- Gradient Orbs -->
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title hero-title-large" data-i18n="pageTitle"></h1>
+
+      <div class="theme-badge">
+        <span class="theme-label" data-i18n="themeLabel">Тема</span>
+        <span class="theme-number">№187</span>
+      </div>
+
+      <p class="hero-subtitle">
+        <span data-i18n="heroSubtitle"></span>
+      </p>
+
+      <div class="author-info">
+        <div class="author-name" data-i18n="authorName">
+        </div>
+        <div class="student-id">
+          <span data-i18n="studentIdLabel">Факултетен номер:</span>
+          <strong>8MI0800216</strong>
+        </div>
+        <div class="university">
+          <span data-i18n="universityName">Софийски университет "Св. Климент Охридски"</span>
+          <span class="faculty" data-i18n="facultyName">Факултет по математика и информатика</span>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <span data-i18n="heroMeta"></span>
+      </div>
+
+      <button class="scroll-hint" onclick="document.querySelector('#main-nav').scrollIntoView({behavior: 'smooth'})">
+        <span>↓</span>
+        <span class="scroll-text" data-i18n="scrollDown"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar" class="progress-bar"></div>
+
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="container">
+      <button id="nav-menu-toggle" class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false"
+        aria-controls="main-nav-sections">
+        ⋯
+      </button>
+      <div id="main-nav-sections" class="nav-links">
+        <a href="#abstract" data-i18n="navAbstract"></a>
+        <a href="#introduction" data-i18n="navIntroduction"></a>
+        <a href="#what-is-pe" data-i18n="navWhatIsPE"></a>
+        <a href="#techniques" data-i18n="navTechniques"></a>
+        <a href="#chatgpt-web-dev" data-i18n="navChatGPT"></a>
+        <a href="#examples" data-i18n="navExamples"></a>
+        <a href="#risks" data-i18n="navRisks"></a>
+        <a href="#conclusion" data-i18n="navConclusion"></a>
+        <a href="#citations" data-i18n="navCitations"></a>
+      </div>
+      <div class="nav-controls">
+        <div class="lang-switcher">
+          <button onclick="switchLanguage('bg')" class="lang-btn active" data-lang="bg"
+            aria-label="Switch to Bulgarian">
+            БГ
+          </button>
+          <button onclick="switchLanguage('en')" class="lang-btn" data-lang="en" aria-label="Switch to English">
+            EN
+          </button>
+        </div>
+        <button id="dark-mode-toggle" class="control-btn" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+          <span class="icon-light">☀️</span>
+          <span class="icon-dark" style="display: none">🌙</span>
+        </button>
+        <button id="font-size-increase" class="control-btn" aria-label="Increase font size" title="Increase Font Size">
+          A+
+        </button>
+        <button id="font-size-decrease" class="control-btn" aria-label="Decrease font size" title="Decrease Font Size">
+          A-
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Abstract -->
+    <section id="abstract">
+      <h2 data-i18n="abstractTitle"></h2>
+      <p data-i18n="abstractText"></p>
+    </section>
+
+    <!-- Introduction -->
+    <section id="introduction">
+      <h2 data-i18n="sec1Title"></h2>
+      <p data-i18n="sec1Para1"></p>
+      <p data-i18n="sec1Para2"></p>
+      <p data-i18n="sec1Para3"></p>
+
+      <h3 data-i18n="sec1Sub1Title"></h3>
+      <p data-i18n="sec1Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec1Sub1Li1"></li>
+        <li data-i18n="sec1Sub1Li2"></li>
+        <li data-i18n="sec1Sub1Li3"></li>
+      </ul>
+
+      <h3 data-i18n="sec1Sub2Title"></h3>
+      <p data-i18n="sec1Sub2Para1"></p>
+      <ol>
+        <li data-i18n="sec1Sub2Li1"></li>
+        <li data-i18n="sec1Sub2Li2"></li>
+        <li data-i18n="sec1Sub2Li3"></li>
+        <li data-i18n="sec1Sub2Li4"></li>
+        <li data-i18n="sec1Sub2Li5"></li>
+        <li data-i18n="sec1Sub2Li6"></li>
+      </ol>
+    </section>
+
+    <!-- What is Prompt Engineering -->
+    <section id="what-is-pe">
+      <h2 data-i18n="sec2Title"></h2>
+      <p data-i18n="sec2Para1"></p>
+
+      <h3 data-i18n="sec2Sub1Title"></h3>
+      <p data-i18n="sec2Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec2Sub1Li1"></li>
+        <li data-i18n="sec2Sub1Li2"></li>
+        <li data-i18n="sec2Sub1Li3"></li>
+        <li data-i18n="sec2Sub1Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec2Sub2Title"></h3>
+      <p data-i18n="sec2Sub2Para1"></p>
+      <ol>
+        <li data-i18n="sec2Sub2Li1"></li>
+        <li data-i18n="sec2Sub2Li2"></li>
+        <li data-i18n="sec2Sub2Li3"></li>
+        <li data-i18n="sec2Sub2Li4"></li>
+      </ol>
+      <p data-i18n="sec2Sub2Para2"></p>
+
+      <!-- Figure 1: Prompt Flow Diagram -->
+      <figure id="figure-1" class="interactive-figure">
+        <div class="figure-content">
+          <img src="img/prompt-flow.svg" alt="Prompt Engineering Flow" class="diagram-img" loading="lazy" />
+        </div>
+        <figcaption data-i18n="figure1Caption"></figcaption>
+      </figure>
+    </section>
+
+    <!-- Techniques -->
+    <section id="techniques">
+      <h2 data-i18n="sec3Title"></h2>
+      <p data-i18n="sec3Para1"></p>
+
+      <h3 data-i18n="sec3Sub1Title"></h3>
+      <p data-i18n="sec3Sub1Para1"></p>
+
+      <div class="code-block" id="code-1">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code1Caption"></p>
+
+      <p data-i18n="sec3Sub1Para2"></p>
+
+      <h3 data-i18n="sec3Sub2Title"></h3>
+      <p data-i18n="sec3Sub2Para1"></p>
+
+      <div class="code-block" id="code-2">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code2Caption"></p>
+
+      <h3 data-i18n="sec3Sub3Title"></h3>
+      <p data-i18n="sec3Sub3Para1"></p>
+      <ol>
+        <li data-i18n="sec3Sub3Li1"></li>
+        <li data-i18n="sec3Sub3Li2"></li>
+        <li data-i18n="sec3Sub3Li3"></li>
+        <li data-i18n="sec3Sub3Li4"></li>
+        <li data-i18n="sec3Sub3Li5"></li>
+      </ol>
+
+      <h3 data-i18n="sec3Sub4Title"></h3>
+      <p data-i18n="sec3Sub4Para1"></p>
+
+      <div class="code-block" id="code-3">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code3Caption"></p>
+
+      <h3 data-i18n="sec3Sub5Title"></h3>
+      <p data-i18n="sec3Sub5Para1"></p>
+
+      <div class="code-block" id="code-4">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code4Caption"></p>
+
+      <p data-i18n="sec3Sub5Para2"></p>
+
+      <h3 data-i18n="sec3Sub6Title"></h3>
+      <p data-i18n="sec3Sub6Para1"></p>
+      <ul>
+        <li data-i18n="sec3Sub6Li1"></li>
+        <li data-i18n="sec3Sub6Li2"></li>
+        <li data-i18n="sec3Sub6Li3"></li>
+        <li data-i18n="sec3Sub6Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec3Sub7Title"></h3>
+      <p data-i18n="sec3Sub7Para1"></p>
+
+      <!-- Table 1: Validation Methods -->
+      <div class="table-wrapper">
+        <table>
+          <caption data-i18n="table1Caption"></caption>
+          <thead>
+            <tr>
+              <th data-i18n="table1Header1"></th>
+              <th data-i18n="table1Header2"></th>
+              <th data-i18n="table1Header3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="table1Row1Col1"></td>
+              <td data-i18n="table1Row1Col2"></td>
+              <td data-i18n="table1Row1Col3"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table1Row2Col1"></td>
+              <td data-i18n="table1Row2Col2"></td>
+              <td data-i18n="table1Row2Col3"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table1Row3Col1"></td>
+              <td data-i18n="table1Row3Col2"></td>
+              <td data-i18n="table1Row3Col3"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table1Row4Col1"></td>
+              <td data-i18n="table1Row4Col2"></td>
+              <td data-i18n="table1Row4Col3"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table1Row5Col1"></td>
+              <td data-i18n="table1Row5Col2"></td>
+              <td data-i18n="table1Row5Col3"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table1Row6Col1"></td>
+              <td data-i18n="table1Row6Col2"></td>
+              <td data-i18n="table1Row6Col3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-i18n="sec3Sub7Para2"></p>
+    </section>
+
+    <!-- ChatGPT and Web Development -->
+    <section id="chatgpt-web-dev">
+      <h2 data-i18n="sec4Title"></h2>
+      <p data-i18n="sec4Para1"></p>
+
+      <h3 data-i18n="sec4Sub1Title"></h3>
+      <p data-i18n="sec4Sub1Para1"></p>
+
+      <div class="code-block" id="code-5">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code5Caption"></p>
+
+      <h3 data-i18n="sec4Sub2Title"></h3>
+      <p data-i18n="sec4Sub2Para1"></p>
+
+      <div class="code-block" id="code-6">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code6Caption"></p>
+
+      <h3 data-i18n="sec4Sub3Title"></h3>
+      <p data-i18n="sec4Sub3Para1"></p>
+
+      <div class="code-block" id="code-7">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code7Caption"></p>
+
+      <h3 data-i18n="sec4Sub4Title"></h3>
+      <p data-i18n="sec4Sub4Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub4Li1"></li>
+        <li data-i18n="sec4Sub4Li2"></li>
+        <li data-i18n="sec4Sub4Li3"></li>
+        <li data-i18n="sec4Sub4Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec4Sub5Title"></h3>
+      <p data-i18n="sec4Sub5Para1"></p>
+
+      <div class="code-block" id="code-8">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code8Caption"></p>
+
+      <h3 data-i18n="sec4Sub6Title"></h3>
+      <p data-i18n="sec4Sub6Para1"></p>
+      <ol>
+        <li data-i18n="sec4Sub6Li1"></li>
+        <li data-i18n="sec4Sub6Li2"></li>
+        <li data-i18n="sec4Sub6Li3"></li>
+        <li data-i18n="sec4Sub6Li4"></li>
+        <li data-i18n="sec4Sub6Li5"></li>
+      </ol>
+
+      <h3 data-i18n="sec4Sub7Title"></h3>
+
+      <!-- Figure 2: Blind AI Coding Risks -->
+      <figure id="figure-2" class="interactive-figure">
+        <div class="figure-content">
+          <img src="img/blind-ai-risks.svg" alt="Blind AI Coding Risks" class="diagram-img" loading="lazy" />
+        </div>
+        <figcaption data-i18n="figure2Caption"></figcaption>
+      </figure>
+
+      <p data-i18n="sec4Sub7Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub7Li1"></li>
+        <li data-i18n="sec4Sub7Li2"></li>
+        <li data-i18n="sec4Sub7Li3"></li>
+        <li data-i18n="sec4Sub7Li4"></li>
+      </ul>
+      <p data-i18n="sec4Sub7Para2"></p>
+
+      <h3 data-i18n="sec4Sub8Title"></h3>
+      <p data-i18n="sec4Sub8Para1"></p>
+
+      <h4 data-i18n="sec4Sub8Sub1Title"></h4>
+      <p data-i18n="sec4Sub8Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub8Sub1Li1"></li>
+        <li data-i18n="sec4Sub8Sub1Li2"></li>
+        <li data-i18n="sec4Sub8Sub1Li3"></li>
+      </ul>
+
+      <h4 data-i18n="sec4Sub8Sub2Title"></h4>
+      <p data-i18n="sec4Sub8Sub2Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub8Sub2Li1"></li>
+        <li data-i18n="sec4Sub8Sub2Li2"></li>
+        <li data-i18n="sec4Sub8Sub2Li3"></li>
+        <li data-i18n="sec4Sub8Sub2Li4"></li>
+      </ul>
+
+      <h4 data-i18n="sec4Sub8Sub3Title"></h4>
+      <p data-i18n="sec4Sub8Sub3Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub8Sub3Li1"></li>
+        <li data-i18n="sec4Sub8Sub3Li2"></li>
+        <li data-i18n="sec4Sub8Sub3Li3"></li>
+      </ul>
+
+      <h3 data-i18n="sec4Sub9Title"></h3>
+      <p data-i18n="sec4Sub9Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub9Li1"></li>
+        <li data-i18n="sec4Sub9Li2"></li>
+        <li data-i18n="sec4Sub9Li3"></li>
+        <li data-i18n="sec4Sub9Li4"></li>
+      </ul>
+
+      <div class="code-block" id="code-9">
+        <code></code>
+      </div>
+      <p class="code-caption" data-i18n="code9Caption"></p>
+
+      <h3 data-i18n="sec4Sub10Title"></h3>
+      <p data-i18n="sec4Sub10Para1"></p>
+
+      <h4 data-i18n="sec4Sub10Sub1Title"></h4>
+      <p data-i18n="sec4Sub10Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub10Sub1Li1"></li>
+        <li data-i18n="sec4Sub10Sub1Li2"></li>
+        <li data-i18n="sec4Sub10Sub1Li3"></li>
+        <li data-i18n="sec4Sub10Sub1Li4"></li>
+      </ul>
+
+      <h4 data-i18n="sec4Sub10Sub2Title"></h4>
+      <p data-i18n="sec4Sub10Sub2Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub10Sub2Li1"></li>
+        <li data-i18n="sec4Sub10Sub2Li2"></li>
+        <li data-i18n="sec4Sub10Sub2Li3"></li>
+      </ul>
+
+      <h4 data-i18n="sec4Sub10Sub3Title"></h4>
+      <p data-i18n="sec4Sub10Sub3Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub10Sub3Li1"></li>
+        <li data-i18n="sec4Sub10Sub3Li2"></li>
+        <li data-i18n="sec4Sub10Sub3Li3"></li>
+      </ul>
+
+      <h4 data-i18n="sec4Sub10Sub4Title"></h4>
+      <p data-i18n="sec4Sub10Sub4Para1"></p>
+      <ul>
+        <li data-i18n="sec4Sub10Sub4Li1"></li>
+        <li data-i18n="sec4Sub10Sub4Li2"></li>
+        <li data-i18n="sec4Sub10Sub4Li3"></li>
+        <li data-i18n="sec4Sub10Sub4Li4"></li>
+      </ul>
+    </section>
+
+    <!-- Examples and Demonstrations -->
+    <section id="examples">
+      <h2 data-i18n="sec5Title"></h2>
+      <p data-i18n="sec5Para1"></p>
+
+      <h3 data-i18n="sec5Sub1Title"></h3>
+      <p data-i18n="sec5Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec5Sub1Li1"></li>
+        <li data-i18n="sec5Sub1Li2"></li>
+        <li data-i18n="sec5Sub1Li3"></li>
+        <li data-i18n="sec5Sub1Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec5Sub2Title"></h3>
+      <p data-i18n="sec5Sub2Para1"></p>
+      <ul>
+        <li data-i18n="sec5Sub2Li1"></li>
+        <li data-i18n="sec5Sub2Li2"></li>
+        <li data-i18n="sec5Sub2Li3"></li>
+        <li data-i18n="sec5Sub2Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec5Sub3Title"></h3>
+
+      <h4 data-i18n="sec5Sub3Case1Title"></h4>
+      <p data-i18n="sec5Sub3Case1Para"></p>
+
+      <h4 data-i18n="sec5Sub3Case2Title"></h4>
+      <p data-i18n="sec5Sub3Case2Para"></p>
+
+      <h4 data-i18n="sec5Sub3Case3Title"></h4>
+      <p data-i18n="sec5Sub3Case3Para"></p>
+      <ol>
+        <li data-i18n="sec5Sub3Case3Li1"></li>
+        <li data-i18n="sec5Sub3Case3Li2"></li>
+        <li data-i18n="sec5Sub3Case3Li3"></li>
+        <li data-i18n="sec5Sub3Case3Li4"></li>
+      </ol>
+      <p data-i18n="sec5Sub3Case3Result"></p>
+
+      <h3 data-i18n="sec5Sub4Title"></h3>
+      <p data-i18n="sec5Sub4Para1"></p>
+
+      <!-- Table 2: Validation Checklist -->
+      <div class="table-wrapper">
+        <table>
+          <caption data-i18n="table2Caption"></caption>
+          <thead>
+            <tr>
+              <th data-i18n="table2Header1"></th>
+              <th data-i18n="table2Header2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="table2Row1Col1"></td>
+              <td data-i18n="table2Row1Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row2Col1"></td>
+              <td data-i18n="table2Row2Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row3Col1"></td>
+              <td data-i18n="table2Row3Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row4Col1"></td>
+              <td data-i18n="table2Row4Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row5Col1"></td>
+              <td data-i18n="table2Row5Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row6Col1"></td>
+              <td data-i18n="table2Row6Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row7Col1"></td>
+              <td data-i18n="table2Row7Col2"></td>
+            </tr>
+            <tr>
+              <td data-i18n="table2Row8Col1"></td>
+              <td data-i18n="table2Row8Col2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Risks and Limitations -->
+    <section id="risks">
+      <h2 data-i18n="sec6Title"></h2>
+      <p data-i18n="sec6Para1"></p>
+
+      <h3 data-i18n="sec6Sub1Title"></h3>
+
+      <h4 data-i18n="sec6Sub1Sub1Title"></h4>
+      <p data-i18n="sec6Sub1Sub1Para1"></p>
+      <ul>
+        <li data-i18n="sec6Sub1Sub1Li1"></li>
+        <li data-i18n="sec6Sub1Sub1Li2"></li>
+        <li data-i18n="sec6Sub1Sub1Li3"></li>
+      </ul>
+
+      <h4 data-i18n="sec6Sub1Sub2Title"></h4>
+      <p data-i18n="sec6Sub1Sub2Para1"></p>
+      <ul>
+        <li data-i18n="sec6Sub1Sub2Li1"></li>
+        <li data-i18n="sec6Sub1Sub2Li2"></li>
+        <li data-i18n="sec6Sub1Sub2Li3"></li>
+      </ul>
+
+      <h3 data-i18n="sec6Sub2Title"></h3>
+      <p data-i18n="sec6Sub2Para1"></p>
+      <ul>
+        <li data-i18n="sec6Sub2Li1"></li>
+        <li data-i18n="sec6Sub2Li2"></li>
+        <li data-i18n="sec6Sub2Li3"></li>
+        <li data-i18n="sec6Sub2Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec6Sub3Title"></h3>
+      <p data-i18n="sec6Sub3Para1"></p>
+      <ul>
+        <li data-i18n="sec6Sub3Li1"></li>
+        <li data-i18n="sec6Sub3Li2"></li>
+        <li data-i18n="sec6Sub3Li3"></li>
+        <li data-i18n="sec6Sub3Li4"></li>
+        <li data-i18n="sec6Sub3Li5"></li>
+      </ul>
+
+      <h3 data-i18n="sec6Sub4Title"></h3>
+      <p data-i18n="sec6Sub4Para1"></p>
+      <ul>
+        <li data-i18n="sec6Sub4Li1"></li>
+        <li data-i18n="sec6Sub4Li2"></li>
+        <li data-i18n="sec6Sub4Li3"></li>
+        <li data-i18n="sec6Sub4Li4"></li>
+      </ul>
+      <p data-i18n="sec6Sub4Para2"></p>
+
+      <h3 data-i18n="sec6Sub5Title"></h3>
+      <p data-i18n="sec6Sub5Para1"></p>
+      <ol>
+        <li data-i18n="sec6Sub5Li1"></li>
+        <li data-i18n="sec6Sub5Li2"></li>
+        <li data-i18n="sec6Sub5Li3"></li>
+        <li data-i18n="sec6Sub5Li4"></li>
+        <li data-i18n="sec6Sub5Li5"></li>
+        <li data-i18n="sec6Sub5Li6"></li>
+        <li data-i18n="sec6Sub5Li7"></li>
+      </ol>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion">
+      <h2 data-i18n="sec7Title"></h2>
+      <p data-i18n="sec7Para1"></p>
+
+      <h3 data-i18n="sec7Sub1Title"></h3>
+      <p data-i18n="sec7Sub1Para1"></p>
+
+      <h4 data-i18n="sec7Sub1Sub1Title"></h4>
+      <ul>
+        <li data-i18n="sec7Sub1Sub1Li1"></li>
+        <li data-i18n="sec7Sub1Sub1Li2"></li>
+        <li data-i18n="sec7Sub1Sub1Li3"></li>
+        <li data-i18n="sec7Sub1Sub1Li4"></li>
+        <li data-i18n="sec7Sub1Sub1Li5"></li>
+      </ul>
+
+      <h4 data-i18n="sec7Sub1Sub2Title"></h4>
+      <ul>
+        <li data-i18n="sec7Sub1Sub2Li1"></li>
+        <li data-i18n="sec7Sub1Sub2Li2"></li>
+        <li data-i18n="sec7Sub1Sub2Li3"></li>
+        <li data-i18n="sec7Sub1Sub2Li4"></li>
+      </ul>
+
+      <h3 data-i18n="sec7Sub2Title"></h3>
+      <p data-i18n="sec7Sub2Para1"></p>
+      <ol>
+        <li data-i18n="sec7Sub2Li1"></li>
+        <li data-i18n="sec7Sub2Li2"></li>
+        <li data-i18n="sec7Sub2Li3"></li>
+        <li data-i18n="sec7Sub2Li4"></li>
+        <li data-i18n="sec7Sub2Li5"></li>
+        <li data-i18n="sec7Sub2Li6"></li>
+        <li data-i18n="sec7Sub2Li7"></li>
+      </ol>
+
+      <h3 data-i18n="sec7Sub3Title"></h3>
+      <p data-i18n="sec7Sub3Para1"></p>
+      <ul>
+        <li data-i18n="sec7Sub3Li1"></li>
+        <li data-i18n="sec7Sub3Li2"></li>
+        <li data-i18n="sec7Sub3Li3"></li>
+        <li data-i18n="sec7Sub3Li4"></li>
+        <li data-i18n="sec7Sub3Li5"></li>
+      </ul>
+
+      <h3 data-i18n="sec7Sub4Title"></h3>
+      <p data-i18n="sec7Sub4Para1"></p>
+      <p data-i18n="sec7Sub4Para2"></p>
+    </section>
+
+    <!-- Citations -->
+    <section id="citations">
+      <h2 data-i18n="citationsTitle"></h2>
+      <div class="references">
+        <p id="ref-1" data-i18n="ref1"></p>
+        <p id="ref-2" data-i18n="ref2"></p>
+        <p id="ref-3" data-i18n="ref3"></p>
+        <p id="ref-4" data-i18n="ref4"></p>
+        <p id="ref-5" data-i18n="ref5"></p>
+        <p id="ref-6" data-i18n="ref6"></p>
+        <p id="ref-7" data-i18n="ref7"></p>
+        <p id="ref-8" data-i18n="ref8"></p>
+        <p id="ref-9" data-i18n="ref9"></p>
+        <p id="ref-10" data-i18n="ref10"></p>
+        <p id="ref-11" data-i18n="ref11"></p>
+        <p id="ref-12" data-i18n="ref12"></p>
+        <p id="ref-13" data-i18n="ref13"></p>
+        <p id="ref-14" data-i18n="ref14"></p>
+        <p id="ref-15" data-i18n="ref15"></p>
+        <p id="ref-16" data-i18n="ref16"></p>
+        <p id="ref-17" data-i18n="ref17"></p>
+        <p id="ref-18" data-i18n="ref18"></p>
+        <p id="ref-19" data-i18n="ref19"></p>
+        <p id="ref-20" data-i18n="ref20"></p>
+        <p id="ref-21" data-i18n="ref21"></p>
+        <p id="ref-22" data-i18n="ref22"></p>
+        <p id="ref-23" data-i18n="ref23"></p>
+        <p id="ref-24" data-i18n="ref24"></p>
+        <p id="ref-25" data-i18n="ref25"></p>
+        <p id="ref-26" data-i18n="ref26"></p>
+        <p id="ref-27" data-i18n="ref27"></p>
+        <p id="ref-28" data-i18n="ref28"></p>
+        <p id="ref-29" data-i18n="ref29"></p>
+        <p id="ref-30" data-i18n="ref30"></p>
+        <p id="ref-31" data-i18n="ref31"></p>
+        <p id="ref-32" data-i18n="ref32"></p>
+        <p id="ref-33" data-i18n="ref33"></p>
+        <p id="ref-34" data-i18n="ref34"></p>
+        <p id="ref-35" data-i18n="ref35"></p>
+        <p id="ref-36" data-i18n="ref36"></p>
+        <p id="ref-37" data-i18n="ref37"></p>
+        <p id="ref-38" data-i18n="ref38"></p>
+        <p id="ref-39" data-i18n="ref39"></p>
+        <p id="ref-40" data-i18n="ref40"></p>
+        <p id="ref-41" data-i18n="ref41"></p>
+        <p id="ref-42" data-i18n="ref42"></p>
+        <p id="ref-43" data-i18n="ref43"></p>
+        <p id="ref-44" data-i18n="ref44"></p>
+        <p id="ref-45" data-i18n="ref45"></p>
+        <p id="ref-46" data-i18n="ref46"></p>
+        <p id="ref-47" data-i18n="ref47"></p>
+        <p id="ref-48" data-i18n="ref48"></p>
+        <p id="ref-49" data-i18n="ref49"></p>
+        <p id="ref-50" data-i18n="ref50"></p>
+        <p id="ref-51" data-i18n="ref51"></p>
+        <p id="ref-52" data-i18n="ref52"></p>
+        <p id="ref-53" data-i18n="ref53"></p>
+        <p id="ref-54" data-i18n="ref54"></p>
+        <p id="ref-55" data-i18n="ref55"></p>
+        <p id="ref-56" data-i18n="ref56"></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p data-i18n="footerText"></p>
+      <p data-i18n="footerCourse"></p>
+      <p class="footer-author" data-i18n="footerAuthor"></p>
+    </div>
+  </footer>
+</body>
+
+</html>

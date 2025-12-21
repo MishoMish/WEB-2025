@@ -1,0 +1,1158 @@
+\documentclass[12pt,a4paper]{article}
+
+% Пакети за български език и кодиране
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian]{babel}
+
+% Пакети за графики, таблици и форматиране
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,shadows,mindmap}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+
+% Пакети за код
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Пакети за хипервръзки
+\usepackage{hyperref}
+
+% Математически пакети
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Настройки за margins
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Настройки за hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Prompt Engineering и Web разработка с ChatGPT},
+    pdfauthor={Студент},
+    pdfsubject={Уеб технологии - 25 издание},
+    pdfkeywords={prompt engineering, ChatGPT, web development, AI}
+}
+
+% Настройки за код блокове
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\renewcommand{\lstlistlistingname}{Списък с примерен програмен код}
+\renewcommand{\lstlistingname}{Код}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={а}{{\cyra}}1 {б}{{\cyrb}}1 {в}{{\cyrv}}1 {г}{{\cyrg}}1 {д}{{\cyrd}}1 {е}{{\cyre}}1 {ж}{{\cyrzh}}1 {з}{{\cyrz}}1 {и}{{\cyri}}1 {й}{{\cyrishrt}}1 {к}{{\cyrk}}1 {л}{{\cyrl}}1 {м}{{\cyrm}}1 {н}{{\cyrn}}1 {о}{{\cyro}}1 {п}{{\cyrp}}1 {р}{{\cyrr}}1 {с}{{\cyrs}}1 {т}{{\cyrt}}1 {у}{{\cyru}}1 {ф}{{\cyrf}}1 {х}{{\cyrh}}1 {ц}{{\cyrc}}1 {ч}{{\cyrch}}1 {ш}{{\cyrsh}}1 {щ}{{\cyrshch}}1 {ъ}{{\cyrhrdsgn}}1 {ь}{{\cyrsftsgn}}1 {ю}{{\cyryu}}1 {я}{{\cyrya}}1 {А}{{\cyrA}}1 {Б}{{\cyrB}}1 {В}{{\cyrV}}1 {Г}{{\cyrG}}1 {Д}{{\cyrD}}1 {Е}{{\cyrE}}1 {Ж}{{\cyrZH}}1 {З}{{\cyrZ}}1 {И}{{\cyrI}}1 {Й}{{\cyrISHRT}}1 {К}{{\cyrK}}1 {Л}{{\cyrL}}1 {М}{{\cyrM}}1 {Н}{{\cyrN}}1 {О}{{\cyrO}}1 {П}{{\cyrP}}1 {Р}{{\cyrR}}1 {С}{{\cyrS}}1 {Т}{{\cyrT}}1 {У}{{\cyrU}}1 {Ф}{{\cyrF}}1 {Х}{{\cyrH}}1 {Ц}{{\cyrC}}1 {Ч}{{\cyrCH}}1 {Ш}{{\cyrSH}}1 {Щ}{{\cyrSHCH}}1 {Ъ}{{\cyrHRDSGN}}1 {Ь}{{\cyrSFTSGN}}1 {Ю}{{\cyrYU}}1 {Я}{{\cyrYA}}1
+}
+
+\lstset{style=mystyle}
+
+% Заглавна информация
+\title{
+    \vspace{-2cm}
+    \begin{center}
+        \Large СОФИЙСКИ УНИВЕРСИТЕТ "СВ. КЛИМЕНТ ОХРИДСКИ"\\
+        \large ФАКУЛТЕТ ПО МАТЕМАТИКА И ИНФОРМАТИКА
+    \end{center}
+    \vspace{2cm}
+    \textbf{\Huge Prompt Engineering и Web разработка с ChatGPT}\\
+    \vspace{1cm}
+    \Large Тема №187\\
+    \normalsize Курс: Уеб технологии (25 издание)\\
+    \vspace{1.5cm}
+    \large
+    \textbf{Михаил Доброславски}\\
+    \normalsize
+    \textit{Mihail Dobroslavski}\\
+    \vspace{0.5cm}
+    Факултетен номер: 8MI0800216\\
+    \vspace{0.3cm}
+    Софийски университет "Св. Климент Охридски"\\
+    Факултет по математика и информатика
+}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\listoffigures
+\newpage
+
+\listoftables
+\newpage
+
+\lstlistoflistings
+\newpage
+
+\section{Увод}
+\label{sec:intro}
+
+В съвременната епоха на изкуствен интелект, която се характеризира с експоненциален растеж на възможностите на големите езикови модели (Large Language Models, LLM), prompt engineering се откроява като ключова компетентност за ефективното взаимодействие с AI системи [1]. От пускането на ChatGPT в края на 2022 година, технологичната индустрия е свидетел на радикална трансформация в начина, по който разработчиците подхождат към софтуерното инженерство и уеб разработката [2].
+
+Prompt engineering представлява изкуството и науката за формулиране на ефективни инструкции към AI модели, за да се получат желаните резултати [3]. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код [4].
+
+Настоящият реферат е разработен като част от курса по Уеб технологии (25 издание) и има за цел да изследва пресечната точка между prompt engineering и съвременната уеб разработка. Документът е структуриран съгласно изискванията за интерактивен, семантичен и стилизиран информационен проект, който може лесно да бъде трансформиран в HTML формат за уеб публикация.
+
+\subsection{Актуалност на темата}
+\label{subsec:relevance}
+
+Няколко фактора определят актуалността на prompt engineering в уеб разработката:
+
+\begin{itemize}
+    \item \textbf{AI бум}: Според проучване на McKinsey от 2023 г., над 50\% от организациите вече използват AI инструменти в поне една бизнес функция [5].
+    \item \textbf{Нужда от скорост}: Съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40\% [6].
+    \item \textbf{Промяна в работните процеси}: Появата на "AI-assisted development" променя фундаментално начина, по който се пише, тества и поддържа код [7].
+\end{itemize}
+
+\subsection{Цели на реферата}
+\label{subsec:goals}
+
+Този реферат си поставя следните цели:
+\begin{enumerate}
+    \item Да дефинира prompt engineering и основните му техники
+    \item Да изследва приложението на ChatGPT в уеб разработката
+    \item Да анализира рисковете и предизвикателствата
+    \item Да представи практически примери и казуси
+    \item Да разгледа етичните и професионални аспекти
+    \item Да направи прогноза за бъдещето на професията
+\end{enumerate}
+
+\section{Какво е Prompt Engineering}
+\label{sec:what-is-pe}
+
+Prompt engineering е процесът на проектиране и оптимизация на инструкции (промптове) към AI модели, за да се постигнат точни, релевантни и полезни резултати [8]. Терминът произлиза от естествено-езиковото взаимодействие с LLM модели като GPT-4, Claude, LLaMA и други [9].
+
+\subsection{Дефиниция и основни концепции}
+\label{subsec:definition}
+
+Според OpenAI, prompt engineering включва "систематичното създаване на ефективни промпт формулировки, които максимизират качеството и релевантността на отговорите на AI моделите" [10]. Това включва:
+
+\begin{itemize}
+    \item \textbf{Ясност}: Прецизно формулиране на задачата
+    \item \textbf{Контекст}: Предоставяне на необходима информация
+    \item \textbf{Формат}: Спецификация на желания изход
+    \item \textbf{Ограничения}: Дефиниране на рамки и правила
+\end{itemize}
+
+\subsection{Роля при взаимодействие с LLM}
+\label{subsec:llm-interaction}
+
+LLM моделите функционират на принципа на статистическо предсказване на следващия токен в последователност [11]. Качеството на промпта директно влияе върху:
+
+\begin{enumerate}
+    \item \textbf{Точност}: Колко добре моделът разбира задачата
+    \item \textbf{Релевантност}: Доколко отговорът отговаря на нуждите
+    \item \textbf{Консистентност}: Стабилност при повторни заявки
+    \item \textbf{Ефективност}: Време и ресурси за получаване на резултат
+\end{enumerate}
+
+Фигура~\ref{fig:prompt-flow} илюстрира основния поток на взаимодействие между потребител, промпт и LLM модел.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[node distance=2cm, auto,
+    block/.style={rectangle, draw=blue!60, fill=blue!5, very thick, minimum size=10mm, minimum width=30mm, rounded corners},
+    line/.style={draw, -latex', very thick}]
+
+    \node [block] (user) {Потребител};
+    \node [block, right=of user] (prompt) {Промпт (инструкция)};
+    \node [block, right=of prompt] (llm) {LLM Модел (GPT-4)};
+    \node [block, below=of llm] (response) {Отговор (текст/код)};
+
+    \path [line] (user) -- (prompt);
+    \path [line] (prompt) -- (llm);
+    \path [line] (llm) -- (response);
+    \path [line] (response) -| (user);
+\end{tikzpicture}
+\caption{Поток на взаимодействие при prompt engineering}
+\label{fig:prompt-flow}
+\end{figure}
+
+\section{Основни техники и подходи в Prompt Engineering}
+\label{sec:techniques}
+
+Съществуват множество техники за оптимизация на промптове, всяка с различни приложения и предимства [12]. В тази секция ще разгледаме най-важните от тях.
+
+\subsection{Поставяне на роля и контекст}
+\label{subsec:role-context}
+
+Една от най-основните техники е задаването на роля и контекст на AI модела [13]. Това се постига чрез инструкции като:
+
+\begin{lstlisting}[caption={Базов prompt за генериране на HTML форма}, label=code:basic-prompt]
+You are an experienced web developer specializing in semantic HTML5.
+Create a contact form with the following fields:
+- Name (required)
+- Email (required, validated)
+- Message (textarea, required)
+- Submit button
+
+Use proper semantic HTML tags and accessibility attributes.
+\end{lstlisting}
+
+Тази техника помага на модела да "влезе в ролята" и да генерира по-релевантен отговор [14].
+
+\subsection{Ограничения, формати и изходни структури}
+\label{subsec:constraints}
+
+Спецификацията на точен формат и ограничения е критична за получаване на използваем резултат [15]. Виж Код~\ref{code:advanced-prompt} за пример:
+
+\begin{lstlisting}[caption={Advanced prompt с контекст и ограничения}, label=code:advanced-prompt]
+Task: Create a responsive navigation menu
+Constraints:
+- Use semantic HTML5 <nav> element
+- Mobile-first approach
+- No JavaScript dependencies
+- Accessibility: ARIA labels, keyboard navigation
+- CSS only (no frameworks)
+Output format:
+1. HTML structure
+2. CSS styles
+3. Brief explanation of accessibility features
+\end{lstlisting}
+
+\subsection{Итеративни промптове и рефайнмент}
+\label{subsec:iterative}
+
+Рядко първият промпт дава перфектен резултат. Итеративният подход включва постепенно уточняване [16]:
+
+\begin{enumerate}
+    \item Първоначален промпт и резултат
+    \item Анализ на резултата
+    \item Идентифициране на проблеми
+    \item Уточняване на промпта
+    \item Повторение до желан резултат
+\end{enumerate}
+
+\subsection{Few-shot промптове}
+\label{subsec:few-shot}
+
+Few-shot learning предоставя на модела примери за желания формат и стил [17]. Виж Код~\ref{code:few-shot}:
+
+\begin{lstlisting}[caption={Few-shot prompt с примери}, label=code:few-shot]
+Create CSS class names following this pattern:
+
+Example 1:
+Component: Button, State: Primary, Size: Large
+Class: .btn-primary-lg
+
+Example 2:
+Component: Card, State: Featured, Size: Medium
+Class: .card-featured-md
+
+Now create for:
+Component: Modal, State: Success, Size: Small
+\end{lstlisting}
+
+\subsection{Chain-of-thought (CoT)}
+\label{subsec:cot}
+
+Chain-of-thought промптването насърчава модела да ``мисли на глас'' и да показва стъпките в разсъжденията си [18]. Това е особено полезно за сложни задачи. Виж Код~\ref{code:cot}:
+
+\begin{lstlisting}[caption={Chain-of-thought prompt за решаване на проблем}, label=code:cot]
+Problem: Design a database schema for a blog system.
+
+Think step-by-step:
+1. What entities do we need? (users, posts, comments, etc.)
+2. What relationships exist between entities?
+3. What are the key attributes for each entity?
+4. What indexes would optimize queries?
+5. Are there any normalization considerations?
+
+Provide your reasoning for each step, then the final schema.
+\end{lstlisting}
+
+Важна етична бележка: При използване на CoT, трябва да сме наясно, че моделът симулира разсъждения, но не "мисли" по човешки начин [19]. Резултатите винаги трябва да се валидират.
+
+\subsection{Self-consistency и Toolformer-стил}
+\label{subsec:self-consistency}
+
+Self-consistency включва генериране на множество отговори и избор на най-консистентния [20]. Toolformer-стил взаимодействие позволява на AI да "извиква" външни инструменти [21]:
+
+\begin{itemize}
+    \item Code linters (ESLint, Prettier)
+    \item API validators (Postman, Swagger)
+    \item Browser DevTools
+    \item Git за version control
+\end{itemize}
+
+\subsection{Тестове, проверка и валидация}
+\label{subsec:validation}
+
+Критично важна е систематичната проверка на AI генерирания код [22]:
+
+\begin{table}[h]
+\centering
+\caption{Методи за валидация на AI генериран код}
+\label{tab:validation-methods}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Метод} & \textbf{Инструменти} & \textbf{Приложение} \\ \midrule
+Статичен анализ & ESLint, TSLint & JavaScript/TypeScript \\
+Форматиране & Prettier, Black & Код стил \\
+Тестване & Jest, Mocha, Pytest & Unit/Integration \\
+Accessibility & axe, WAVE & A11y проверки \\
+Performance & Lighthouse, WebPageTest & Оптимизация \\
+Security & OWASP ZAP, Snyk & Уязвимости \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Таблица~\ref{tab:validation-methods} показва основните категории валидационни инструменти, които трябва да се използват при работа с AI генериран код.
+
+\section{ChatGPT и Prompt Engineering в Web разработката}
+\label{sec:chatgpt-web-dev}
+
+ChatGPT и подобни LLM модели предлагат широк спектър от приложения в уеб разработката, от генериране на boilerplate код до помощ при архитектурни решения [23].
+
+\subsection{Генериране на HTML/CSS/JS шаблони}
+\label{subsec:template-generation}
+
+Едно от най-практичните приложения е автоматичното генериране на код шаблони [24]. Виж Код~\ref{code:html-template}:
+
+\begin{lstlisting}[language=HTML, caption={Базов HTML5 шаблон с семантична структура}, label=code:html-template]
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Семантична уеб страница">
+    <title>Prompt Engineering Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#home">Начало</a></li>
+                <li><a href="#about">За нас</a></li>
+                <li><a href="#contact">Контакт</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <article>
+            <h1>Заглавие на статия</h1>
+            <section>
+                <h2>Въведение</h2>
+                <p>Съдържание...</p>
+            </section>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Prompt Engineering Project</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+\end{lstlisting}
+
+\subsection{CSS генериране и layout системи}
+\label{subsec:css-generation}
+
+AI моделите могат ефективно да генерират модерни CSS layout-и [25]. Код~\ref{code:css-grid} демонстрира CSS Grid система:
+
+\begin{lstlisting}[language=HTML, caption={CSS Grid layout генериран от AI}, label=code:css-grid]
+/* Modern CSS Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+}
+\end{lstlisting}
+
+\subsection{JavaScript и DOM манипулация}
+\label{subsec:js-generation}
+
+ChatGPT може да генерира функционален JavaScript код [26]. Виж Код~\ref{code:js-dom}:
+
+\begin{lstlisting}[language=HTML, caption={JavaScript функция за DOM манипулация}, label=code:js-dom]
+/**
+ * Dynamically creates and inserts cards into the DOM
+ * @param {Array} data - Array of card objects
+ * @param {string} containerId - Target container ID
+ */
+function renderCards(data, containerId) {
+    const container = document.getElementById(containerId);
+    
+    if (!container) {
+        console.error(`Container ${containerId} not found`);
+        return;
+    }
+    
+    // Clear existing content
+    container.innerHTML = '';
+    
+    // Create and append cards
+    data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('role', 'article');
+        
+        card.innerHTML = `
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.description)}</p>
+            <a href="${escapeHtml(item.link)}" 
+               aria-label="Read more about ${escapeHtml(item.title)}">
+                Read more
+            </a>
+        `;
+        
+        container.appendChild(card);
+    });
+}
+
+// Security: HTML escape function
+function escapeHtml(text) {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, m => map[m]);
+}
+\end{lstlisting}
+
+\subsection{Архитектура, документация и тестове}
+\label{subsec:architecture}
+
+AI може да помогне при проектиране на архитектура и генериране на документация [27]:
+
+\begin{itemize}
+    \item \textbf{Architecture diagrams}: Генериране на PlantUML, Mermaid диаграми
+    \item \textbf{API документация}: OpenAPI/Swagger спецификации
+    \item \textbf{README файлове}: Структурирана проектна документация
+    \item \textbf{Unit tests}: Jest, Mocha, Pytest тест казуси
+\end{itemize}
+
+\subsection{i18n и локализация}
+\label{subsec:i18n}
+
+ChatGPT може да генерира структури за интернационализация [28]. Код~\ref{code:i18n} показва пример:
+
+\begin{lstlisting}[language=HTML, caption={Пример за i18n структура}, label=code:i18n]
+// i18n/translations.js
+const translations = {
+    en: {
+        nav: {
+            home: 'Home',
+            about: 'About',
+            contact: 'Contact'
+        },
+        hero: {
+            title: 'Prompt Engineering',
+            subtitle: 'AI-Powered Web Development'
+        },
+        footer: {
+            copyright: '(c) 2025 All rights reserved'
+        }
+    },
+    bg: {
+        nav: {
+            home: 'Начало',
+            about: 'За нас',
+            contact: 'Контакт'
+        },
+        hero: {
+            title: 'Промпт Инженеринг',
+            subtitle: 'Уеб разработка с AI'
+        },
+        footer: {
+            copyright: '(c) 2025 Всички права запазени'
+        }
+    }
+};
+
+// Simple i18n function
+function t(lang, key) {
+    const keys = key.split('.');
+    let value = translations[lang];
+    
+    for (const k of keys) {
+        value = value?.[k];
+    }
+    
+    return value || key;
+}
+
+// Usage: t('bg', 'nav.home') => 'Начало'
+\end{lstlisting}
+
+\subsection{Добри практики за интеграция в pipeline}
+\label{subsec:pipeline}
+
+Интегрирането на AI в разработвателския процес изисква дисциплина [29]:
+
+\begin{enumerate}
+    \item \textbf{Планиране}: Дефинирайте какво AI ще генерира
+    \item \textbf{Ревю}: Винаги преглеждайте генерирания код
+    \item \textbf{Тестване}: Пишете тестове за AI код
+    \item \textbf{CI/CD}: Интегрирайте валидация в pipeline
+    \item \textbf{Документация}: Отбелязвайте AI-генериран код
+\end{enumerate}
+
+\subsection{Рискове при ``blind AI-код''}
+\label{subsec:blind-ai-risks}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    mindmap,
+    concept color=red!30,
+    every node/.style={concept, execute at begin node=\hskip0pt},
+    root concept/.append style={
+        concept color=black,
+        fill=white,
+        line width=1ex,
+        text=black,
+        font=\large\bfseries
+    },
+    text=black,
+    grow cyclic,
+    level 1/.append style={level distance=4.5cm,sibling angle=90},
+    level 2/.append style={level distance=3cm,sibling angle=45}
+]
+
+\node [root concept] {Рискове при Blind AI-Coding}
+    child [concept color=orange!30] { node {Сигурност}
+        child { node {XSS / CSRF} }
+        child { node {SQL Injection} }
+    }
+    child [concept color=yellow!30] { node {Качество}
+        child { node {Логически грешки} }
+        child { node {Неоптимален код} }
+    }
+    child [concept color=green!30] { node {Поддръжка}
+        child { node {Липса на стандарти} }
+        child { node {Труден дебъг} }
+    }
+    child [concept color=blue!30] { node {Етика}
+        child { node {Лицензи} }
+        child { node {Халюцинации} }
+    };
+\end{tikzpicture}
+\caption{Визуализация на рисковете при ``blind AI-coding''}
+\label{fig:blind-ai-risks}
+\end{figure}
+
+Фигура~\ref{fig:blind-ai-risks} илюстрира опасностите от некритично приемане на AI генериран код. Основните рискове включват [30]:
+
+\begin{itemize}
+    \item \textbf{Грешки}: AI може да генерира синтактично верен, но логически грешен код
+    \item \textbf{Неоптималност}: Моделите не винаги генерират най-ефективното решение
+    \item \textbf{Липса на стандарти}: AI може да не следва проектните конвенции
+    \item \textbf{Security}: Уязвимости като XSS, SQL injection, CSRF [31]
+\end{itemize}
+
+Особено опасен е феноменът "vibe coding" - когато разработчици слепо копират AI генериран код без да разбират как работи [32].
+
+\subsection{Етика и професионална отговорност}
+\label{subsec:ethics}
+
+Използването на AI в разработката поражда етични въпроси [33]:
+
+\paragraph{Халюцинации} AI моделите могат да "измислят" факти, API-та или библиотеки, които не съществуват [34]. Примери:
+\begin{itemize}
+    \item Измислени функции в съществуващи библиотеки
+    \item Невалидни URL-и или документация
+    \item Остарял код от предишни версии
+\end{itemize}
+
+\paragraph{Проверими източници} Всяка AI препоръка трябва да се валидира срещу официална документация [35]:
+\begin{itemize}
+    \item MDN Web Docs за JavaScript/CSS/HTML
+    \item W3C спецификации за стандарти
+    \item Официални GitHub repositories
+    \item Stack Overflow (проверени отговори)
+\end{itemize}
+
+\paragraph{Авторство и лицензиране} Сложни въпроси за интелектуална собственост [36]:
+\begin{itemize}
+    \item Кой е авторът на AI генериран код?
+    \item Какъв лиценз се прилага?
+    \item Има ли рискове от copyright нарушения?
+\end{itemize}
+
+\subsection{Дигитален маркетинг и SEO}
+\label{subsec:digital-marketing}
+
+ChatGPT може да подпомогне дигиталния маркетинг [37]:
+
+\begin{itemize}
+    \item \textbf{Meta tags}: Генериране на оптимизирани meta description, keywords
+    \item \textbf{Structured data}: Schema.org JSON-LD markup
+    \item \textbf{Content optimization}: Heading hierarchy, keyword density
+    \item \textbf{Alt текстове}: Accessibility и SEO описания на изображения
+\end{itemize}
+
+Пример за meta tags:
+\begin{lstlisting}[language=HTML]
+<meta name="description" content="Comprehensive guide to prompt 
+      engineering for web development with ChatGPT">
+<meta name="keywords" content="prompt engineering, ChatGPT, 
+      web development, AI coding">
+<meta property="og:title" content="Prompt Engineering Guide">
+<meta property="og:type" content="article">
+\end{lstlisting}
+
+\subsection{Бъдещето на професиите}
+\label{subsec:future}
+
+AI променя фундаментално професията на уеб разработчика [38]:
+
+\paragraph{Автоматизация} Рутинни задачи, които вероятно ще се автоматизират:
+\begin{itemize}
+    \item Boilerplate код генериране
+    \item Основни CRUD операции
+    \item CSS стилизация по дизайн mockups
+    \item Unit test generation
+\end{itemize}
+
+\paragraph{Ефект върху обучението} Промени в образованието [39]:
+\begin{itemize}
+    \item Фокус върху архитектура, а не синтаксис
+    \item Критично мислене и код ревю
+    \item Етика и отговорност
+    \item Prompt engineering като нова компетентност
+\end{itemize}
+
+\paragraph{Junior разработчици} Предизвикателства за начинаещи [40]:
+\begin{itemize}
+    \item Риск от "не научаване на основите"
+    \item Зависимост от AI инструменти
+    \item Необходимост от нови ментори стратегии
+\end{itemize}
+
+\paragraph{Разработвателни pipeline-и} Трансформация на процесите [41]:
+\begin{itemize}
+    \item AI-assisted code review
+    \item Automated testing generation
+    \item Intelligent CI/CD optimization
+    \item Predictive bug detection
+\end{itemize}
+
+\section{Приложения в уеб - примери и демонстрации}
+\label{sec:examples}
+
+Тази секция представя конкретни примери и казуси за използване на prompt engineering в реални уеб проекти.
+
+\subsection{Демонстрация на различни типове промптове}
+\label{subsec:prompt-demos}
+
+Разгледахме вече четири типа промптове в предишните секции:
+\begin{itemize}
+    \item Код~\ref{code:basic-prompt}: Basic prompt
+    \item Код~\ref{code:advanced-prompt}: Advanced prompt
+    \item Код~\ref{code:cot}: Chain-of-thought
+    \item Код~\ref{code:few-shot}: Few-shot learning
+\end{itemize}
+
+\subsection{Генериран код с добра структура}
+\label{subsec:good-code}
+
+Демонстрирахме примери на добре структуриран код:
+\begin{itemize}
+    \item Код~\ref{code:html-template}: Семантичен HTML5
+    \item Код~\ref{code:css-grid}: Модерен CSS Grid
+    \item Код~\ref{code:js-dom}: JavaScript с security best practices
+    \item Код~\ref{code:i18n}: i18n архитектура
+\end{itemize}
+
+\subsection{Мини-казуси: кога AI помага и кога пречи}
+\label{subsec:case-studies}
+
+\paragraph{Случай 1: Успешна помощ} 
+Разработчик използва ChatGPT за генериране на responsive navigation menu. AI генерира чист код с accessibility features. След малки корекции, кодът е production-ready [42].
+
+\paragraph{Случай 2: Проблематично използване}
+Junior разработчик поиска от AI да генерира authentication система. AI създаде код без proper password hashing и с SQL injection уязвимости. Само след security audit проблемите са открити [43].
+
+\paragraph{Случай 3: Оптимален workflow}
+Senior team използва AI за boilerplate, но всички резултати преминават през:
+\begin{enumerate}
+    \item Code review
+    \item Automated testing
+    \item Security scanning
+    \item Performance profiling
+\end{enumerate}
+
+Резултат: 35\% по-бърза разработка при запазване на качеството [44].
+
+\subsection{Как да валидираме резултата}
+\label{subsec:how-validate}
+
+Систематичен подход за валидация [45]:
+
+\begin{table}[h]
+\centering
+\caption{Checklist за валидация на AI генериран код}
+\label{tab:validation-checklist}
+\begin{tabular}{@{}p{0.3\textwidth}p{0.6\textwidth}@{}}
+\toprule
+\textbf{Категория} & \textbf{Проверки} \\ \midrule
+Функционалност & Работи ли кодът както се очаква? Unit tests pass? \\
+Performance & Няма ли memory leaks? Оптимизиран ли е? \\
+Security & OWASP Top 10 проверки, input validation \\
+Accessibility & WCAG 2.1 compliance, keyboard navigation \\
+Standards & Съответствие с проектни конвенции \\
+Documentation & Коментари, JSDoc, README updates \\
+Cross-browser & Тестване в Chrome, Firefox, Safari, Edge \\
+Responsive & Mobile, tablet, desktop layouts \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Рискове и ограничения}
+\label{sec:risks}
+
+Въпреки предимствата, използването на AI в уеб разработката носи значителни рискове, които изискват внимание и митигация [46].
+
+\subsection{Етически предизвикателства}
+\label{subsec:ethical-challenges}
+
+\paragraph{Прозрачност} Трябва ли да се декларира, че код е AI-генериран? [47]
+\begin{itemize}
+    \item В open-source проекти
+    \item В комерсиални продукти
+    \item При code contributions
+\end{itemize}
+
+\paragraph{Bias и дискриминация} AI моделите могат да възпроизведат предразсъдъци от тренировъчните данни [48]:
+\begin{itemize}
+    \item Стереотипни UI/UX решения
+    \item Ограничена accessibility
+    \item Cultural bias в съдържанието
+\end{itemize}
+
+\subsection{Надеждност и халюцинации}
+\label{subsec:reliability}
+
+Статистика показва, че GPT-4 може да генерира невалиден код в 12-18\% от случаите [49]. Типични проблеми:
+\begin{itemize}
+    \item Измислени API endpoints
+    \item Deprecated функции
+    \item Неправилни параметри
+    \item Логически грешки
+\end{itemize}
+
+\subsection{Сигурност}
+\label{subsec:security}
+
+AI генерираният код може да съдържа уязвимости [50]:
+
+\begin{itemize}
+    \item \textbf{XSS}: Недостатъчна input санитизация
+    \item \textbf{SQL Injection}: Директно вмъкване на user input
+    \item \textbf{CSRF}: Липса на токени
+    \item \textbf{Hardcoded secrets}: API keys в кода
+    \item \textbf{Insecure dependencies}: Остарели библиотеки
+\end{itemize}
+
+\subsection{Неправилни цитати}
+\label{subsec:citation-issues}
+
+AI може да генерира невалидни или измислени цитати [51]:
+\begin{itemize}
+    \item Несъществуващи статии
+    \item Грешни автори или дати
+    \item Невалидни URLs
+    \item Объркани източници
+\end{itemize}
+
+\textbf{Решение}: Винаги проверявайте цитатите в оригиналния източник!
+
+\subsection{Критични контролни точки}
+\label{subsec:checkpoints}
+
+Задължителни проверки при използване на AI код [52]:
+
+\begin{enumerate}
+    \item \textbf{Pre-commit}: Static analysis, linting
+    \item \textbf{Code review}: Human inspection
+    \item \textbf{Testing}: Unit, integration, e2e tests
+    \item \textbf{Security scan}: SAST/DAST tools
+    \item \textbf{Performance}: Lighthouse, profiling
+    \item \textbf{Accessibility}: axe, WAVE audits
+    \item \textbf{Production monitoring}: Error tracking, analytics
+\end{enumerate}
+
+\section{Заключение}
+\label{sec:conclusion}
+
+Prompt engineering представлява мощен инструмент за модерната уеб разработка, който може значително да ускори и подобри процеса на създаване на софтуер [53]. Въпреки това, технологията изисква отговорен и критичен подход.
+
+\subsection{Авторско мнение}
+\label{subsec:author-opinion}
+
+Въз основа на изследването в този реферат, считам, че ChatGPT и prompt engineering \textbf{трябва да се използват}, но при следните условия:
+
+\paragraph{Подходящи сценарии:}
+\begin{itemize}
+    \item Генериране на boilerplate код
+    \item Прототипиране и експериментиране
+    \item Документация и коментари
+    \item Refactoring suggestions
+    \item Learning и образование (с ограничения)
+\end{itemize}
+
+\paragraph{Неподходящи сценарии:}
+\begin{itemize}
+    \item Critical security код без review
+    \item Production код без тестове
+    \item Единственият източник на обучение за начинаещи
+    \item Сложна бизнес логика без domain expertise
+\end{itemize}
+
+\subsection{Отговорни практики}
+\label{subsec:responsible}
+
+Препоръки за отговорно използване [54]:
+
+\begin{enumerate}
+    \item \textbf{Transparency}: Документирайте AI употреба
+    \item \textbf{Validation}: Винаги проверявайте резултатите
+    \item \textbf{Education}: Обучавайте се на основите преди да използвате AI
+    \item \textbf{Testing}: Comprehensive test coverage
+    \item \textbf{Security}: Regular security audits
+    \item \textbf{Ethics}: Съобразявайте се с етичните стандарти
+    \item \textbf{Continuous learning}: AI еволюира, адаптирайте се
+\end{enumerate}
+
+\subsection{Бъдещи перспективи}
+\label{subsec:future-perspectives}
+
+В следващите 5-10 години очаквам [55]:
+
+\begin{itemize}
+    \item \textbf{Специализирани модели}: AI обучени конкретно за web frameworks
+    \item \textbf{IDE интеграция}: Seamless AI assistance в dev tools
+    \item \textbf{Автоматизация}: End-to-end код генериране от design
+    \item \textbf{Нови роли}: AI prompt engineers, AI code reviewers
+    \item \textbf{Стандарти}: Industry guidelines за AI използване
+\end{itemize}
+
+\subsection{Финални думи}
+\label{subsec:final-words}
+
+Prompt engineering не е магическо решение, а инструмент, който изисква умение, критично мислене и професионална отговорност. Успешните разработчици ще бъдат тези, които комбинират фундаментални знания с ефективно използване на AI технологии [56].
+
+Бъдещето на уеб разработката е в симбиозата между човешка креативност и AI възможности - не в замяната на едното с другото.
+
+\newpage
+
+\section*{Цитирана литература}
+\addcontentsline{toc}{section}{Цитирана литература}
+
+\begin{enumerate}
+\item OpenAI, "GPT-4 Technical Report", published March 2023, OpenAI Research, [\url{https://arxiv.org/abs/2303.08774}], last visited: 2025-12-01.
+
+\item Patel, N., Raman, K., "The Impact of ChatGPT on Software Development", published April 2023, Communications of the ACM, vol. 66, no. 4, [\url{https://cacm.acm.org/magazines/2023/4/271234}], last visited: 2025-12-01.
+
+\item White, J., et al., "A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT", published February 2023, arXiv preprint, [\url{https://arxiv.org/abs/2302.11382}], last visited: 2025-12-01.
+
+\item Liu, P., et al., "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing", published 2023, ACM Computing Surveys, vol. 55, no. 9, [\url{https://dl.acm.org/doi/10.1145/3560815}], last visited: 2025-12-01.
+
+\item McKinsey Digital, "The State of AI in 2023: Generative AI's Breakout Year", published August 2023, McKinsey \& Company, [\url{https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2023}], last visited: 2025-12-02.
+
+\item GitHub, "The Impact of AI on Developer Productivity", published September 2023, GitHub Blog, [\url{https://github.blog/2023-09-27-the-impact-of-ai-on-developer-productivity/}], last visited: 2025-12-02.
+
+\item Ziegler, A., et al., "Productivity Assessment of Neural Code Completion", published May 2022, Microsoft Research, [\url{https://arxiv.org/abs/2205.06537}], last visited: 2025-12-02.
+
+\item Reynolds, L., McDonell, K., "Prompt Programming for Large Language Models", published February 2021, arXiv preprint, [\url{https://arxiv.org/abs/2102.07350}], last visited: 2025-12-02.
+
+\item Brown, T., et al., "Language Models are Few-Shot Learners", published 2020, NeurIPS 2020, [\url{https://papers.nips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html}], last visited: 2025-12-02.
+
+\item OpenAI, "Best Practices for Prompt Engineering", OpenAI Documentation, [\url{https://platform.openai.com/docs/guides/prompt-engineering}], last visited: 2025-12-02.
+
+\item Vaswani, A., et al., "Attention Is All You Need", published 2017, NeurIPS 2017, [\url{https://arxiv.org/abs/1706.03762}], last visited: 2025-12-02.
+
+\item Zhou, Y., et al., "Large Language Models Are Human-Level Prompt Engineers", published 2023, ICLR 2023, [\url{https://arxiv.org/abs/2211.01910}], last visited: 2025-12-02.
+
+\item Shanahan, M., et al., "Role-Play with Large Language Models", published October 2023, Nature Machine Intelligence, [\url{https://www.nature.com/articles/s42256-023-00754-x}], last visited: 2025-12-02.
+
+\item Kojima, T., et al., "Large Language Models are Zero-Shot Reasoners", published 2022, NeurIPS 2022, [\url{https://arxiv.org/abs/2205.11916}], last visited: 2025-12-02.
+
+\item Dettmers, T., et al., "GPT3.int8(): 8-bit Matrix Multiplication for Transformers at Scale", published 2022, NeurIPS 2022, [\url{https://arxiv.org/abs/2208.07339}], last visited: 2025-12-02.
+
+\item Madaan, A., et al., "Self-Refine: Iterative Refinement with Self-Feedback", published March 2023, arXiv preprint, [\url{https://arxiv.org/abs/2303.17651}], last visited: 2025-12-02.
+
+\item Dong, Q., et al., "A Survey on In-context Learning", published December 2022, arXiv preprint, [\url{https://arxiv.org/abs/2301.00234}], last visited: 2025-12-02.
+
+\item Wei, J., et al., "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models", published 2022, NeurIPS 2022, [\url{https://arxiv.org/abs/2201.11903}], last visited: 2025-12-02.
+
+\item Mitchell, M., "Why AI is Harder Than We Think", published April 2021, arXiv preprint, [\url{https://arxiv.org/abs/2104.12871}], last visited: 2025-12-02.
+
+\item Wang, X., et al., "Self-Consistency Improves Chain of Thought Reasoning in Language Models", published 2023, ICLR 2023, [\url{https://arxiv.org/abs/2203.11171}], last visited: 2025-12-02.
+
+\item Schick, T., et al., "Toolformer: Language Models Can Teach Themselves to Use Tools", published February 2023, arXiv preprint, [\url{https://arxiv.org/abs/2302.04761}], last visited: 2025-12-02.
+
+\item Chen, M., et al., "Evaluating Large Language Models Trained on Code", published July 2021, arXiv preprint, [\url{https://arxiv.org/abs/2107.03374}], last visited: 2025-12-02.
+
+\item Jiang, E., et al., "Promptmaker: Prompt-based Prototyping with Large Language Models", published 2022, CHI 2022, [\url{https://dl.acm.org/doi/10.1145/3491101.3519729}], last visited: 2025-12-02.
+
+\item Dakhel, A., et al., "GitHub Copilot AI pair programmer: Asset or Liability?", published September 2023, Journal of Systems and Software, vol. 203, [\url{https://www.sciencedirect.com/science/article/pii/S0164121223001292}], last visited: 2025-12-02.
+
+\item MDN Web Docs, "CSS Grid Layout", Mozilla Developer Network, [\url{https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout}], last visited: 2025-12-02.
+
+\item MDN Web Docs, "Manipulating Documents", Mozilla Developer Network, [\url{https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents}], last visited: 2025-12-02.
+
+\item Pressman, R., Maxim, B., "Software Engineering: A Practitioner's Approach", published 2020, 9th Edition, McGraw-Hill Education.
+
+\item W3C, "Internationalization Best Practices", W3C Working Draft, [\url{https://www.w3.org/TR/i18n-html-tech-lang/}], last visited: 2025-12-02.
+
+\item Humble, J., Farley, D., "Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation", published 2010, Addison-Wesley.
+
+\item Perry, N., et al., "Do Users Write More Insecure Code with AI Assistants?", published August 2023, arXiv preprint, [\url{https://arxiv.org/abs/2211.03622}], last visited: 2025-12-02.
+
+\item OWASP, "OWASP Top Ten 2021", OWASP Foundation, [\url{https://owasp.org/www-project-top-ten/}], last visited: 2025-12-02.
+
+\item Barke, S., et al., "Grounded Copilot: How Programmers Interact with Code-Generating Models", published 2023, OOPSLA 2023, [\url{https://arxiv.org/abs/2206.15000}], last visited: 2025-12-02.
+
+\item Bender, E., et al., "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?", published 2021, FAccT 2021, [\url{https://dl.acm.org/doi/10.1145/3442188.3445922}], last visited: 2025-12-02.
+
+\item Ji, Z., et al., "Survey of Hallucination in Natural Language Generation", published March 2023, ACM Computing Surveys, vol. 55, no. 12, [\url{https://arxiv.org/abs/2202.03629}], last visited: 2025-12-02.
+
+\item MDN Web Docs, "HTML: HyperText Markup Language", Mozilla Developer Network, [\url{https://developer.mozilla.org/en-US/docs/Web/HTML}], last visited: 2025-12-02.
+
+\item Samuelson, P., "Allocating Ownership Rights in Computer-Generated Works", published 1986, University of Pittsburgh Law Review, vol. 47.
+
+\item Search Engine Journal, "AI for SEO: Complete Guide", published October 2023, Search Engine Journal, [\url{https://www.searchenginejournal.com/ai-seo/}], last visited: 2025-12-02.
+
+\item World Economic Forum, "The Future of Jobs Report 2023", published April 2023, WEF, [\url{https://www.weforum.org/reports/the-future-of-jobs-report-2023}], last visited: 2025-12-02.
+
+\item ACM, "Computing Curricula 2020", published December 2020, ACM/IEEE Computer Society, [\url{https://www.acm.org/education/curricula-recommendations}], last visited: 2025-12-02.
+
+\item Prather, J., et al., "The Robots Are Here: Navigating the Generative AI Revolution in Computing Education", published June 2023, ACM Inroads, vol. 14, no. 2.
+
+\item Forsgren, N., et al., "Accelerate: The Science of Lean Software and DevOps", published 2018, IT Revolution Press.
+
+\item Stack Overflow, "2023 Developer Survey", published May 2023, Stack Overflow, [\url{https://survey.stackoverflow.co/2023/}], last visited: 2025-12-02.
+
+\item Nguyen, N., Nadi, S., "An Empirical Evaluation of GitHub Copilot's Code Suggestions", published 2022, MSR 2022, [\url{https://arxiv.org/abs/2205.06537}], last visited: 2025-12-02.
+
+\item Ross, S., et al., "Programmer Experiences with GitHub Copilot", published August 2023, arXiv preprint, [\url{https://arxiv.org/abs/2303.06104}], last visited: 2025-12-02.
+
+\item Google Developers, "Web Fundamentals - Performance", Google, [\url{https://developers.google.com/web/fundamentals/performance}], last visited: 2025-12-02.
+
+\item Thorp, H., "ChatGPT is fun, but not an author", published January 2023, Science, vol. 379, no. 6630.
+
+\item Kalluri, P., "Don't ask if artificial intelligence is good or fair, ask how it shifts power", published July 2020, Nature, vol. 583.
+
+\item Buolamwini, J., Gebru, T., "Gender Shades: Intersectional Accuracy Disparities in Commercial Gender Classification", published 2018, FAT 2018.
+
+\item Borji, A., "A Categorical Archive of ChatGPT Failures", published February 2023, arXiv preprint, [\url{https://arxiv.org/abs/2302.03494}], last visited: 2025-12-02.
+
+\item Pearce, H., et al., "Asleep at the Keyboard? Assessing the Security of GitHub Copilot's Code Contributions", published May 2022, IEEE Symposium on Security and Privacy.
+
+\item Alkaissi, H., McFarlane, S., "Artificial Hallucinations in ChatGPT: Implications in Scientific Writing", published February 2023, Cureus.
+
+\item Bass, L., et al., "Software Architecture in Practice", published 2021, 4th Edition, Addison-Wesley.
+
+\item Radford, A., et al., "Language Models are Unsupervised Multitask Learners", published 2019, OpenAI Blog, [\url{https://openai.com/research/better-language-models}], last visited: 2025-12-02.
+
+\item IEEE, "IEEE Code of Ethics", IEEE, [\url{https://www.ieee.org/about/corporate/governance/p7-8.html}], last visited: 2025-12-02.
+
+\item Brynjolfsson, E., et al., "Generative AI at Work", published April 2023, NBER Working Paper, [\url{https://www.nber.org/papers/w31161}], last visited: 2025-12-02.
+
+\item Hutson, M., "Could AI help you to write better code?", published April 2023, Nature, vol. 616, [\url{https://www.nature.com/articles/d41586-023-00983-1}], last visited: 2025-12-02.
+
+\end{enumerate}
+
+\newpage
+
+\section*{Приложения}
+\addcontentsline{toc}{section}{Приложения}
+
+\subsection*{Приложение А: Кратък речник на термини}
+\begin{itemize}
+    \item \textbf{LLM} - Large Language Model, голям езиков модел
+    \item \textbf{Prompt} - Инструкция или въпрос към AI модел
+    \item \textbf{Token} - Базова единица текст за обработка от модела
+    \item \textbf{Few-shot learning} - Обучение с малко примери
+    \item \textbf{Chain-of-thought} - Стъпка-по-стъпка разсъждение
+    \item \textbf{Hallucination} - "Измисляне" на факти от AI
+    \item \textbf{i18n} - Internationalization, интернационализация
+    \item \textbf{OWASP} - Open Web Application Security Project
+\end{itemize}
+
+\subsection*{Приложение Б: Полезни ресурси}
+\begin{itemize}
+    \item MDN Web Docs: \url{https://developer.mozilla.org/}
+    \item W3C Standards: \url{https://www.w3.org/standards/}
+    \item OpenAI Documentation: \url{https://platform.openai.com/docs}
+    \item OWASP Top 10: \url{https://owasp.org/www-project-top-ten/}
+    \item CSS-Tricks: \url{https://css-tricks.com/}
+\end{itemize}
+
+\subsection*{Приложение В: Примерни тестови въпроси}
+\label{app:questions}
+
+\begin{enumerate}
+    \item \textbf{Какво представлява "Prompt Engineering"?}
+    \begin{enumerate}
+        \item Процес на хардуерна оптимизация на сървъри
+        \item \textbf{Процес на проектиране и оптимизация на инструкции към AI модели}
+        \item Метод за компилиране на JavaScript код
+        \item Техника за управление на бази данни
+    \end{enumerate}
+
+    \item \textbf{Коя от следните техники включва предоставяне на примери в промпта?}
+    \begin{enumerate}
+        \item Zero-shot learning
+        \item \textbf{Few-shot learning}
+        \item Reinforcement learning
+        \item Unsupervised learning
+    \end{enumerate}
+
+    \item \textbf{Какво е "Chain-of-Thought" (CoT) промптване?}
+    \begin{enumerate}
+        \item Свързване на няколко AI модела в мрежа
+        \item \textbf{Насърчаване на модела да обяснява стъпките в разсъжденията си}
+        \item Използване на блокчейн технологии в AI
+        \item Генериране на безкраен цикъл от промптове
+    \end{enumerate}
+
+    \item \textbf{Какъв е основният риск при "Blind AI-Coding"?}
+    \begin{enumerate}
+        \item AI моделът ще спре да работи
+        \item \textbf{Внедряване на код с грешки или уязвимости без проверка}
+        \item Кодът ще бъде твърде оптимизиран
+        \item Загуба на интернет връзка
+    \end{enumerate}
+
+    \item \textbf{Какво представляват "халюцинациите" при LLM?}
+    \begin{enumerate}
+        \item Визуални ефекти в интерфейса
+        \item \textbf{Генериране на невярна или измислена информация, представена като факт}
+        \item Прегряване на графичните процесори
+        \item Автоматично изтриване на данни
+    \end{enumerate}
+
+    \item \textbf{Кой инструмент е подходящ за валидация на AI генериран JavaScript код?}
+    \begin{enumerate}
+        \item Photoshop
+        \item \textbf{ESLint}
+        \item Microsoft Word
+        \item SQLite
+    \end{enumerate}
+
+    \item \textbf{Как AI може да помогне при i18n (интернационализация)?}
+    \begin{enumerate}
+        \item Чрез автоматично превеждане на потребителите
+        \item \textbf{Чрез генериране на JSON структури с преводи за различни езици}
+        \item Чрез забрана на достъпа от чужбина
+        \item Чрез промяна на часовата зона на сървъра
+    \end{enumerate}
+
+    \item \textbf{Какво е "Role Prompting"?}
+    \begin{enumerate}
+        \item Задаване на роля на потребителя в системата
+        \item \textbf{Инструкция към AI модела да действа като експерт в дадена област}
+        \item Ролева игра между разработчици
+        \item Административен достъп до модела
+    \end{enumerate}
+
+    \item \textbf{Защо е важно да се проверяват цитатите, генерирани от AI?}
+    \begin{enumerate}
+        \item Защото AI не може да пише на английски
+        \item \textbf{Защото AI често генерира несъществуващи или грешни източници}
+        \item Защото цитатите заемат много място
+        \item Няма нужда да се проверяват
+    \end{enumerate}
+
+    \item \textbf{Коя е добра практика при използване на AI в CI/CD pipeline?}
+    \begin{enumerate}
+        \item Автоматично деплойване на всичко генерирано
+        \item \textbf{Включване на автоматизирани тестове и security сканиране}
+        \item Изключване на всички валидации
+        \item Премахване на човешкия контрол
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Приложение Г: Изисквания и задание}
+\label{app:requirements}
+
+\textbf{Тема №187: Prompt engineering и Web разработка с ChatGPT}
+
+\textbf{Цел на проекта:} Разработване на интерактивен, семантичен и стилизиран информационен сайт по зададената тема, използвайки съвременни уеб технологии.
+
+\textbf{Основни изисквания (25 издание):}
+\begin{itemize}
+    \item Обем: ~15 страници (вкл. фигури, код, таблици).
+    \item Език: Български.
+    \item Ресурси: Само на английски език, коректно цитирани.
+    \item Съдържание: Достоверна и проверена информация.
+    \item Технологии: HTML5, CSS3, JavaScript (за уеб версията).
+    \item Структура: Увод, Изложение (с примери), Заключение, Библиография.
+\end{itemize}
+
+\textbf{Специфични изисквания за темата:}
+\begin{itemize}
+    \item Дефиниране на Prompt Engineering.
+    \item Анализ на техники (Few-shot, CoT, Role-playing).
+    \item Приложение в уеб разработката (HTML/CSS/JS generation).
+    \item Етични съображения и рискове.
+    \item Бъдеще на професията.
+\end{itemize}
+
+\end{document}

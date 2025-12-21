@@ -1,0 +1,53 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="300" fill="var(--svg-bg, #f8f9fa)"/>
+  
+  <!-- User -->
+  <rect x="50" y="100" width="150" height="100" rx="10" fill="var(--svg-panel-bg, #ecf0f1)" stroke="var(--svg-border, #bdc3c7)" stroke-width="2"/>
+  <text x="125" y="140" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--svg-text, #2c3e50)">Потребител</text>
+  <text x="125" y="160" text-anchor="middle" font-size="14" fill="var(--svg-text, #2c3e50)">(User)</text>
+  
+  <!-- Prompt -->
+  <rect x="325" y="100" width="150" height="100" rx="10" fill="var(--svg-panel-bg, #ecf0f1)" stroke="var(--svg-border, #bdc3c7)" stroke-width="2"/>
+  <text x="400" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--svg-text, #2c3e50)">Промпт</text>
+  <text x="400" y="150" text-anchor="middle" font-size="14" fill="var(--svg-text, #2c3e50)">(инструкция)</text>
+  <text x="400" y="170" text-anchor="middle" font-size="12" fill="var(--svg-text, #2c3e50)">(Prompt/Instruction)</text>
+  
+  <!-- LLM Model -->
+  <rect x="600" y="100" width="150" height="100" rx="10" fill="var(--svg-panel-bg, #ecf0f1)" stroke="var(--svg-border, #bdc3c7)" stroke-width="2"/>
+  <text x="675" y="130" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--svg-text, #2c3e50)">LLM Модел</text>
+  <text x="675" y="150" text-anchor="middle" font-size="14" fill="var(--svg-text, #2c3e50)">(GPT-4)</text>
+  <text x="675" y="170" text-anchor="middle" font-size="12" fill="var(--svg-text, #2c3e50)">(LLM Model)</text>
+  
+  <!-- Response -->
+  <rect x="600" y="230" width="150" height="50" rx="10" fill="#27ae60" fill-opacity="0.1" stroke="#27ae60" stroke-width="2"/>
+  <text x="675" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#27ae60">Отговор (текст/код)</text>
+  <text x="675" y="268" text-anchor="middle" font-size="12" fill="#27ae60">(Response: text/code)</text>
+  
+  <!-- Arrows -->
+  <!-- User to Prompt -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3498db"/>
+    </marker>
+  </defs>
+  
+  <line x1="200" y1="150" x2="325" y2="150" stroke="#3498db" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="262" y="140" text-anchor="middle" font-size="12" fill="#3498db">1. Изпраща</text>
+  
+  <!-- Prompt to LLM -->
+  <line x1="475" y1="150" x2="600" y2="150" stroke="#3498db" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="537" y="140" text-anchor="middle" font-size="12" fill="#3498db">2. Обработва</text>
+  
+  <!-- LLM to Response -->
+  <line x1="675" y1="200" x2="675" y2="230" stroke="#3498db" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="705" y="220" text-anchor="start" font-size="12" fill="#3498db">3. Генерира</text>
+  
+  <!-- Response to User (curved) -->
+  <path d="M 600 255 Q 400 290, 200 180" fill="none" stroke="#27ae60" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="400" y="295" text-anchor="middle" font-size="12" fill="#27ae60">4. Връща резултат</text>
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="var(--svg-text, #2c3e50)">Поток на взаимодействие при Prompt Engineering</text>
+  <text x="400" y="50" text-anchor="middle" font-size="14" fill="var(--svg-text, #7f8c8d)">Interaction Flow in Prompt Engineering</text>
+</svg>
