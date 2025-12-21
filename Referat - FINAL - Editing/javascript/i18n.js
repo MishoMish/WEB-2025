@@ -37,20 +37,9 @@ const translations = {
         sec1Para2: "Prompt engineering представлява изкуството и науката за формулиране на ефективни инструкции към AI модели, за да се получат желаните резултати <a href='#ref-3'>[3]</a>. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код <a href='#ref-4'>[4]</a>.",
         sec1Para3: "Настоящият реферат е разработен като част от курса по Уеб технологии (25 издание) и има за цел да изследва пресечната точка между prompt engineering и съвременната уеб разработка. Документът е структуриран съгласно изискванията за интерактивен, семантичен и стилизиран информационен проект, който може лесно да бъде трансформиран в HTML формат за уеб публикация.",
         
-        sec1Sub1Title: "1.1. Актуалност на темата",
-        sec1Sub1Para1: "Няколко фактора определят актуалността на prompt engineering в уеб разработката:",
-        sec1Sub1Li1: "<strong>AI бум:</strong> Според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>.",
-        sec1Sub1Li2: "<strong>Нужда от скорост:</strong> Съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>.",
-        sec1Sub1Li3: "<strong>Промяна в работните процеси:</strong> Появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код <a href='#ref-7'>[7]</a>.",
+        sec1Para4: "Актуалността на prompt engineering в уеб разработката се определя от няколко ключови фактора. Първо, наблюдаваме безпрецедентен AI бум - според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>. Второ, съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>. Трето, появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код <a href='#ref-7'>[7]</a>. Тези трансформации правят владеенето на prompt engineering критична компетентност за съвременния уеб разработчик.",
         
-        sec1Sub2Title: "1.2. Цели на реферата",
-        sec1Sub2Para1: "Този реферат си поставя следните цели:",
-        sec1Sub2Li1: "Да дефинира prompt engineering и основните му техники",
-        sec1Sub2Li2: "Да изследва приложението на ChatGPT в уеб разработката",
-        sec1Sub2Li3: "Да анализира рисковете и предизвикателствата",
-        sec1Sub2Li4: "Да представи практически примери и казуси",
-        sec1Sub2Li5: "Да разгледа етичните и професионални аспекти",
-        sec1Sub2Li6: "Да направи прогноза за бъдещето на професията",
+        sec1Para5: "Настоящият реферат си поставя амбициозни цели в изследването на тази нововъзникваща област. Документът цели да дефинира prompt engineering и основните му техники, да изследва приложението на ChatGPT в уеб разработката, както и да анализира рисковете и предизвикателствата, свързани с използването на AI инструменти. Освен това, рефератът представя практически примери и казуси от реална практика, разглежда етичните и професионални аспекти на AI-асистираната разработка, и прави прогноза за бъдещето на професията в контекста на нарастващата автоматизация и интелигентни помощници.",
         
         // Section 2: What is Prompt Engineering
         sec2Title: "2. Какво е Prompt Engineering",
@@ -488,20 +477,9 @@ const translations = {
         sec1Para2: "Prompt engineering represents the art and science of formulating effective instructions to AI models to obtain desired results <a href='#ref-3'>[3]</a>. In the context of web development, this discipline offers unprecedented opportunities for accelerating development, automating routine tasks, and generating high-quality code <a href='#ref-4'>[4]</a>.",
         sec1Para3: "This paper is developed as part of the Web Technologies course (25th edition) and aims to explore the intersection between prompt engineering and modern web development. The document is structured according to requirements for an interactive, semantic, and styled information project that can easily be transformed into HTML format for web publication.",
         
-        sec1Sub1Title: "1.1. Relevance of the Topic",
-        sec1Sub1Para1: "Several factors determine the relevance of prompt engineering in web development:",
-        sec1Sub1Li1: "<strong>AI Boom:</strong> According to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>.",
-        sec1Sub1Li2: "<strong>Need for Speed:</strong> Modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>.",
-        sec1Sub1Li3: "<strong>Workflow Changes:</strong> The emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained <a href='#ref-7'>[7]</a>.",
+        sec1Para4: "The relevance of prompt engineering in web development is determined by several key factors. First, we are witnessing an unprecedented AI boom - according to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>. Second, modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>. Third, the emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained <a href='#ref-7'>[7]</a>. These transformations make mastery of prompt engineering a critical competency for the modern web developer.",
         
-        sec1Sub2Title: "1.2. Objectives of the Paper",
-        sec1Sub2Para1: "This paper sets the following objectives:",
-        sec1Sub2Li1: "To define prompt engineering and its main techniques",
-        sec1Sub2Li2: "To explore the application of ChatGPT in web development",
-        sec1Sub2Li3: "To analyze risks and challenges",
-        sec1Sub2Li4: "To present practical examples and case studies",
-        sec1Sub2Li5: "To examine ethical and professional aspects",
-        sec1Sub2Li6: "To make predictions about the future of the profession",
+        sec1Para5: "This paper sets ambitious goals in researching this emerging field. The document aims to define prompt engineering and its main techniques, to explore the application of ChatGPT in web development, and to analyze the risks and challenges associated with using AI tools. Additionally, the paper presents practical examples and case studies from real-world practice, examines the ethical and professional aspects of AI-assisted development, and makes predictions about the future of the profession in the context of increasing automation and intelligent assistants.",
         
         // Section 2: What is Prompt Engineering
         sec2Title: "2. What is Prompt Engineering",
