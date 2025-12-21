@@ -18,6 +18,7 @@ const translations = {
         
         // Navigation
         navAbstract: "Резюме",
+        navTerminology: "Терминология",
         navIntroduction: "Въведение",
         navWhatIsPE: "Какво е PE",
         navTechniques: "Техники",
@@ -29,68 +30,88 @@ const translations = {
         
         // Abstract
         abstractTitle: "Резюме",
-        abstractText: "В съвременната епоха на изкуствен интелект, prompt engineering се откроява като ключова компетентност за ефективното взаимодействие с AI системи. Настоящият реферат изследва приложението на prompt engineering в контекста на уеб разработката с ChatGPT. Разглеждат се основните техники (Few-shot learning, Chain-of-Thought, Role-based prompting), практически приложения за генериране на HTML/CSS/JavaScript код, както и рисковете и етичните предизвикателства. Анализират се въпросите на сигурността, надеждността и професионалната отговорност при използване на AI-генериран код. Изследването подчертава необходимостта от балансиран подход, съчетаващ възможностите на AI с критично мислене и фундаментални знания в уеб разработката.",
+        abstractText: "В съвременната епоха на изкуствен интелект, <a href='#term-prompt-eng'>инженерството на промптове</a> се откроява като ключова компетентност за ефективното взаимодействие с AI системи. Настоящият реферат изследва приложението на <a href='#term-prompt-eng'>инженерството на промптове</a> в контекста на уеб разработката с ChatGPT. Разглеждат се основните техники (<a href='#term-few-shot'>few-shot learning</a>, <a href='#term-cot'>chain-of-thought</a>, role-based prompting), практически приложения за генериране на HTML/CSS/JavaScript код, както и рисковете и етичните предизвикателства. Анализират се въпросите на сигурността, надеждността и професионалната отговорност при използване на AI-генериран код. Изследването подчертава необходимостта от балансиран подход, съчетаващ възможностите на AI с критично мислене и фундаментални знания в уеб разработката.",        
+        // Terminology
+        terminologyTitle: "Терминология",
+        terminologyIntro: "За по-добро разбиране на текста, в този раздел са дефинирани ключовите термини, които се използват в реферата:",
         
+        termPromptTitle: "Промпт (Prompt)",
+        termPromptDef: "Текстова инструкция или заявка, която се изпраща на AI модел за генериране на отговор. Промптът съдържа задачата, контекста, ограниченията и желания формат на изхода. В този документ терминът ще се използва последователно на кирилица (\"промпт\").",
+        
+        termPromptEngTitle: "Инженерство на промптове (Prompt Engineering)",
+        termPromptEngDef: "Дисциплината по проектиране и оптимизация на <a href='#term-prompt'>промптове</a> за постигане на най-добри резултати от AI моделите. Включва техники като <a href='#term-few-shot'>few-shot learning</a>, <a href='#term-cot'>chain-of-thought</a> и role-based prompting.",
+        
+        termLLMTitle: "LLM (Large Language Model)",
+        termLLMDef: "Голям езиков модел - AI система, обучена върху огромни количества текстови данни, която може да разбира и генерира човешки език. Примери: GPT-4, Claude, LLaMA.",
+        
+        termFewShotTitle: "Few-shot Learning",
+        termFewShotDef: "Техника, при която в <a href='#term-prompt'>промпта</a> се предоставят няколко примера на желания формат или стил на отговор, за да моделът може да ги имитира.",
+        
+        termCoTTitle: "Верига на мисълта (Chain-of-Thought, CoT)",
+        termCoTDef: "Метод за подобряване на разсъжденията на AI, при който моделът се насърчава да \"мисли на глас\" и да покаже стъпките при решаване на сложни задачи.",
+        
+        termHallucinationTitle: "Халюцинация",
+        termHallucinationDef: "Явление, при което AI моделът генерира измислена или неверна информация, представяйки я като факт. Може да включва несъществуващи функции, API-та или библиотеки.",        
         // Section 1: Introduction
         sec1Title: "1. Въведение",
-        sec1Para1: "В съвременната епоха на изкуствен интелект, която се характеризира с експоненциален растеж на възможностите на големите езикови модели (Large Language Models, LLM), prompt engineering се откроява като ключова компетентност за ефективното взаимодействие с AI системи <a href='#ref-1'>[1]</a>. От пускането на ChatGPT в края на 2022 година, технологичната индустрия е свидетел на радикална трансформация в начина, по който разработчиците подхождат към софтуерното инженерство и уеб разработката <a href='#ref-2'>[2]</a>.",
-        sec1Para2: "Prompt engineering представлява изкуството и науката за формулиране на ефективни инструкции към AI модели, за да се получат желаните резултати <a href='#ref-3'>[3]</a>. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код <a href='#ref-4'>[4]</a>.",
-        sec1Para3: "Настоящият реферат е разработен като част от курса по Уеб технологии (25 издание) и има за цел да изследва пресечната точка между prompt engineering и съвременната уеб разработка. Документът е структуриран съгласно изискванията за интерактивен, семантичен и стилизиран информационен проект, който може лесно да бъде трансформиран в HTML формат за уеб публикация.",
+        sec1Para1: "В съвременната епоха на изкуствен интелект, която се характеризира с експоненциален растеж на възможностите на <a href='#term-llm'>големите езикови модели (LLM)</a>, <a href='#term-prompt-eng'>инженерството на промптове</a> се откроява като ключова компетентност за ефективното взаимодействие с AI системи <a href='#ref-1'>[1]</a>. От пускането на ChatGPT в края на 2022 година, технологичната индустрия е свидетел на радикална трансформация в начина, по който разработчиците подхождат към софтуерното инженерство и уеб разработката <a href='#ref-2'>[2]</a>.",
+        sec1Para2: "<a href='#term-prompt-eng'>Инженерството на промптове</a> представлява изкуството и науката за формулиране на ефективни <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се получат желаните резултати <a href='#ref-3'>[3]</a>. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код <a href='#ref-4'>[4]</a>.",
+        sec1Para3: "Настоящият реферат е разработен като част от курса по Уеб технологии (25 издание) и има за цел да изследва пресечната точка между <a href='#term-prompt-eng'>инженерството на промптове</a> и съвременната уеб разработка. Документът е структуриран съгласно изискванията за интерактивен, семантичен и стилизиран информационен проект, който може лесно да бъде трансформиран в HTML формат за уеб публикация.",
         
-        sec1Para4: "Актуалността на prompt engineering в уеб разработката се определя от няколко ключови фактора. Първо, наблюдаваме безпрецедентен AI бум - според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>. Второ, съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>. Трето, появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код <a href='#ref-7'>[7]</a>. Тези трансформации правят владеенето на prompt engineering критична компетентност за съвременния уеб разработчик.",
+        sec1Para4: "Актуалността на <a href='#term-prompt-eng'>инженерството на промптове</a> в уеб разработката се определя от няколко ключови фактора. Първо, наблюдаваме безпрецедентен AI бум - според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>. Второ, съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>. Трето, появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код <a href='#ref-7'>[7]</a>. Тези трансформации правят владеенето на <a href='#term-prompt-eng'>инженерството на промптове</a> критична компетентност за съвременния уеб разработчик.",
         
-        sec1Para5: "Настоящият реферат си поставя амбициозни цели в изследването на тази нововъзникваща област. Документът цели да дефинира prompt engineering и основните му техники, да изследва приложението на ChatGPT в уеб разработката, както и да анализира рисковете и предизвикателствата, свързани с използването на AI инструменти. Освен това, рефератът представя практически примери и казуси от реална практика, разглежда етичните и професионални аспекти на AI-асистираната разработка, и прави прогноза за бъдещето на професията в контекста на нарастващата автоматизация и интелигентни помощници.",
+        sec1Para5: "Настоящият реферат си поставя амбициозни цели в изследването на тази нововъзникваща област. Документът цели да дефинира <a href='#term-prompt-eng'>инженерството на промптове</a> и основните му техники, да изследва приложението на ChatGPT в уеб разработката, както и да анализира рисковете и предизвикателствата, свързани с използването на AI инструменти. Освен това, рефератът представя практически примери и казуси от реална практика, разглежда етичните и професионални аспекти на AI-асистираната разработка, и прави прогноза за бъдещето на професията в контекста на нарастващата автоматизация и интелигентни помощници.",
         
         // Section 2: What is Prompt Engineering
-        sec2Title: "2. Какво е Prompt Engineering",
-        sec2Para1: "Prompt engineering е процесът на проектиране и оптимизация на инструкции (промптове) към AI модели, за да се постигнат точни, релевантни и полезни резултати <a href='#ref-8'>[8]</a>. Терминът произлиза от естествено-езиковото взаимодействие с LLM модели като GPT-4, Claude, LLaMA и други <a href='#ref-9'>[9]</a>.",
+        sec2Title: "2. Какво е инженерство на промптове",
+        sec2Para1: "<a href='#term-prompt-eng'>Инженерството на промптове</a> е процесът на проектиране и оптимизация на <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се постигнат точни, релевантни и полезни резултати <a href='#ref-8'>[8]</a>. Терминът произлиза от естествено-езиковото взаимодействие с <a href='#term-llm'>LLM модели</a> като GPT-4, Claude, LLaMA и други <a href='#ref-9'>[9]</a>.",
         
         sec2Sub1Title: "2.1. Дефиниция и основни концепции",
-        sec2Sub1Para1: "Според OpenAI, prompt engineering включва \"систематичното създаване на ефективни промпт формулировки, които максимизират качеството и релевантността на отговорите на AI моделите\" <a href='#ref-10'>[10]</a>. Това включва:",
+        sec2Sub1Para1: "Според OpenAI, <a href='#term-prompt-eng'>инженерството на промптове</a> включва \"систематичното създаване на ефективни <a href='#term-prompt'>промпт</a> формулировки, които максимизират качеството и релевантността на отговорите на AI моделите\" <a href='#ref-10'>[10]</a>. Това включва:",
         sec2Sub1Li1: "<strong>Ясност:</strong> Прецизно формулиране на задачата",
         sec2Sub1Li2: "<strong>Контекст:</strong> Предоставяне на необходима информация",
         sec2Sub1Li3: "<strong>Формат:</strong> Спецификация на желания изход",
         sec2Sub1Li4: "<strong>Ограничения:</strong> Дефиниране на рамки и правила",
         
         sec2Sub2Title: "2.2. Роля при взаимодействие с LLM",
-        sec2Sub2Para1: "LLM моделите функционират на принципа на статистическо предсказване на следващия токен в последователност <a href='#ref-11'>[11]</a>. Качеството на промпта директно влияе върху:",
+        sec2Sub2Para1: "<a href='#term-llm'>LLM моделите</a> функционират на принципа на статистическо предсказване на следващия токен в последователност <a href='#ref-11'>[11]</a>. Качеството на <a href='#term-prompt'>промпта</a> директно влияе върху:",
         sec2Sub2Li1: "<strong>Точност:</strong> Колко добре моделът разбира задачата",
         sec2Sub2Li2: "<strong>Релевантност:</strong> Доколко отговорът отговаря на нуждите",
         sec2Sub2Li3: "<strong>Консистентност:</strong> Стабилност при повторни заявки",
         sec2Sub2Li4: "<strong>Ефективност:</strong> Време и ресурси за получаване на резултат",
-        sec2Sub2Para2: "Фигура 1 илюстрира основния поток на взаимодействие между потребител, промпт и LLM модел.",
+        sec2Sub2Para2: "Фигура 1 илюстрира основния поток на взаимодействие между потребител, <a href='#term-prompt'>промпт</a> и <a href='#term-llm'>LLM модел</a>.",
         
-        figure1Caption: "<strong>Фигура 1.</strong> Поток на взаимодействие при prompt engineering",
+        figure1Caption: "<strong>Фигура 1.</strong> Поток на взаимодействие при <a href='#term-prompt-eng'>инженерство на промптове</a>",
         
         // Section 3: Techniques
-        sec3Title: "3. Основни техники и подходи в Prompt Engineering",
-        sec3Para1: "Съществуват множество техники за оптимизация на промптове, всяка с различни приложения и предимства <a href='#ref-12'>[12]</a>. В тази секция ще разгледаме най-важните от тях.",
+        sec3Title: "3. Основни техники и подходи в инженерството на промптове",
+        sec3Para1: "Съществуват множество техники за оптимизация на <a href='#term-prompt'>промптове</a>, всяка с различни приложения и предимства <a href='#ref-12'>[12]</a>. В тази секция ще разгледаме най-важните от тях.",
         
         sec3Sub1Title: "3.1. Поставяне на роля и контекст",
         sec3Sub1Para1: "Една от най-основните техники е задаването на роля и контекст на AI модела <a href='#ref-13'>[13]</a>. Това се постига чрез инструкции като показаните в Код 1.",
-        code1Caption: "Код 1: Базов prompt за генериране на HTML форма",
+        code1Caption: "Код 1: Базов <a href='#term-prompt'>промпт</a> за генериране на HTML форма",
         sec3Sub1Para2: "Тази техника помага на модела да \"влезе в ролята\" и да генерира по-релевантен отговор <a href='#ref-14'>[14]</a>.",
         
         sec3Sub2Title: "3.2. Ограничения, формати и изходни структури",
         sec3Sub2Para1: "Спецификацията на точен формат и ограничения е критична за получаване на използваем резултат <a href='#ref-15'>[15]</a>. Виж Код 2 за пример:",
-        code2Caption: "Код 2: Advanced prompt с контекст и ограничения",
+        code2Caption: "Код 2: Разширен <a href='#term-prompt'>промпт</a> с контекст и ограничения",
         
         sec3Sub3Title: "3.3. Итеративни промптове и рефайнмент",
-        sec3Sub3Para1: "Рядко първият промпт дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>:",
-        sec3Sub3Li1: "Първоначален промпт и резултат",
+        sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>:",
+        sec3Sub3Li1: "Първоначален <a href='#term-prompt'>промпт</a> и резултат",
         sec3Sub3Li2: "Анализ на резултата",
         sec3Sub3Li3: "Идентифициране на проблеми",
-        sec3Sub3Li4: "Уточняване на промпта",
+        sec3Sub3Li4: "Уточняване на <a href='#term-prompt'>промпта</a>",
         sec3Sub3Li5: "Повторение до желан резултат",
         
         sec3Sub4Title: "3.4. Few-shot промптове",
-        sec3Sub4Para1: "Few-shot learning предоставя на модела примери за желания формат и стил <a href='#ref-17'>[17]</a>. Виж Код 3:",
-        code3Caption: "Код 3: Few-shot prompt с примери",
+        sec3Sub4Para1: "<a href='#term-few-shot'>Few-shot learning</a> предоставя на модела примери за желания формат и стил <a href='#ref-17'>[17]</a>. Виж Код 3:",
+        code3Caption: "Код 3: <a href='#term-few-shot'>Few-shot</a> <a href='#term-prompt'>промпт</a> с примери",
         
-        sec3Sub5Title: "3.5. Chain-of-thought (CoT)",
-        sec3Sub5Para1: "Chain-of-thought промптването насърчава модела да \"мисли на глас\" и да показва стъпките в разсъжденията си <a href='#ref-18'>[18]</a>. Това е особено полезно за сложни задачи. Виж Код 4:",
-        code4Caption: "Код 4: Chain-of-thought prompt за решаване на проблем",
-        sec3Sub5Para2: "Важна етична бележка: При използване на CoT, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин <a href='#ref-19'>[19]</a>. Резултатите винаги трябва да се валидират.",
+        sec3Sub5Title: "3.5. Верига на мисълта (Chain-of-thought, CoT)",
+        sec3Sub5Para1: "<a href='#term-cot'>Веригата на мисълта (Chain-of-thought)</a> насърчава модела да \"мисли на глас\" и да показва стъпките в разсъжденията си <a href='#ref-18'>[18]</a>. Това е особено полезно за сложни задачи. Виж Код 4:",
+        code4Caption: "Код 4: <a href='#term-cot'>Chain-of-thought</a> <a href='#term-prompt'>промпт</a> за решаване на проблем",
+        sec3Sub5Para2: "Важна етична бележка: При използване на <a href='#term-cot'>CoT</a>, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин <a href='#ref-19'>[19]</a>. Резултатите винаги трябва да се валидират.",
         
         sec3Sub6Title: "3.6. Self-consistency и Toolformer-стил",
         sec3Sub6Para1: "Self-consistency включва генериране на множество отговори и избор на най-консистентния <a href='#ref-20'>[20]</a>. Toolformer-стил взаимодействие позволява на AI да \"извиква\" външни инструменти <a href='#ref-21'>[21]</a>:",
@@ -458,6 +479,7 @@ const translations = {
         
         // Navigation
         navAbstract: "Abstract",
+        navTerminology: "Terminology",
         navIntroduction: "Introduction",
         navWhatIsPE: "What is PE",
         navTechniques: "Techniques",
@@ -469,21 +491,43 @@ const translations = {
         
         // Abstract
         abstractTitle: "Abstract",
-        abstractText: "In the modern era of artificial intelligence, prompt engineering emerges as a key competency for effective interaction with AI systems. This paper explores the application of prompt engineering in the context of web development with ChatGPT. It examines core techniques (Few-shot learning, Chain-of-Thought, Role-based prompting), practical applications for generating HTML/CSS/JavaScript code, as well as risks and ethical challenges. Issues of security, reliability, and professional responsibility when using AI-generated code are analyzed. The research emphasizes the need for a balanced approach that combines AI capabilities with critical thinking and fundamental knowledge in web development.",
+        abstractText: "In the modern era of artificial intelligence, <a href='#term-prompt-eng'>prompt engineering</a> emerges as a key competency for effective interaction with AI systems. This paper explores the application of <a href='#term-prompt-eng'>prompt engineering</a> in the context of web development with ChatGPT. It examines core techniques (<a href='#term-few-shot'>few-shot learning</a>, <a href='#term-cot'>chain-of-thought</a>, role-based prompting), practical applications for generating HTML/CSS/JavaScript code, as well as risks and ethical challenges. Issues of security, reliability, and professional responsibility when using AI-generated code are analyzed. The research emphasizes the need for a balanced approach that combines AI capabilities with critical thinking and fundamental knowledge in web development.",
+        
+        // Terminology
+        terminologyTitle: "Terminology",
+        terminologyIntro: "For better understanding of the text, this section defines key terms used throughout the paper:",
+        
+        termPromptTitle: "Prompt",
+        termPromptDef: "A text instruction or query sent to an AI model to generate a response. The <a href='#term-prompt'>prompt</a> contains the task, context, constraints, and desired output format. This document will consistently use the term \"prompt\" throughout.",
+        
+        termPromptEngTitle: "Prompt Engineering",
+        termPromptEngDef: "The discipline of designing and optimizing <a href='#term-prompt'>prompts</a> to achieve the best results from AI models. Includes techniques such as <a href='#term-few-shot'>few-shot learning</a>, <a href='#term-cot'>chain-of-thought</a>, and role-based prompting.",
+        
+        termLLMTitle: "LLM (Large Language Model)",
+        termLLMDef: "An AI system trained on massive amounts of text data that can understand and generate human language. Examples: GPT-4, Claude, LLaMA.",
+        
+        termFewShotTitle: "Few-shot Learning",
+        termFewShotDef: "A technique where several examples of the desired format or style are provided in the <a href='#term-prompt'>prompt</a> so the model can imitate them.",
+        
+        termCoTTitle: "Chain-of-Thought (CoT)",
+        termCoTDef: "A method for improving AI reasoning where the model is encouraged to \"think aloud\" and show the steps in solving complex tasks.",
+        
+        termHallucinationTitle: "Hallucination",
+        termHallucinationDef: "A phenomenon where an AI model generates fabricated or incorrect information, presenting it as fact. May include non-existent functions, APIs, or libraries.",
         
         // Section 1: Introduction
         sec1Title: "1. Introduction",
-        sec1Para1: "In the modern era of artificial intelligence, characterized by exponential growth in the capabilities of Large Language Models (LLM), prompt engineering stands out as a key competency for effective interaction with AI systems <a href='#ref-1'>[1]</a>. Since the launch of ChatGPT in late 2022, the tech industry has witnessed a radical transformation in how developers approach software engineering and web development <a href='#ref-2'>[2]</a>.",
-        sec1Para2: "Prompt engineering represents the art and science of formulating effective instructions to AI models to obtain desired results <a href='#ref-3'>[3]</a>. In the context of web development, this discipline offers unprecedented opportunities for accelerating development, automating routine tasks, and generating high-quality code <a href='#ref-4'>[4]</a>.",
-        sec1Para3: "This paper is developed as part of the Web Technologies course (25th edition) and aims to explore the intersection between prompt engineering and modern web development. The document is structured according to requirements for an interactive, semantic, and styled information project that can easily be transformed into HTML format for web publication.",
+        sec1Para1: "In the modern era of artificial intelligence, characterized by exponential growth in the capabilities of <a href='#term-llm'>Large Language Models (LLM)</a>, <a href='#term-prompt-eng'>prompt engineering</a> stands out as a key competency for effective interaction with AI systems <a href='#ref-1'>[1]</a>. Since the launch of ChatGPT in late 2022, the tech industry has witnessed a radical transformation in how developers approach software engineering and web development <a href='#ref-2'>[2]</a>.",
+        sec1Para2: "<a href='#term-prompt-eng'>Prompt engineering</a> represents the art and science of formulating effective <a href='#term-prompt'>prompts</a> (instructions) to AI models to obtain desired results <a href='#ref-3'>[3]</a>. In the context of web development, this discipline offers unprecedented opportunities for accelerating development, automating routine tasks, and generating high-quality code <a href='#ref-4'>[4]</a>.",
+        sec1Para3: "This paper is developed as part of the Web Technologies course (25th edition) and aims to explore the intersection between <a href='#term-prompt-eng'>prompt engineering</a> and modern web development. The document is structured according to requirements for an interactive, semantic, and styled information project that can easily be transformed into HTML format for web publication.",
         
-        sec1Para4: "The relevance of prompt engineering in web development is determined by several key factors. First, we are witnessing an unprecedented AI boom - according to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>. Second, modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>. Third, the emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained <a href='#ref-7'>[7]</a>. These transformations make mastery of prompt engineering a critical competency for the modern web developer.",
+        sec1Para4: "The relevance of <a href='#term-prompt-eng'>prompt engineering</a> in web development is determined by several key factors. First, we are witnessing an unprecedented AI boom - according to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>. Second, modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>. Third, the emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained <a href='#ref-7'>[7]</a>. These transformations make mastery of <a href='#term-prompt-eng'>prompt engineering</a> a critical competency for the modern web developer.",
         
-        sec1Para5: "This paper sets ambitious goals in researching this emerging field. The document aims to define prompt engineering and its main techniques, to explore the application of ChatGPT in web development, and to analyze the risks and challenges associated with using AI tools. Additionally, the paper presents practical examples and case studies from real-world practice, examines the ethical and professional aspects of AI-assisted development, and makes predictions about the future of the profession in the context of increasing automation and intelligent assistants.",
+        sec1Para5: "This paper sets ambitious goals in researching this emerging field. The document aims to define <a href='#term-prompt-eng'>prompt engineering</a> and its main techniques, to explore the application of ChatGPT in web development, and to analyze the risks and challenges associated with using AI tools. Additionally, the paper presents practical examples and case studies from real-world practice, examines the ethical and professional aspects of AI-assisted development, and makes predictions about the future of the profession in the context of increasing automation and intelligent assistants.",
         
         // Section 2: What is Prompt Engineering
         sec2Title: "2. What is Prompt Engineering",
-        sec2Para1: "Prompt engineering is the process of designing and optimizing instructions (prompts) to AI models to achieve accurate, relevant, and useful results <a href='#ref-8'>[8]</a>. The term derives from natural language interaction with LLM models such as GPT-4, Claude, LLaMA, and others <a href='#ref-9'>[9]</a>.",
+        sec2Para1: "<a href='#term-prompt-eng'>Prompt engineering</a> is the process of designing and optimizing <a href='#term-prompt'>prompts</a> (instructions) to AI models to achieve accurate, relevant, and useful results <a href='#ref-8'>[8]</a>. The term derives from natural language interaction with <a href='#term-llm'>LLM models</a> such as GPT-4, Claude, LLaMA, and others <a href='#ref-9'>[9]</a>.",
         
         sec2Sub1Title: "2.1. Definition and Core Concepts",
         sec2Sub1Para1: "According to OpenAI, prompt engineering includes \"the systematic creation of effective prompt formulations that maximize the quality and relevance of AI model responses\" <a href='#ref-10'>[10]</a>. This includes:",

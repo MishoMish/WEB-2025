@@ -1761,6 +1761,48 @@ button:focus {
   box-shadow: var(--shadow-md);
 }
 
+/* ===== TERMINOLOGY LIST ===== */
+.terminology-list {
+  margin: var(--spacing-lg) 0;
+}
+
+.terminology-list dt {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+.terminology-list dd {
+  margin-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-md);
+  border-left: 3px solid var(--accent-color);
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/* ===== TERMINOLOGY LINKS ===== */
+a[href^="#term-"] {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--primary-color);
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+a[href^="#term-"]:hover {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+  border-bottom-style: solid;
+}
+
+/* Smooth scroll for terminology links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== DYNAMIC SVG DARK MODE SUPPORT ===== */
 .dynamic-svg {
   --svg-bg: #f8f9fa;
