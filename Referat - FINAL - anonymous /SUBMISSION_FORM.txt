@@ -1,0 +1,213 @@
+═══════════════════════════════════════════════════════════════════════════════
+  ФОРМА ЗА ПРЕДАВАНЕ - РЕФЕРАТ ТЕМА №187
+  Prompt Engineering и Web разработка с ChatGPT
+═══════════════════════════════════════════════════════════════════════════════
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. ВАШИ РЕСУРСИ (LINKS)                                                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Основен файл: index.html (Referat - FINAL - anonymous/)
+
+Външни ресурси:
+OpenAI Documentation: https://platform.openai.com/docs/guides/prompt-engineering
+OpenAI GPT-4 Technical Report: https://arxiv.org/abs/2303.08774
+DN Web Docs: https://developer.mozilla.org/
+OWASP Top Ten: https://owasp.org/
+W3C Standards: https://www.w3.org/
+
+Code Examples: /code-examples/ (9 файла)
+• code-1-basic-prompt.txt
+• code-2-advanced-prompt.txt
+• code-3-few-shot.txt
+• code-4-chain-of-thought.txt
+• code-5-html-template.html
+• code-6-css-grid.css
+• code-7-dom-manipulation.js
+• code-8-i18n.js
+• code-9-meta-tags.html
+
+Академични източници: 56 цитирани публикации (вижте секция Citations в index.html)
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. СЪДЪРЖАНИЕ НА ПРЕЗЕНТАЦИЯТА                                               │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Реферат "Prompt Engineering и Web разработка с ChatGPT" (Тема №187)
+
+СТРУКТУРА:
+
+1. РЕЗЮМЕ
+   Кратък преглед на prompt engineering като ключова компетентност за AI взаимодействие, основни техники (Few-shot, Chain-of-Thought, Role-based), практически приложения, рискове и етични предизвикателства.
+
+2. ВЪВЕДЕНИЕ (Секция 1)
+   • Контекст на AI революцията след ChatGPT
+   • Актуалност: 50%+ организации използват AI, до 40% ускорение в разработката
+   • Цели: дефиниции, техники, рискове, примери, етика, прогноза
+
+3. КАКВО Е PROMPT ENGINEERING (Секция 2)
+   • Дефиниция и основни концепции (ясност, контекст, формат, ограничения)
+   • Роля при взаимодействие с LLM модели
+   • Влияние върху точност, релевантност, консистентност
+   • Фигура 1: Prompt Flow диаграма
+
+4. ТЕХНИКИ И ПОДХОДИ (Секция 3)
+   • Role-based prompting
+   • Few-shot learning
+   • Chain-of-Thought reasoning
+   • Итеративна оптимизация
+   • Best practices за валидация
+   • Таблица 1: Методи за валидация
+   • Code Examples 1-4
+
+5. CHATGPT И WEB РАЗРАБОТКА (Секция 4)
+   • Генериране на HTML/CSS/JavaScript
+   • Работа с frameworks
+   • Интернационализация (i18n)
+   • Best practices и рискове
+   • Фигура 2: Рискове при "слепо" копиране
+   • Accessibility (WCAG 2.1)
+   • SEO, Performance, Security оптимизация
+   • Code Examples 5-9
+
+6. ПРИМЕРИ И ДЕМОНСТРАЦИИ (Секция 5)
+   • Практически примери от проекта
+   • 3 Case Studies (успешна помощ, проблематична употреба, оптимален workflow)
+   • Таблица 2: Validation Checklist (8 категории проверки)
+
+7. РИСКОВЕ И ОГРАНИЧЕНИЯ (Секция 6)
+   • Етични предизвикателства (transparency, bias)
+   • Надеждност и hallucinations (12-18% грешки)
+   • Security уязвимости (XSS, SQL Injection, CSRF)
+   • Некоректни citations
+   • 7 критични checkpoints
+
+8. ЗАКЛЮЧЕНИЕ (Секция 7)
+   • Авторско мнение: подходящи vs неподходящи сценарии
+   • Отговорни практики (transparency, validation, testing)
+   • Бъдещи перспективи (5-10 години)
+   • Финална мисъл: симбиоза между човек и AI
+
+9. ЛИТЕРАТУРА
+   56 академични цитата (OpenAI, ACM, IEEE, NeurIPS, Nature, McKinsey, GitHub)
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. СЪДЪРЖАНИЕ НА МИНИ-ПРИМЕРЧЕТА/ПРОЕКТЧЕТА                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+9 INTERACTIVE CODE EXAMPLES:
+
+1. code-1-basic-prompt.txt
+   Основен prompt за генериране на HTML форма
+
+2. code-2-advanced-prompt.txt
+   Разширен prompt с контекст, role, format и constraints
+
+3. code-3-few-shot.txt
+   Few-shot learning с примерни input-output двойки
+
+4. code-4-chain-of-thought.txt
+   Chain-of-thought reasoning за стъпка-по-стъпка разсъждение
+
+5. code-5-html-template.html
+   Семантичен HTML5 template с accessibility features
+
+6. code-6-css-grid.css
+   Responsive CSS Grid layout с mobile-first approach
+
+7. code-7-dom-manipulation.js
+   JavaScript DOM манипулация с best practices и security
+
+8. code-8-i18n.js
+   Internationalization система (БГ/EN) с localStorage
+
+9. code-9-meta-tags.html
+   SEO и accessibility meta tags (Open Graph, Twitter Cards)
+
+ФУНКЦИОНАЛНОСТИ НА ПРОЕКТА:
+✓ Билингвална система (БГ/EN) с dynamic switching
+✓ Dark/Light mode с persistent preferences
+✓ Responsive design (mobile-first, адаптивна навигация)
+✓ Accessibility (ARIA labels, keyboard navigation, WCAG 2.1)
+✓ Interactive elements (progress bar, smooth scroll, code highlighting)
+✓ Performance (lazy loading, deferred JS)
+✓ SEO оптимизация (semantic HTML, meta tags)
+✓ Font size adjustment (A+/A-)
+✓ 2 SVG диаграми, 2 таблици
+✓ 56 референции с clickable links
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. РЕЗЮМЕ НА ПРЕЗЕНТАЦИЯТА                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Настоящият реферат изследва prompt engineering като критична компетентност за ефективното използване на ChatGPT в съвременната уеб разработка.
+
+ОСНОВНИ ИЗВОДИ:
+
+• AI инструментите са мощни, но изискват критично мислене и фундаментални знания. ChatGPT може да ускори разработката с до 40%, но не може да замести професионалния програмист.
+
+• Prompt engineering техниките работят: Few-shot learning, Chain-of-Thought reasoning и Role-based prompting значително подобряват качеството на генерирания код.
+
+• Рисковете са реални: 12-18% от GPT-4 кода съдържа грешки, възможни са security vulnerabilities (XSS, SQL injection, CSRF), hallucinations и bias. Необходима е систематична валидация.
+
+• Отговорната употреба включва: transparency (деклариране на AI код), comprehensive testing, задължителен code review, security audits и continuous learning.
+
+АВТОРСКА ПОЗИЦИЯ:
+ChatGPT ТРЯБВА да се използва за: boilerplate код, прототипиране, документация, refactoring предложения.
+ChatGPT НЕ ТРЯБВА да се използва за: critical security код без review, production код без tests, единствен източник на учене за начинаещи.
+
+БЪДЕЩЕТО (5-10 години):
+Очаква се развитие на специализирани AI модели за web frameworks, seamless IDE интеграция, end-to-end генериране от дизайн, нови роли (AI Prompt Engineers) и индустриални стандарти за AI употреба.
+
+ТЕХНОЛОГИИ ДЕМОНСТРИРАНИ:
+Semantic HTML5, CSS Grid/Flexbox, Vanilla JavaScript (ES6+), i18n система, WCAG 2.1 accessibility, responsive design, progressive enhancement, 56 академични citations за credibility.
+
+ФИНАЛНА МИСЪЛ:
+Бъдещето на уеб разработката се крие в симбиозата между човешка креативност и AI възможности - не в замяната на едното с другото. Успешните разработчици ще комбинират fundamental knowledge с ефективна AI употреба, критична оценка и етична отговорност.
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 5. КЛЮЧОВИ ДУМИ                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+prompt engineering, ChatGPT, GPT-4, large language models, LLM, web development, уеб разработка, HTML5, CSS3, JavaScript, artificial intelligence, изкуствен интелект, AI-assisted development, few-shot learning, chain-of-thought, role-based prompting, responsive design, accessibility, WCAG, semantic HTML, code generation, генериране на код, validation, security, XSS, CSRF, SQL injection, hallucinations, bias, ethical AI, етична AI, i18n, internationalization, SEO, performance optimization, best practices, code review, testing, OpenAI, natural language processing, NLP
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 6. (НЕ)ФОРМАЛНИ ЗАБЕЛЕЖКИ                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+ТЕХНИЧЕСКИ ДЕТАЙЛИ:
+• Проектът е изцяло self-contained (no external dependencies освен fonts)
+• Валиден HTML5 markup (semantic structure)
+• Vanilla JavaScript - no frameworks/libraries
+• Progressive enhancement approach
+• Cross-browser compatibility (Chrome, Firefox, Safari, Edge)
+• Mobile-first responsive design
+• Accessibility tested (keyboard navigation, screen readers)
+
+АКАДЕМИЧНА СТОЙНОСТ:
+• 56 рецензирани източници (ACM, IEEE, Nature, arXiv)
+• Балансиран критичен анализ на AI технологиите
+• Практически примери валидирани с реален код
+• Етична перспектива върху AI употребата
+
+ИНОВАТИВНИ ЕЛЕМЕНТИ:
+• Билингвална имплементация без framework
+• Custom i18n система с localStorage persistence
+• Interactive code examples loader
+• Animated SVG backgrounds
+• Reading progress indicator
+• Accessibility controls (font sizing)
+
+УНИКАЛНОСТ:
+Рефератът не просто описва prompt engineering теоретично, но демонстрира практическо приложение като цялата презентация е изградена с техники, които изследва - използван е ChatGPT за генериране на части от кода, които след това са валидирани, тествани и оптимизирани. Това прави проекта meta-example на темата.
+
+ЗАБЕЛЕЖКА ЗА АНОНИМНОСТТА:
+Всички лични данни (име, факултетен номер) са заменени с placeholder стойности за анонимна версия. Реалните данни се попълват при submission.
+
+═══════════════════════════════════════════════════════════════════════════════
