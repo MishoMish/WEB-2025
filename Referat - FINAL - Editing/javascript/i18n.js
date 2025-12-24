@@ -301,16 +301,22 @@ const translations = {
         sec5Sub1Title: "5.1. Етически предизвикателства",
         
         sec5Sub1Sub1Title: "Прозрачност",
-        sec5Sub1Sub1Para1: "Трябва ли да се декларира, че код е AI-генериран? <a href='#ref-47'>[47]</a>",
+        sec5Sub1Sub1Para1: "Декларирането на произхода на кода е ключов елемент от професионалната етика, особено когато е генериран от изкуствен интелект <a href='#ref-47'>[47]</a>. Основните сценарии, изискващи изрично упоменаване, включват:",
         sec5Sub1Sub1Li1: "В open-source проекти",
         sec5Sub1Sub1Li2: "В комерсиални продукти",
         sec5Sub1Sub1Li3: "При code contributions",
         
         sec5Sub1Sub2Title: "Bias и дискриминация",
-        sec5Sub1Sub2Para1: "AI моделите могат да възпроизведат предразсъдъци от тренировъчните данни <a href='#ref-48'>[48]</a>:",
+        sec5Sub1Sub2Para1: "AI моделите могат да възпроизведат предразсъдъци от тренировъчните данни <a href='#ref-48'>[48]</a>. Пример за това е генерирането на форми за регистрация, които валидират само западни формати на имена или адреси, изключвайки потребители от други региони. Рисковете включват:",
         sec5Sub1Sub2Li1: "Стереотипни UI/UX решения",
         sec5Sub1Sub2Li2: "Ограничена accessibility",
         sec5Sub1Sub2Li3: "Cultural bias в съдържанието",
+
+        sec5Sub1Sub3Title: "Авторско право и Лицензиране",
+        sec5Sub1Sub3Para1: "Правният статут на AI-генерирания код поражда множество въпроси, тъй като в много юрисдикции (вкл. САЩ и ЕС) съдържание, създадено изцяло от машина, не подлежи на авторско право <a href='#ref-36'>[36]</a>. Това създава несигурност относно:",
+        sec5Sub1Sub3Li1: "<strong>Лицензиране:</strong> Съвместимост с MIT, Apache, GPL лицензи",
+        sec5Sub1Sub3Li2: "<strong>Copyleft:</strong> Риск от неволно включване на защитен код",
+        sec5Sub1Sub3Li3: "<strong>Собственост:</strong> Кой притежава правата върху крайния продукт?",
         
         sec5Sub2Title: "5.2. Надеждност и халюцинации",
         sec5Sub2Para1: "Статистика показва, че GPT-4 може да генерира невалиден код в 12-18% от случаите <a href='#ref-49'>[49]</a>. Типични проблеми:",
@@ -336,14 +342,14 @@ const translations = {
         sec5Sub4Para2: "<strong>Решение:</strong> Винаги проверявайте цитатите в оригиналния източник!",
         
         sec5Sub5Title: "5.5. Критични контролни точки",
-        sec5Sub5Para1: "Задължителни проверки при използване на AI код <a href='#ref-52'>[52]</a>:",
-        sec5Sub5Li1: "<strong>Pre-commit:</strong> Static analysis, linting",
-        sec5Sub5Li2: "<strong>Code review:</strong> Human inspection",
-        sec5Sub5Li3: "<strong>Testing:</strong> Unit, integration, e2e tests",
-        sec5Sub5Li4: "<strong>Security scan:</strong> SAST/DAST tools",
-        sec5Sub5Li5: "<strong>Performance:</strong> Lighthouse, profiling",
-        sec5Sub5Li6: "<strong>Accessibility:</strong> axe, WAVE audits",
-        sec5Sub5Li7: "<strong>Production monitoring:</strong> Error tracking, analytics",
+        sec5Sub5Para1: "Задължителни проверки при използване на AI генериран код <a href='#ref-52'>[52]</a>:",
+        sec5Sub5Li1: "<strong>Pre-commit проверки:</strong> Автоматичен анализ на кода преди качване в repository (статичен анализ за грешки, linting за форматиране и стил)",
+        sec5Sub5Li2: "<strong>Code review:</strong> Задължителна човешка инспекция на кода от друг разработчик - проверка за логически грешки, security уязвимости и съответствие със стандарти",
+        sec5Sub5Li3: "<strong>Testing:</strong> Многослойно тестване - unit тестове (проверка на отделни функции), integration тестове (взаимодействие между компоненти), e2e тестове (симулация на потребителски сценарии)",
+        sec5Sub5Li4: "<strong>Security сканиране:</strong> SAST инструменти (статичен анализ на сорс кода за уязвимости) и DAST инструменти (динамично тестване на работещото приложение)",
+        sec5Sub5Li5: "<strong>Performance проверки:</strong> Google Lighthouse одит (скорост на зареждане, оптимизация), profiling инструменти за анализ на бутилки в изпълнението и memory leaks",
+        sec5Sub5Li6: "<strong>Accessibility одит:</strong> Axe и WAVE инструменти за проверка на достъпността за хора с увреждания (screen readers, keyboard navigation, цветови контрасти)",
+        sec5Sub5Li7: "<strong>Production мониторинг:</strong> Real-time следене на грешки (Sentry, Rollbar), analytics за поведение на потребителите, performance метрики в продукционна среда",        
         
         // Section 7: Conclusion
         sec7Title: "7. Заключение",
@@ -756,16 +762,22 @@ const translations = {
         sec5Sub1Title: "5.1. Ethical Challenges",
         
         sec5Sub1Sub1Title: "Transparency",
-        sec5Sub1Sub1Para1: "Should it be declared that code is AI-generated? <a href='#ref-47'>[47]</a>",
+        sec5Sub1Sub1Para1: "Declaring the origin of code is a key element of professional ethics, especially when generated by artificial intelligence <a href='#ref-47'>[47]</a>. The main scenarios requiring explicit mention include:",
         sec5Sub1Sub1Li1: "In open-source projects",
         sec5Sub1Sub1Li2: "In commercial products",
         sec5Sub1Sub1Li3: "In code contributions",
         
         sec5Sub1Sub2Title: "Bias and Discrimination",
-        sec5Sub1Sub2Para1: "AI models can reproduce biases from training data <a href='#ref-48'>[48]</a>:",
+        sec5Sub1Sub2Para1: "AI models can reproduce biases from training data <a href='#ref-48'>[48]</a>. An example of this is generating registration forms that validate only Western name or address formats, excluding users from other regions. Risks include:",
         sec5Sub1Sub2Li1: "Stereotypical UI/UX decisions",
         sec5Sub1Sub2Li2: "Limited accessibility",
         sec5Sub1Sub2Li3: "Cultural bias in content",
+
+        sec5Sub1Sub3Title: "Copyright and Licensing",
+        sec5Sub1Sub3Para1: "The legal status of AI-generated code raises many questions, as in many jurisdictions (incl. US and EU), content created entirely by a machine is not copyrightable <a href='#ref-36'>[36]</a>. This creates uncertainty regarding:",
+        sec5Sub1Sub3Li1: "<strong>Licensing:</strong> Compatibility with MIT, Apache, GPL licenses",
+        sec5Sub1Sub3Li2: "<strong>Copyleft:</strong> Risk of unintentionally including protected code",
+        sec5Sub1Sub3Li3: "<strong>Ownership:</strong> Who owns the rights to the final product?",
         
         sec5Sub2Title: "5.2. Reliability and Hallucinations",
         sec5Sub2Para1: "Statistics show that GPT-4 can generate invalid code in 12-18% of cases <a href='#ref-49'>[49]</a>. Typical problems:",
@@ -790,15 +802,16 @@ const translations = {
         sec5Sub4Li4: "Confused sources",
         sec5Sub4Para2: "<strong>Solution:</strong> Always verify citations in the original source!",
         
+        // English version
         sec5Sub5Title: "5.5. Critical Checkpoints",
-        sec5Sub5Para1: "Mandatory checks when using AI code <a href='#ref-52'>[52]</a>:",
-        sec5Sub5Li1: "<strong>Pre-commit:</strong> Static analysis, linting",
-        sec5Sub5Li2: "<strong>Code review:</strong> Human inspection",
-        sec5Sub5Li3: "<strong>Testing:</strong> Unit, integration, e2e tests",
-        sec5Sub5Li4: "<strong>Security scan:</strong> SAST/DAST tools",
-        sec5Sub5Li5: "<strong>Performance:</strong> Lighthouse, profiling",
-        sec5Sub5Li6: "<strong>Accessibility:</strong> axe, WAVE audits",
-        sec5Sub5Li7: "<strong>Production monitoring:</strong> Error tracking, analytics",
+        sec5Sub5Para1: "Mandatory checks when using AI-generated code <a href='#ref-52'>[52]</a>:",
+        sec5Sub5Li1: "<strong>Pre-commit checks:</strong> Automated code analysis before uploading to repository (static analysis for errors, linting for formatting and style)",
+        sec5Sub5Li2: "<strong>Code review:</strong> Mandatory human inspection of code by another developer - checking for logical errors, security vulnerabilities, and compliance with standards",
+        sec5Sub5Li3: "<strong>Testing:</strong> Multi-layer testing - unit tests (checking individual functions), integration tests (interaction between components), e2e tests (simulation of user scenarios)",
+        sec5Sub5Li4: "<strong>Security scanning:</strong> SAST tools (static analysis of source code for vulnerabilities) and DAST tools (dynamic testing of running application)",
+        sec5Sub5Li5: "<strong>Performance checks:</strong> Google Lighthouse audit (loading speed, optimization), profiling tools for analyzing execution bottlenecks and memory leaks",
+        sec5Sub5Li6: "<strong>Accessibility audit:</strong> Axe and WAVE tools for checking accessibility for people with disabilities (screen readers, keyboard navigation, color contrasts)",
+        sec5Sub5Li7: "<strong>Production monitoring:</strong> Real-time error tracking (Sentry, Rollbar), analytics for user behavior, performance metrics in production environment",        
         
         // Section 7: Conclusion
         sec7Title: "7. Conclusion",
