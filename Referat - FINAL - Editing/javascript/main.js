@@ -25,6 +25,7 @@
     // initScrollAnimations();
     initNavbarShrink();
     initNavMenuToggle();
+    initAutoScrollSnap();
 
     console.log("✓ All features initialized successfully");
     console.log(
@@ -903,6 +904,57 @@
         }
       }, 150)
     );
+  }
+
+  /**
+   * Auto-scroll snap functionality
+   * Prevents users from staying in the "in-between" zone between hero and content
+   */
+  function initAutoScrollSnap() {
+    const heroSection = document.querySelector('.hero-section');
+    const navbar = document.getElementById('main-nav');
+    
+    if (!heroSection || !navbar) return;
+
+    let isSnapping = false;
+    let scrollTimeout = null;
+
+    function checkScrollPosition() {
+      if (isSnapping) return;
+
+      // Clear any existing timeout
+      clearTimeout(scrollTimeout);
+
+      // Wait for scroll to stop (user has paused scrolling)
+      scrollTimeout = setTimeout(() => {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const viewportHeight = window.innerHeight;
+        const viewportMidpoint = viewportHeight / 2;
+
+        // Check if the hero bottom is in the "in-between" zone
+        // If hero bottom is between 0 and 50% of viewport, we're in the danger zone
+        if (heroBottom > 0 && heroBottom < viewportMidpoint) {
+          // Snap up to show full hero
+          isSnapping = true;
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          setTimeout(() => { isSnapping = false; }, 800);
+        } 
+        // If hero bottom is between 50% and 100% of viewport, snap down to content
+        else if (heroBottom >= viewportMidpoint && heroBottom < viewportHeight) {
+          isSnapping = true;
+          window.scrollTo({
+            top: heroSection.offsetHeight,
+            behavior: 'smooth'
+          });
+          setTimeout(() => { isSnapping = false; }, 800);
+        }
+      }, 150); // Wait 150ms after user stops scrolling
+    }
+
+    window.addEventListener('scroll', checkScrollPosition, { passive: true });
   }
 
   /**

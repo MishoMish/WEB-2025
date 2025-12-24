@@ -119,6 +119,7 @@ body {
   overflow: hidden;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   transition: opacity 0.3s ease-out;
+  margin-bottom: 0;
 }
 
 [data-theme="dark"] .hero-section {
@@ -540,6 +541,8 @@ body {
   box-shadow: var(--shadow-lg);
   backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
+  margin-top: 0;
+  margin-bottom: 1%;
 }
 
 #main-nav.scrolled {
@@ -551,8 +554,10 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--spacing-md);
+  max-width: 1400px;
+  width: 100%;
 }
 /* Removed title from nav for single-line layout */
 
@@ -571,18 +576,21 @@ body {
   gap: 0.5rem;
   flex-wrap: nowrap;
   align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  padding: 0.35rem 0.7rem;
+  padding: 0.5rem 0.8rem;
   border-radius: var(--border-radius-sm);
   transition: all var(--transition-fast);
   font-weight: 500;
   position: relative;
   overflow: hidden;
   white-space: nowrap;
+  font-size: 0.95rem;
 }
 
 .nav-links a::before {
@@ -637,10 +645,11 @@ body {
 }
 
 /* Mobile collapsed state */
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   #main-nav .container {
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
   .nav-menu-toggle {
     display: inline-flex;
@@ -680,9 +689,13 @@ body {
     }
   }
   /* Remove old mobile column nav overrides */
+  .nav-links {
+    justify-content: flex-start;
+  }
   .nav-links a {
     text-align: left;
     width: 100%;
+    padding: 0.75rem 1rem;
   }
 }
 
@@ -690,6 +703,20 @@ body {
   .nav-menu-toggle {
     padding: 0.5rem 0.8rem;
     font-size: 1.3rem;
+  }
+  #main-nav .container {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* Tablet/Medium screen optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links {
+    gap: 0.4rem;
+  }
+  .nav-links a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
   }
 }
 
