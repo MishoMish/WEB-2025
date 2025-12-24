@@ -55,17 +55,17 @@ const translations = {
         termHallucinationDef: "Явление, при което AI моделът генерира измислена или неверна информация, представяйки я като факт. Може да включва несъществуващи функции, API-та или библиотеки.",        
         // Section 1: Introduction
         sec1Title: "1. Въведение",
-        sec1Para1: "В съвременната епоха на изкуствен интелект, която се характеризира с експоненциален растеж на възможностите на <a href='#term-llm'>големите езикови модели (LLM)</a>, <a href='#term-prompt-eng'>инженерството на промптове</a> се откроява като ключова компетентност за ефективното взаимодействие с AI системи <a href='#ref-1'>[1]</a>. От пускането на ChatGPT в края на 2022 година, технологичната индустрия е свидетел на радикална трансформация в начина, по който разработчиците подхождат към софтуерното инженерство и уеб разработката <a href='#ref-2'>[2]</a>.",
-        sec1Para2: "<a href='#term-prompt-eng'>Инженерството на промптове</a> представлява изкуството и науката за формулиране на ефективни <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се получат желаните резултати <a href='#ref-3'>[3]</a>. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код <a href='#ref-4'>[4]</a>.",
+        sec1Para1: "В съвременната епоха на изкуствен интелект, която се характеризира с експоненциален растеж на възможностите на <a href='#term-llm'>големите езикови модели (LLM)</a>, <a href='#term-prompt-eng'>инженерството на промптове</a> се откроява като ключова компетентност за ефективното взаимодействие с AI системи <a href='#ref-1'>[1]</a>. От пускането на ChatGPT в края на 2022 година, технологичната индустрия е свидетел на радикална трансформация в начина, по който разработчиците подхождат към софтуерното инженерство и уеб разработката.",
+        sec1Para2: "<a href='#term-prompt-eng'>Инженерството на промптове</a> представлява изкуството и науката за формулиране на ефективни <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се получат желаните резултати <a href='#ref-3'>[3]</a>. В контекста на уеб разработката, тази дисциплина предлага безпрецедентни възможности за ускоряване на разработката, автоматизация на рутинни задачи и генериране на високо-качествен код.",
         sec1Para3: "Настоящият реферат е разработен като част от курса по Уеб технологии (25 издание) и има за цел да изследва пресечната точка между <a href='#term-prompt-eng'>инженерството на промптове</a> и съвременната уеб разработка. Документът е структуриран съгласно изискванията за интерактивен, семантичен и стилизиран информационен проект, който може лесно да бъде трансформиран в HTML формат за уеб публикация.",
         
-        sec1Para4: "Актуалността на <a href='#term-prompt-eng'>инженерството на промптове</a> в уеб разработката се определя от няколко ключови фактора. Първо, наблюдаваме безпрецедентен AI бум - според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>. Второ, съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>. Трето, появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код <a href='#ref-7'>[7]</a>. Тези трансформации правят владеенето на <a href='#term-prompt-eng'>инженерството на промптове</a> критична компетентност за съвременния уеб разработчик.",
+        sec1Para4: "Актуалността на <a href='#term-prompt-eng'>инженерството на промптове</a> в уеб разработката се определя от няколко ключови фактора. Първо, наблюдаваме безпрецедентен AI бум - според проучване на McKinsey от 2023 г., над 50% от организациите вече използват AI инструменти в поне една бизнес функция <a href='#ref-5'>[5]</a>. Второ, съвременните разработвателни цикли изискват все по-бързо доставяне на функционалности, където AI може да ускори разработката с до 40% <a href='#ref-6'>[6]</a>. Трето, появата на \"AI-assisted development\" променя фундаментално начина, по който се пише, тества и поддържа код. Тези трансформации правят владеенето на <a href='#term-prompt-eng'>инженерството на промптове</a> критична компетентност за съвременния уеб разработчик.",
         
         sec1Para5: "Настоящият реферат си поставя амбициозни цели в изследването на тази нововъзникваща област. Документът цели да дефинира <a href='#term-prompt-eng'>инженерството на промптове</a> и основните му техники, да изследва приложението на ChatGPT в уеб разработката, както и да анализира рисковете и предизвикателствата, свързани с използването на AI инструменти. Освен това, рефератът представя практически примери и казуси от реална практика, разглежда етичните и професионални аспекти на AI-асистираната разработка, и прави прогноза за бъдещето на професията в контекста на нарастващата автоматизация и интелигентни помощници.",
         
         // Section 2: What is Prompt Engineering
         sec2Title: "2. Какво е инженерство на промптове",
-        sec2Para1: "<a href='#term-prompt-eng'>Инженерството на промптове</a> е процесът на проектиране и оптимизация на <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се постигнат точни, релевантни и полезни резултати <a href='#ref-8'>[8]</a>. Терминът произлиза от естествено-езиковото взаимодействие с <a href='#term-llm'>LLM модели</a> като GPT-4, Claude, LLaMA и други <a href='#ref-9'>[9]</a>.",
+        sec2Para1: "<a href='#term-prompt-eng'>Инженерството на промптове</a> е процесът на проектиране и оптимизация на <a href='#term-prompt'>промптове</a> (инструкции) към AI модели, за да се постигнат точни, релевантни и полезни резултати <a href='#ref-8'>[8]</a>. Терминът произлиза от естествено-езиковото взаимодействие с <a href='#term-llm'>LLM модели</a> като GPT-4, Claude, LLaMA и други.",
         
         sec2Sub1Title: "2.1. Дефиниция и основни концепции",
         sec2Sub1Para1: "Според OpenAI, <a href='#term-prompt-eng'>инженерството на промптове</a> включва \"систематичното създаване на ефективни <a href='#term-prompt'>промпт</a> формулировки, които максимизират качеството и релевантността на отговорите на AI моделите\" <a href='#ref-10'>[10]</a>. Това включва:",
@@ -91,15 +91,15 @@ const translations = {
         sec3Sub1Title: "3.1. Поставяне на роля и контекст",
         sec3Sub1Para1: "Една от най-основните техники е задаването на роля и контекст на AI модела. Това се постига чрез инструкции като показаните в Код 1.",
         code1Caption: "Код 1: Базов <a href='#term-prompt'>промпт</a> за генериране на HTML форма",
-        sec3Sub1Para2: "Тази техника помага на модела да \"влезе в ролята\" и да генерира по-релевантен отговор <a href='#ref-14'>[14]</a>. <strong>Теоретично обяснение:</strong> <a href='#term-llm'>LLM моделите</a> са обучени върху огромни корпуси от текст, включващи специализирани домейни и професионални роли. Когато се зададе роля (напр. \"ти си senior web developer\"), моделът активира специфични статистически патърни, научени от професионални дискусии, документация и код от обучителните данни. Механизмите за внимание (attention mechanisms) в трансформерната архитектура позволяват на модела да се фокусира върху релевантните части от контекста, свързани с дадената роля, което води до по-специализирани и технически точни отговори <a href='#ref-11'>[11]</a>.",
+        sec3Sub1Para2: "Тази техника помага на модела да \"влезе в ролята\" и да генерира по-релевантен отговор. <strong>Теоретично обяснение:</strong> <a href='#term-llm'>LLM моделите</a> са обучени върху огромни корпуси от текст, включващи специализирани домейни и професионални роли. Когато се зададе роля (напр. \"ти си senior web developer\"), моделът активира специфични статистически патърни, научени от професионални дискусии, документация и код от обучителните данни. Механизмите за внимание (attention mechanisms) в трансформерната архитектура позволяват на модела да се фокусира върху релевантните части от контекста, свързани с дадената роля, което води до по-специализирани и технически точни отговори <a href='#ref-11'>[11]</a>.",
         
         sec3Sub2Title: "3.2. Ограничения, формати и изходни структури",
-        sec3Sub2Para1: "Спецификацията на точен формат и ограничения е критична за получаване на използваем резултат <a href='#ref-15'>[15]</a>. Виж Код 2 за пример:",
+        sec3Sub2Para1: "Спецификацията на точен формат и ограничения е критична за получаване на използваем резултат. Виж Код 2 за пример:",
         code2Caption: "Код 2: Разширен <a href='#term-prompt'>промпт</a> с контекст и ограничения",
         sec3Sub2Para2: "<strong>Теоретично обяснение:</strong> Ограниченията работят като насочващи сигнали за декодиращия процес на модела. При генериране на текст, моделът изчислява вероятностно разпределение върху всички възможни следващи токени. Ясно дефинираните ограничения (\"не използвай inline стилове\", \"добави коментари\") модифицират това разпределение, намалявайки вероятността за нежелани изходи и увеличавайки вероятността за съответстващи на изискванията резултати. Това е форма на условна генерация, при която контекстът действа като филтър върху обученото вероятностно пространство на модела <a href='#ref-12'>[12]</a>.",
         
         sec3Sub3Title: "3.3. Итеративни промптове и усъвършенстване",
-        sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>. Фигура 3 илюстрира цикличния процес на подобрение:",
+        sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване. Фигура 3 илюстрира цикличния процес на подобрение:",
         figure3Caption: "<strong>Фигура 3.</strong> Итеративен цикъл на усъвършенстване на <a href='#term-prompt'>промптовете</a>",
         
         sec3Sub4Title: "3.4. Few-shot промптове",
@@ -110,17 +110,17 @@ const translations = {
         sec3Sub5Title: "3.5. Верига на мисълта (Chain-of-thought, CoT)",
         sec3Sub5Para1: "<a href='#term-cot'>Веригата на мисълта (Chain-of-thought)</a> насърчава модела да \"мисли на глас\" и да показва стъпките в разсъжденията си <a href='#ref-18'>[18]</a>. Това е особено полезно за сложни задачи. Виж Код 4:",
         code4Caption: "Код 4: <a href='#term-cot'>Chain-of-thought</a> <a href='#term-prompt'>промпт</a> за решаване на проблем",
-        sec3Sub5Para2: "<strong>Теоретично обяснение:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> работи, като декомпозира сложни задачи на серия от междинни стъпки. От гледна точка на архитектурата на <a href='#term-llm'>LLM</a>, това разширява контекстовия прозорец с междинни разсъждения, които служат като \"мислен процес\". Всяка стъпка в Chain-of-Thought предоставя допълнителен контекст за следващата, позволявайки на attention механизмите да изградят по-богата вътрешна репрезентация на проблема. Изследвания показват, че CoT активира по-дълбоки слоеве на разсъждение в модела и намалява грешките при логически и математически задачи с 30-50% <a href='#ref-18'>[18]</a>. Това прилича на това как човешкият мозък използва работна памет за решаване на сложни проблеми стъпка по стъпка. Важна етична бележка: При използване на <a href='#term-cot'>CoT</a>, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин <a href='#ref-19'>[19]</a>. Резултатите винаги трябва да се валидират.",
+        sec3Sub5Para2: "<strong>Теоретично обяснение:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> работи, като декомпозира сложни задачи на серия от междинни стъпки. От гледна точка на архитектурата на <a href='#term-llm'>LLM</a>, това разширява контекстовия прозорец с междинни разсъждения, които служат като \"мислен процес\". Всяка стъпка в Chain-of-Thought предоставя допълнителен контекст за следващата, позволявайки на attention механизмите да изградят по-богата вътрешна репрезентация на проблема. Изследвания показват, че CoT активира по-дълбоки слоеве на разсъждение в модела и намалява грешките при логически и математически задачи с 30-50% <a href='#ref-18'>[18]</a>. Това прилича на това как човешкият мозък използва работна памет за решаване на сложни проблеми стъпка по стъпка. Важна етична бележка: При използване на <a href='#term-cot'>CoT</a>, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин. Резултатите винаги трябва да се валидират.",
         
         sec3Sub6Title: "3.6. Self-consistency и Toolformer-стил",
-        sec3Sub6Para1: "Self-consistency включва генериране на множество отговори и избор на най-консистентния <a href='#ref-20'>[20]</a>. Toolformer-стил взаимодействие позволява на AI да \"извиква\" външни инструменти <a href='#ref-21'>[21]</a>:",
+        sec3Sub6Para1: "Self-consistency включва генериране на множество отговори и избор на най-консистентния <a href='#ref-20'>[20]</a>. Toolformer-стил взаимодействие позволява на AI да \"извиква\" външни инструменти:",
         sec3Sub6Li1: "Code linters (ESLint, Prettier)",
         sec3Sub6Li2: "API validators (Postman, Swagger)",
         sec3Sub6Li3: "Browser DevTools",
         sec3Sub6Li4: "Git за version control",
         
         sec3Sub7Title: "3.7. Тестове, проверка и валидация",
-        sec3Sub7Para1: "Критично важна е систематичната проверка на AI генерирания код <a href='#ref-22'>[22]</a>:",
+        sec3Sub7Para1: "Критично важна е систематичната проверка на AI генерирания код:",
         sec3Sub7Para2: "Таблица 1 показва основните категории валидационни инструменти, които трябва да се използват при работа с AI генериран код.",
         
         table1Caption: "Таблица 1: Методи за валидация на AI генериран код",
@@ -148,22 +148,22 @@ const translations = {
         
         // Section 4: ChatGPT and Web Development
         sec6Title: "6. ChatGPT и Prompt Engineering в Web разработката",
-        sec6Para1: "ChatGPT и подобни LLM модели предлагат широк спектър от приложения в уеб разработката, от генериране на boilerplate код до помощ при архитектурни решения <a href='#ref-23'>[23]</a>.",
+        sec6Para1: "ChatGPT и подобни LLM модели предлагат широк спектър от приложения в уеб разработката, от генериране на boilerplate код до помощ при архитектурни решения.",
         
         sec6Sub1Title: "6.1. Генериране на HTML/CSS/JS шаблони",
-        sec6Sub1Para1: "Едно от най-практичните приложения е автоматичното генериране на код шаблони <a href='#ref-24'>[24]</a>. Виж Код 5:",
+        sec6Sub1Para1: "Едно от най-практичните приложения е автоматичното генериране на код шаблони. Виж Код 5:",
         code5Caption: "Код 5: Базов HTML5 шаблон с семантична структура",
         
         sec6Sub2Title: "6.2. CSS генериране и layout системи",
-        sec6Sub2Para1: "AI моделите могат ефективно да генерират модерни CSS layout-и <a href='#ref-25'>[25]</a>. Код 6 демонстрира CSS Grid система:",
+        sec6Sub2Para1: "AI моделите могат ефективно да генерират модерни CSS layout-и. Код 6 демонстрира CSS Grid система:",
         code6Caption: "Код 6: CSS Grid layout генериран от AI",
         
         sec6Sub3Title: "6.3. JavaScript и DOM манипулация",
-        sec6Sub3Para1: "ChatGPT може да генерира функционален JavaScript код <a href='#ref-26'>[26]</a>. Виж Код 7:",
+        sec6Sub3Para1: "ChatGPT може да генерира функционален JavaScript код. Виж Код 7:",
         code7Caption: "Код 7: JavaScript функция за DOM манипулация",
         
         sec6Sub4Title: "6.4. Архитектура, документация и тестове",
-        sec6Sub4Para1: "AI може да помогне при проектиране на архитектура и генериране на документация <a href='#ref-27'>[27]</a>:",
+        sec6Sub4Para1: "AI може да помогне при проектиране на архитектура и генериране на документация:",
         sec6Sub4Li1: "<strong>Architecture diagrams:</strong> Генериране на PlantUML, Mermaid диаграми",
         sec6Sub4Li2: "<strong>API документация:</strong> OpenAPI/Swagger спецификации",
         sec6Sub4Li3: "<strong>README файлове:</strong> Структурирана проектна документация",
@@ -171,11 +171,11 @@ const translations = {
         
         sec6Sub5Title: "6.5. i18n и локализация",
         sec6Sub5Para0: "<strong>i18n</strong> е съкращение на <em>internationalization</em> (интернационализация) - между 'i' и 'n' има 18 букви. Това е процесът на проектиране на уеб приложения така, че да могат лесно да се адаптират към различни езици и региони без промени в кода. Основните компоненти включват текстови ресурси (translations), форматиране на дати/числа, и поддръжка на различни писмености (RTL/LTR).",
-        sec6Sub5Para1: "ChatGPT може да генерира структури за интернационализация <a href='#ref-28'>[28]</a>. Код 8 показва пример:",
+        sec6Sub5Para1: "ChatGPT може да генерира структури за интернационализация. Код 8 показва пример:",
         code8Caption: "Код 8: Пример за i18n структура",
         
         sec6Sub6Title: "6.6. Добри практики за интеграция в pipeline",
-        sec6Sub6Para1: "Интегрирането на AI в разработвателския процес изисква дисциплина <a href='#ref-29'>[29]</a>:",
+        sec6Sub6Para1: "Интегрирането на AI в разработвателския процес изисква дисциплина:",
         sec6Sub6Li1: "<strong>Планиране:</strong> Дефинирайте какво AI ще генерира",
         sec6Sub6Li2: "<strong>Ревю:</strong> Винаги преглеждайте генерирания код",
         sec6Sub6Li3: "<strong>Тестване:</strong> Пишете тестове за AI код",
@@ -192,7 +192,7 @@ const translations = {
         sec6Sub7Para2: "Особено опасен е феноменът \"vibe coding\" - когато разработчици слепо копират AI генериран код без да разбират как работи <a href='#ref-32'>[32]</a>.",
         
         sec6Sub8Title: "6.8. Етика и професионална отговорност",
-        sec6Sub8Para1: "Използването на AI в разработката поражда етични въпроси <a href='#ref-33'>[33]</a>:",
+        sec6Sub8Para1: "Използването на AI в разработката поражда етични въпроси:",
         
         sec6Sub8Sub1Title: "Халюцинации",
         sec6Sub8Sub1Para1: "AI моделите могат да \"измислят\" факти, API-та или библиотеки, които не съществуват <a href='#ref-34'>[34]</a>. Примери:",
@@ -201,7 +201,7 @@ const translations = {
         sec6Sub8Sub1Li3: "Остарял код от предишни версии",
         
         sec6Sub8Sub2Title: "Проверими източници",
-        sec6Sub8Sub2Para1: "Всяка AI препоръка трябва да се валидира срещу официална документация <a href='#ref-35'>[35]</a>:",
+        sec6Sub8Sub2Para1: "Всяка AI препоръка трябва да се валидира срещу официална документация:",
         sec6Sub8Sub2Li1: "MDN Web Docs за JavaScript/CSS/HTML",
         sec6Sub8Sub2Li2: "W3C спецификации за стандарти",
         sec6Sub8Sub2Li3: "Официални GitHub repositories",
@@ -261,7 +261,7 @@ const translations = {
         sec4Sub3Case1Para: "Разработчик използва ChatGPT за генериране на responsive navigation menu. AI генерира чист код с accessibility features. След малки корекции, кодът е production-ready <a href='#ref-42'>[42]</a>.",
         
         sec4Sub3Case2Title: "Случай 2: Проблематично използване",
-        sec4Sub3Case2Para: "Junior разработчик поиска от AI да генерира authentication система. AI създаде код без proper password hashing и с SQL injection уязвимости. Само след security audit проблемите са открити <a href='#ref-43'>[43]</a>.",
+        sec4Sub3Case2Para: "Junior разработчик поиска от AI да генерира authentication система. AI създаде код без proper password hashing и с SQL injection уязвимости. Само след security audit проблемите са открити.",
         
         sec4Sub3Case3Title: "Случай 3: Оптимален workflow",
         sec4Sub3Case3Para: "Senior team използва AI за boilerplate, но всички резултати преминават през:",
@@ -272,7 +272,7 @@ const translations = {
         sec4Sub3Case3Result: "Резултат: 35% по-бърза разработка при запазване на качеството <a href='#ref-44'>[44]</a>.",
         
         sec4Sub4Title: "4.4. Как да валидираме резултата",
-        sec4Sub4Para1: "Систематичен подход за валидация <a href='#ref-45'>[45]</a>:",
+        sec4Sub4Para1: "Систематичен подход за валидация:",
         
         table2Caption: "Таблица 2: Checklist за валидация на AI генериран код",
         table2Header1: "Категория",
@@ -296,12 +296,12 @@ const translations = {
         
         // Section 6: Risks
         sec5Title: "5. Рискове и ограничения",
-        sec5Para1: "Въпреки предимствата, използването на AI в уеб разработката носи значителни рискове, които изискват внимание и предотвратяване <a href='#ref-46'>[46]</a>.",
+        sec5Para1: "Въпреки предимствата, използването на AI в уеб разработката носи значителни рискове, които изискват внимание и предотвратяване.",
         
         sec5Sub1Title: "5.1. Етически предизвикателства",
         
         sec5Sub1Sub1Title: "Прозрачност",
-        sec5Sub1Sub1Para1: "Декларирането на произхода на кода е ключов елемент от професионалната етика, особено когато е генериран от изкуствен интелект <a href='#ref-47'>[47]</a>. Основните сценарии, изискващи изрично упоменаване, включват:",
+        sec5Sub1Sub1Para1: "Декларирането на произхода на кода е ключов елемент от професионалната етика, особено когато е генериран от изкуствен интелект. Основните сценарии, изискващи изрично упоменаване, включват:",
         sec5Sub1Sub1Li1: "В open-source проекти",
         sec5Sub1Sub1Li2: "В комерсиални продукти",
         sec5Sub1Sub1Li3: "При code contributions",
@@ -372,7 +372,7 @@ const translations = {
         sec7Sub1Sub2Li4: "Сложна бизнес логика без domain expertise",
         
         sec7Sub2Title: "7.2. Отговорни практики",
-        sec7Sub2Para1: "Препоръки за отговорно използване <a href='#ref-54'>[54]</a>:",
+        sec7Sub2Para1: "Препоръки за отговорно използване:",
         sec7Sub2Li1: "<strong>Transparency:</strong> Документирай всяка AI употреба",
         sec7Sub2Li2: "<strong>Validation:</strong> Винаги проверявай резултатите",
         sec7Sub2Li3: "<strong>Education:</strong> Обучавай се на основите преди да използваш AI",
@@ -528,17 +528,17 @@ const translations = {
         
         // Section 1: Introduction
         sec1Title: "1. Introduction",
-        sec1Para1: "In the modern era of artificial intelligence, characterized by exponential growth in the capabilities of <a href='#term-llm'>Large Language Models (LLM)</a>, <a href='#term-prompt-eng'>prompt engineering</a> stands out as a key competency for effective interaction with AI systems <a href='#ref-1'>[1]</a>. Since the launch of ChatGPT in late 2022, the tech industry has witnessed a radical transformation in how developers approach software engineering and web development <a href='#ref-2'>[2]</a>.",
-        sec1Para2: "<a href='#term-prompt-eng'>Prompt engineering</a> represents the art and science of formulating effective <a href='#term-prompt'>prompts</a> (instructions) to AI models to obtain desired results <a href='#ref-3'>[3]</a>. In the context of web development, this discipline offers unprecedented opportunities for accelerating development, automating routine tasks, and generating high-quality code <a href='#ref-4'>[4]</a>.",
+        sec1Para1: "In the modern era of artificial intelligence, characterized by exponential growth in the capabilities of <a href='#term-llm'>Large Language Models (LLM)</a>, <a href='#term-prompt-eng'>prompt engineering</a> stands out as a key competency for effective interaction with AI systems <a href='#ref-1'>[1]</a>. Since the launch of ChatGPT in late 2022, the tech industry has witnessed a radical transformation in how developers approach software engineering and web development.",
+        sec1Para2: "<a href='#term-prompt-eng'>Prompt engineering</a> represents the art and science of formulating effective <a href='#term-prompt'>prompts</a> (instructions) to AI models to obtain desired results <a href='#ref-3'>[3]</a>. In the context of web development, this discipline offers unprecedented opportunities for accelerating development, automating routine tasks, and generating high-quality code.",
         sec1Para3: "This paper is developed as part of the Web Technologies course (25th edition) and aims to explore the intersection between <a href='#term-prompt-eng'>prompt engineering</a> and modern web development. The document is structured according to requirements for an interactive, semantic, and styled information project that can easily be transformed into HTML format for web publication.",
         
-        sec1Para4: "The relevance of <a href='#term-prompt-eng'>prompt engineering</a> in web development is determined by several key factors. First, we are witnessing an unprecedented AI boom - according to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>. Second, modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>. Third, the emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained <a href='#ref-7'>[7]</a>. These transformations make mastery of <a href='#term-prompt-eng'>prompt engineering</a> a critical competency for the modern web developer.",
+        sec1Para4: "The relevance of <a href='#term-prompt-eng'>prompt engineering</a> in web development is determined by several key factors. First, we are witnessing an unprecedented AI boom - according to a 2023 McKinsey study, over 50% of organizations already use AI tools in at least one business function <a href='#ref-5'>[5]</a>. Second, modern development cycles require increasingly faster delivery of features, where AI can accelerate development by up to 40% <a href='#ref-6'>[6]</a>. Third, the emergence of \"AI-assisted development\" fundamentally changes how code is written, tested, and maintained. These transformations make mastery of <a href='#term-prompt-eng'>prompt engineering</a> a critical competency for the modern web developer.",
         
         sec1Para5: "This paper sets ambitious goals in researching this emerging field. The document aims to define <a href='#term-prompt-eng'>prompt engineering</a> and its main techniques, to explore the application of ChatGPT in web development, and to analyze the risks and challenges associated with using AI tools. Additionally, the paper presents practical examples and case studies from real-world practice, examines the ethical and professional aspects of AI-assisted development, and makes predictions about the future of the profession in the context of increasing automation and intelligent assistants.",
         
         // Section 2: What is Prompt Engineering
         sec2Title: "2. What is Prompt Engineering",
-        sec2Para1: "<a href='#term-prompt-eng'>Prompt engineering</a> is the process of designing and optimizing <a href='#term-prompt'>prompts</a> (instructions) to AI models to achieve accurate, relevant, and useful results <a href='#ref-8'>[8]</a>. The term derives from natural language interaction with <a href='#term-llm'>LLM models</a> such as GPT-4, Claude, LLaMA, and others <a href='#ref-9'>[9]</a>.",
+        sec2Para1: "<a href='#term-prompt-eng'>Prompt engineering</a> is the process of designing and optimizing <a href='#term-prompt'>prompts</a> (instructions) to AI models to achieve accurate, relevant, and useful results <a href='#ref-8'>[8]</a>. The term derives from natural language interaction with <a href='#term-llm'>LLM models</a> such as GPT-4, Claude, LLaMA, and others.",
         
         sec2Sub1Title: "2.1. Definition and Core Concepts",
         sec2Sub1Para1: "According to OpenAI, prompt engineering includes \"the systematic creation of effective prompt formulations that maximize the quality and relevance of AI model responses\" <a href='#ref-10'>[10]</a>. This includes:",
@@ -564,15 +564,15 @@ const translations = {
         sec3Sub1Title: "3.1. Role and Context Setting",
         sec3Sub1Para1: "One of the most fundamental techniques is assigning a role and context to the AI model. This is achieved through instructions as shown in Code 1.",
         code1Caption: "Code 1: Basic prompt for generating HTML form",
-        sec3Sub1Para2: "This technique helps the model \"step into the role\" and generate more relevant responses <a href='#ref-14'>[14]</a>. <strong>Theoretical explanation:</strong> <a href='#term-llm'>LLM models</a> are trained on massive text corpora including specialized domains and professional roles. When a role is assigned (e.g., \"you are a senior web developer\"), the model activates specific statistical patterns learned from professional discussions, documentation, and code in the training data. Attention mechanisms in the transformer architecture allow the model to focus on relevant parts of the context related to the given role, leading to more specialized and technically accurate responses <a href='#ref-11'>[11]</a>.",
+        sec3Sub1Para2: "This technique helps the model \"step into the role\" and generate more relevant responses. <strong>Theoretical explanation:</strong> <a href='#term-llm'>LLM models</a> are trained on massive text corpora including specialized domains and professional roles. When a role is assigned (e.g., \"you are a senior web developer\"), the model activates specific statistical patterns learned from professional discussions, documentation, and code in the training data. Attention mechanisms in the transformer architecture allow the model to focus on relevant parts of the context related to the given role, leading to more specialized and technically accurate responses <a href='#ref-11'>[11]</a>.",
         
         sec3Sub2Title: "3.2. Constraints, Formats, and Output Structures",
-        sec3Sub2Para1: "Specifying exact format and constraints is critical for obtaining usable results <a href='#ref-15'>[15]</a>. See Code 2 for an example:",
+        sec3Sub2Para1: "Specifying exact format and constraints is critical for obtaining usable results. See Code 2 for an example:",
         code2Caption: "Code 2: Advanced prompt with context and constraints",
         sec3Sub2Para2: "<strong>Theoretical explanation:</strong> Constraints work as guiding signals for the model's decoding process. During text generation, the model computes a probability distribution over all possible next tokens. Clearly defined constraints (\"don't use inline styles\", \"add comments\") modify this distribution, reducing the probability of unwanted outputs and increasing the probability of compliant results. This is a form of conditional generation where context acts as a filter over the model's trained probability space <a href='#ref-12'>[12]</a>.",
         
         sec3Sub3Title: "3.3. Iterative Prompts and Refinement",
-        sec3Sub3Para1: "The first prompt rarely gives perfect results. The iterative approach involves gradual refinement <a href='#ref-16'>[16]</a>. Figure 3 illustrates the cyclical improvement process:",
+        sec3Sub3Para1: "The first prompt rarely gives perfect results. The iterative approach involves gradual refinement. Figure 3 illustrates the cyclical improvement process:",
         figure3Caption: "<strong>Figure 3.</strong> Iterative cycle for prompt refinement",
         
         sec3Sub4Title: "3.4. Few-shot Prompts",
@@ -583,17 +583,17 @@ const translations = {
         sec3Sub5Title: "3.5. Chain-of-thought (CoT)",
         sec3Sub5Para1: "Chain-of-thought prompting encourages the model to \"think aloud\" and show the steps in its reasoning <a href='#ref-18'>[18]</a>. This is especially useful for complex tasks. See Code 4:",
         code4Caption: "Code 4: Chain-of-thought prompt for problem-solving",
-        sec3Sub5Para2: "<strong>Theoretical explanation:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> works by decomposing complex tasks into a series of intermediate steps. From the <a href='#term-llm'>LLM</a> architecture perspective, this extends the context window with intermediate reasoning that serves as a \"thought process\". Each step in Chain-of-Thought provides additional context for the next, allowing attention mechanisms to build a richer internal representation of the problem. Research shows that CoT activates deeper layers of reasoning in the model and reduces errors in logical and mathematical tasks by 30-50% <a href='#ref-18'>[18]</a>. This resembles how the human brain uses working memory to solve complex problems step by step. Important ethical note: When using CoT, we must be aware that the model simulates reasoning but does not \"think\" in a human way <a href='#ref-19'>[19]</a>. Results must always be validated.",
+        sec3Sub5Para2: "<strong>Theoretical explanation:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> works by decomposing complex tasks into a series of intermediate steps. From the <a href='#term-llm'>LLM</a> architecture perspective, this extends the context window with intermediate reasoning that serves as a \"thought process\". Each step in Chain-of-Thought provides additional context for the next, allowing attention mechanisms to build a richer internal representation of the problem. Research shows that CoT activates deeper layers of reasoning in the model and reduces errors in logical and mathematical tasks by 30-50% <a href='#ref-18'>[18]</a>. This resembles how the human brain uses working memory to solve complex problems step by step. Important ethical note: When using CoT, we must be aware that the model simulates reasoning but does not \"think\" in a human way. Results must always be validated.",
         
         sec3Sub6Title: "3.6. Self-consistency and Toolformer-style",
-        sec3Sub6Para1: "Self-consistency involves generating multiple responses and choosing the most consistent one <a href='#ref-20'>[20]</a>. Toolformer-style interaction allows AI to \"call\" external tools <a href='#ref-21'>[21]</a>:",
+        sec3Sub6Para1: "Self-consistency involves generating multiple responses and choosing the most consistent one <a href='#ref-20'>[20]</a>. Toolformer-style interaction allows AI to \"call\" external tools:",
         sec3Sub6Li1: "Code linters (ESLint, Prettier)",
         sec3Sub6Li2: "API validators (Postman, Swagger)",
         sec3Sub6Li3: "Browser DevTools",
         sec3Sub6Li4: "Git for version control",
         
         sec3Sub7Title: "3.7. Testing, Checking, and Validation",
-        sec3Sub7Para1: "Systematic checking of AI-generated code is critically important <a href='#ref-22'>[22]</a>:",
+        sec3Sub7Para1: "Systematic checking of AI-generated code is critically important:",
         sec3Sub7Para2: "Table 1 shows the main categories of validation tools that should be used when working with AI-generated code.",
         
         table1Caption: "Table 1: Methods for validating AI-generated code",
@@ -621,22 +621,22 @@ const translations = {
         
         // Section 4: ChatGPT and Web Development
         sec6Title: "6. ChatGPT and Prompt Engineering in Web Development",
-        sec6Para1: "ChatGPT and similar LLM models offer a wide range of applications in web development, from generating boilerplate code to assisting with architectural decisions <a href='#ref-23'>[23]</a>.",
+        sec6Para1: "ChatGPT and similar LLM models offer a wide range of applications in web development, from generating boilerplate code to assisting with architectural decisions.",
         
         sec6Sub1Title: "6.1. Generating HTML/CSS/JS Templates",
-        sec6Sub1Para1: "One of the most practical applications is automatic generation of code templates <a href='#ref-24'>[24]</a>. See Code 5:",
+        sec6Sub1Para1: "One of the most practical applications is automatic generation of code templates. See Code 5:",
         code5Caption: "Code 5: Basic HTML5 template with semantic structure",
         
         sec6Sub2Title: "6.2. CSS Generation and Layout Systems",
-        sec6Sub2Para1: "AI models can effectively generate modern CSS layouts <a href='#ref-25'>[25]</a>. Code 6 demonstrates a CSS Grid system:",
+        sec6Sub2Para1: "AI models can effectively generate modern CSS layouts. Code 6 demonstrates a CSS Grid system:",
         code6Caption: "Code 6: CSS Grid layout generated by AI",
         
         sec6Sub3Title: "6.3. JavaScript and DOM Manipulation",
-        sec6Sub3Para1: "ChatGPT can generate functional JavaScript code <a href='#ref-26'>[26]</a>. See Code 7:",
+        sec6Sub3Para1: "ChatGPT can generate functional JavaScript code. See Code 7:",
         code7Caption: "Code 7: JavaScript function for DOM manipulation",
         
         sec6Sub4Title: "6.4. Architecture, Documentation, and Tests",
-        sec6Sub4Para1: "AI can help with architecture design and documentation generation <a href='#ref-27'>[27]</a>:",
+        sec6Sub4Para1: "AI can help with architecture design and documentation generation:",
         sec6Sub4Li1: "<strong>Architecture diagrams:</strong> Generating PlantUML, Mermaid diagrams",
         sec6Sub4Li2: "<strong>API documentation:</strong> OpenAPI/Swagger specifications",
         sec6Sub4Li3: "<strong>README files:</strong> Structured project documentation",
@@ -644,11 +644,11 @@ const translations = {
         
         sec6Sub5Title: "6.5. i18n and Localization",
         sec6Sub5Para0: "<strong>i18n</strong> is short for <em>internationalization</em> - there are 18 letters between 'i' and 'n'. It is the process of designing web applications so they can easily adapt to different languages and regions without code changes. Key components include text resources (translations), date/number formatting, and support for different writing systems (RTL/LTR).",
-        sec6Sub5Para1: "ChatGPT can generate structures for internationalization <a href='#ref-28'>[28]</a>. Code 8 shows an example:",
+        sec6Sub5Para1: "ChatGPT can generate structures for internationalization. Code 8 shows an example:",
         code8Caption: "Code 8: Example of i18n structure",
         
         sec6Sub6Title: "6.6. Best Practices for Pipeline Integration",
-        sec6Sub6Para1: "Integrating AI into the development process requires discipline <a href='#ref-29'>[29]</a>:",
+        sec6Sub6Para1: "Integrating AI into the development process requires discipline:",
         sec6Sub6Li1: "<strong>Planning:</strong> Define what AI will generate",
         sec6Sub6Li2: "<strong>Review:</strong> Always review generated code",
         sec6Sub6Li3: "<strong>Testing:</strong> Write tests for AI code",
@@ -665,7 +665,7 @@ const translations = {
         sec6Sub7Para2: "Especially dangerous is the phenomenon of \"vibe coding\" - when developers blindly copy AI-generated code without understanding how it works <a href='#ref-32'>[32]</a>.",
         
         sec6Sub8Title: "6.8. Ethics and Professional Responsibility",
-        sec6Sub8Para1: "Using AI in development raises ethical questions <a href='#ref-33'>[33]</a>:",
+        sec6Sub8Para1: "Using AI in development raises ethical questions:",
         
         sec6Sub8Sub1Title: "Hallucinations",
         sec6Sub8Sub1Para1: "AI models can \"invent\" facts, APIs, or libraries that don't exist <a href='#ref-34'>[34]</a>. Examples:",
@@ -674,7 +674,7 @@ const translations = {
         sec6Sub8Sub1Li3: "Outdated code from previous versions",
         
         sec6Sub8Sub2Title: "Verifiable Sources",
-        sec6Sub8Sub2Para1: "Every AI recommendation must be validated against official documentation <a href='#ref-35'>[35]</a>:",
+        sec6Sub8Sub2Para1: "Every AI recommendation must be validated against official documentation:",
         sec6Sub8Sub2Li1: "MDN Web Docs for JavaScript/CSS/HTML",
         sec6Sub8Sub2Li2: "W3C specifications for standards",
         sec6Sub8Sub2Li3: "Official GitHub repositories",
@@ -734,7 +734,7 @@ const translations = {
         sec4Sub3Case1Para: "A developer uses ChatGPT to generate a responsive navigation menu. AI generates clean code with accessibility features. After minor corrections, the code is production-ready <a href='#ref-42'>[42]</a>.",
         
         sec4Sub3Case2Title: "Case 2: Problematic Use",
-        sec4Sub3Case2Para: "A junior developer asks AI to generate an authentication system. AI creates code without proper password hashing and with SQL injection vulnerabilities. Only after a security audit are the problems discovered <a href='#ref-43'>[43]</a>.",
+        sec4Sub3Case2Para: "A junior developer asks AI to generate an authentication system. AI creates code without proper password hashing and with SQL injection vulnerabilities. Only after a security audit are the problems discovered.",
         
         sec4Sub3Case3Title: "Case 3: Optimal Workflow",
         sec4Sub3Case3Para: "A senior team uses AI for boilerplate, but all results go through:",
@@ -745,7 +745,7 @@ const translations = {
         sec4Sub3Case3Result: "Result: 35% faster development while maintaining quality <a href='#ref-44'>[44]</a>.",
         
         sec4Sub4Title: "4.4. How to Validate Results",
-        sec4Sub4Para1: "Systematic approach to validation <a href='#ref-45'>[45]</a>:",
+        sec4Sub4Para1: "Systematic approach to validation:",
         
         table2Caption: "Table 2: Checklist for validating AI-generated code",
         table2Header1: "Category",
@@ -769,12 +769,12 @@ const translations = {
         
         // Section 6: Risks
         sec5Title: "5. Risks and Limitations",
-        sec5Para1: "Despite the advantages, using AI in web development carries significant risks that require attention and mitigation <a href='#ref-46'>[46]</a>.",
+        sec5Para1: "Despite the advantages, using AI in web development carries significant risks that require attention and mitigation.",
         
         sec5Sub1Title: "5.1. Ethical Challenges",
         
         sec5Sub1Sub1Title: "Transparency",
-        sec5Sub1Sub1Para1: "Declaring the origin of code is a key element of professional ethics, especially when generated by artificial intelligence <a href='#ref-47'>[47]</a>. The main scenarios requiring explicit mention include:",
+        sec5Sub1Sub1Para1: "Declaring the origin of code is a key element of professional ethics, especially when generated by artificial intelligence. The main scenarios requiring explicit mention include:",
         sec5Sub1Sub1Li1: "In open-source projects",
         sec5Sub1Sub1Li2: "In commercial products",
         sec5Sub1Sub1Li3: "In code contributions",
@@ -846,7 +846,7 @@ const translations = {
         sec7Sub1Sub2Li4: "Complex business logic without domain expertise",
         
         sec7Sub2Title: "7.2. Responsible Practices",
-        sec7Sub2Para1: "Recommendations for responsible use <a href='#ref-54'>[54]</a>:",
+        sec7Sub2Para1: "Recommendations for responsible use:",
         sec7Sub2Li1: "<strong>Transparency:</strong> Document AI usage",
         sec7Sub2Li2: "<strong>Validation:</strong> Always verify results",
         sec7Sub2Li3: "<strong>Education:</strong> Learn the basics before using AI",
