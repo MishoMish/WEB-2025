@@ -91,13 +91,14 @@ const translations = {
         sec3Sub1Title: "3.1. Поставяне на роля и контекст",
         sec3Sub1Para1: "Една от най-основните техники е задаването на роля и контекст на AI модела <a href='#ref-13'>[13]</a>. Това се постига чрез инструкции като показаните в Код 1.",
         code1Caption: "Код 1: Базов <a href='#term-prompt'>промпт</a> за генериране на HTML форма",
-        sec3Sub1Para2: "Тази техника помага на модела да \"влезе в ролята\" и да генерира по-релевантен отговор <a href='#ref-14'>[14]</a>.",
+        sec3Sub1Para2: "Тази техника помага на модела да \"влезе в ролята\" и да генерира по-релевантен отговор <a href='#ref-14'>[14]</a>. <strong>Теоретично обяснение:</strong> <a href='#term-llm'>LLM моделите</a> са обучени върху огромни корпуси от текст, включващи специализирани домейни и професионални роли. Когато се зададе роля (напр. \"ти си senior web developer\"), моделът активира специфични статистически патърни, научени от професионални дискусии, документация и код от обучителните данни. Механизмите за внимание (attention mechanisms) в трансформерната архитектура позволяват на модела да се фокусира върху релевантните части от контекста, свързани с дадената роля, което води до по-специализирани и технически точни отговори <a href='#ref-11'>[11]</a>.",
         
         sec3Sub2Title: "3.2. Ограничения, формати и изходни структури",
         sec3Sub2Para1: "Спецификацията на точен формат и ограничения е критична за получаване на използваем резултат <a href='#ref-15'>[15]</a>. Виж Код 2 за пример:",
         code2Caption: "Код 2: Разширен <a href='#term-prompt'>промпт</a> с контекст и ограничения",
+        sec3Sub2Para2: "<strong>Теоретично обяснение:</strong> Ограниченията работят като насочващи сигнали за декодиращия процес на модела. При генериране на текст, моделът изчислява вероятностно разпределение върху всички възможни следващи токени. Ясно дефинираните ограничения (\"не използвай inline стилове\", \"добави коментари\") модифицират това разпределение, намалявайки вероятността за нежелани изходи и увеличавайки вероятността за съответстващи на изискванията резултати. Това е форма на условна генерация, при която контекстът действа като филтър върху обученото вероятностно пространство на модела <a href='#ref-12'>[12]</a>.",
         
-        sec3Sub3Title: "3.3. Итеративни промптове и рефайнмент",
+        sec3Sub3Title: "3.3. Итеративни промптове и усъвършенстване",
         sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>:",
         sec3Sub3Li1: "Първоначален <a href='#term-prompt'>промпт</a> и резултат",
         sec3Sub3Li2: "Анализ на резултата",
@@ -108,11 +109,12 @@ const translations = {
         sec3Sub4Title: "3.4. Few-shot промптове",
         sec3Sub4Para1: "<a href='#term-few-shot'>Few-shot learning</a> предоставя на модела примери за желания формат и стил <a href='#ref-17'>[17]</a>. Виж Код 3:",
         code3Caption: "Код 3: <a href='#term-few-shot'>Few-shot</a> <a href='#term-prompt'>промпт</a> с примери",
+        sec3Sub4Para2: "<strong>Теоретично обяснение:</strong> <a href='#term-few-shot'>Few-shot learning</a> използва способността на <a href='#term-llm'>LLM моделите</a> за in-context learning - обучение \"в контекста\" без промяна на параметрите на модела <a href='#ref-17'>[17]</a>. Когато моделът обработва последователност от примери, следвани от нова задача, механизмите за внимание разпознават структурните сходства и автоматично адаптират генерацията към наблюдавания патърн. Това работи, защото моделът е научил мета-способността да разпознава и имитира структури от обучителните данни. Изследванията показват, че големите модели като GPT-4 са особено ефективни в few-shot learning поради обширния им параметричен капацитет и способността да кодират сложни релации в attention слоевете <a href='#ref-9'>[9]</a>.",
         
         sec3Sub5Title: "3.5. Верига на мисълта (Chain-of-thought, CoT)",
         sec3Sub5Para1: "<a href='#term-cot'>Веригата на мисълта (Chain-of-thought)</a> насърчава модела да \"мисли на глас\" и да показва стъпките в разсъжденията си <a href='#ref-18'>[18]</a>. Това е особено полезно за сложни задачи. Виж Код 4:",
         code4Caption: "Код 4: <a href='#term-cot'>Chain-of-thought</a> <a href='#term-prompt'>промпт</a> за решаване на проблем",
-        sec3Sub5Para2: "Важна етична бележка: При използване на <a href='#term-cot'>CoT</a>, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин <a href='#ref-19'>[19]</a>. Резултатите винаги трябва да се валидират.",
+        sec3Sub5Para2: "<strong>Теоретично обяснение:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> работи, като декомпозира сложни задачи на серия от междинни стъпки. От гледна точка на архитектурата на <a href='#term-llm'>LLM</a>, това разширява контекстовия прозорец с междинни разсъждения, които служат като \"мислен процес\". Всяка стъпка в Chain-of-Thought предоставя допълнителен контекст за следващата, позволявайки на attention механизмите да изградят по-богата вътрешна репрезентация на проблема. Изследвания показват, че CoT активира по-дълбоки слоеве на разсъждение в модела и намалява грешките при логически и математически задачи с 30-50% <a href='#ref-18'>[18]</a>. Това прилича на това как човешкият мозък използва работна памет за решаване на сложни проблеми стъпка по стъпка. Важна етична бележка: При използване на <a href='#term-cot'>CoT</a>, трябва да сме наясно, че моделът симулира разсъждения, но не \"мисли\" по човешки начин <a href='#ref-19'>[19]</a>. Резултатите винаги трябва да се валидират.",
         
         sec3Sub6Title: "3.6. Self-consistency и Toolformer-стил",
         sec3Sub6Para1: "Self-consistency включва генериране на множество отговори и избор на най-консистентния <a href='#ref-20'>[20]</a>. Toolformer-стил взаимодействие позволява на AI да \"извиква\" външни инструменти <a href='#ref-21'>[21]</a>:",
@@ -403,7 +405,7 @@ const translations = {
         
         // Acknowledgments
         acknowledgementsTitle: "Благодарности",
-        acknowledgementsText: "Искам да изразя своята искрена благодарност на анонимния рецензент, чиито ценни препоръки и конструктивна критика доведоха до значително подобряване на качеството на този реферат. По-конкретно, предложението за включване на математическа формализация чрез Марковските вериги (виж <a href='#ref-57'>[57]</a>) обогати теоретичната основа на изложението и повиши академичната стойност на разработката. Подобни научни насоки са от изключителна важност за непрекъснатото усъвършенстване на академичните изследвания.",
+        acknowledgementsText: "Искам да изразя своята искрена благодарност на анонимния рецензент, чиито ценни препоръки и конструктивна критика доведоха до значително подобряване на качеството на този реферат. По-конкретно, предложението за включване на математическа формализация чрез Марковските вериги (виж <a href='#ref-57'>[57]</a>) обогати теоретичната основа на изложението и повиши академичната стойност на разработката. Подобни научни насоки са от изключителна важност за непрекъснатото усъвършенстване на академичните изследвания. Освен това, изказвам специална благодарност на втория анонимен рецензент, който насочи вниманието ми към необходимостта от по-задълбочено теоретично обяснение защо представените техники в <a href='#term-prompt-eng'>инженерството на промптове</a> работят ефективно. Препоръката за по-силна връзка между теоретичните основи на <a href='#term-llm'>LLM моделите</a> и практическите техники допринесе за по-логично и убедително представяне на материала, като предостави на читателя доказателствена база за ефективността на разглежданите подходи.",
         
         // Citations
         citationsTitle: "Цитирана литература",
@@ -560,11 +562,12 @@ const translations = {
         sec3Sub1Title: "3.1. Role and Context Setting",
         sec3Sub1Para1: "One of the most fundamental techniques is assigning a role and context to the AI model <a href='#ref-13'>[13]</a>. This is achieved through instructions as shown in Code 1.",
         code1Caption: "Code 1: Basic prompt for generating HTML form",
-        sec3Sub1Para2: "This technique helps the model \"step into the role\" and generate more relevant responses <a href='#ref-14'>[14]</a>.",
+        sec3Sub1Para2: "This technique helps the model \"step into the role\" and generate more relevant responses <a href='#ref-14'>[14]</a>. <strong>Theoretical explanation:</strong> <a href='#term-llm'>LLM models</a> are trained on massive text corpora including specialized domains and professional roles. When a role is assigned (e.g., \"you are a senior web developer\"), the model activates specific statistical patterns learned from professional discussions, documentation, and code in the training data. Attention mechanisms in the transformer architecture allow the model to focus on relevant parts of the context related to the given role, leading to more specialized and technically accurate responses <a href='#ref-11'>[11]</a>.",
         
         sec3Sub2Title: "3.2. Constraints, Formats, and Output Structures",
         sec3Sub2Para1: "Specifying exact format and constraints is critical for obtaining usable results <a href='#ref-15'>[15]</a>. See Code 2 for an example:",
         code2Caption: "Code 2: Advanced prompt with context and constraints",
+        sec3Sub2Para2: "<strong>Theoretical explanation:</strong> Constraints work as guiding signals for the model's decoding process. During text generation, the model computes a probability distribution over all possible next tokens. Clearly defined constraints (\"don't use inline styles\", \"add comments\") modify this distribution, reducing the probability of unwanted outputs and increasing the probability of compliant results. This is a form of conditional generation where context acts as a filter over the model's trained probability space <a href='#ref-12'>[12]</a>.",
         
         sec3Sub3Title: "3.3. Iterative Prompts and Refinement",
         sec3Sub3Para1: "The first prompt rarely gives perfect results. The iterative approach involves gradual refinement <a href='#ref-16'>[16]</a>:",
@@ -577,11 +580,12 @@ const translations = {
         sec3Sub4Title: "3.4. Few-shot Prompts",
         sec3Sub4Para1: "Few-shot learning provides the model with examples of the desired format and style <a href='#ref-17'>[17]</a>. See Code 3:",
         code3Caption: "Code 3: Few-shot prompt with examples",
+        sec3Sub4Para2: "<strong>Theoretical explanation:</strong> <a href='#term-few-shot'>Few-shot learning</a> exploits the ability of <a href='#term-llm'>LLM models</a> for in-context learning - learning \"in context\" without changing model parameters <a href='#ref-17'>[17]</a>. When the model processes a sequence of examples followed by a new task, attention mechanisms recognize structural similarities and automatically adapt generation to the observed pattern. This works because the model has learned the meta-ability to recognize and imitate structures from training data. Research shows that large models like GPT-4 are particularly effective at few-shot learning due to their extensive parametric capacity and ability to encode complex relationships in attention layers <a href='#ref-9'>[9]</a>.",
         
         sec3Sub5Title: "3.5. Chain-of-thought (CoT)",
         sec3Sub5Para1: "Chain-of-thought prompting encourages the model to \"think aloud\" and show the steps in its reasoning <a href='#ref-18'>[18]</a>. This is especially useful for complex tasks. See Code 4:",
         code4Caption: "Code 4: Chain-of-thought prompt for problem-solving",
-        sec3Sub5Para2: "Important ethical note: When using CoT, we must be aware that the model simulates reasoning but does not \"think\" in a human way <a href='#ref-19'>[19]</a>. Results must always be validated.",
+        sec3Sub5Para2: "<strong>Theoretical explanation:</strong> <a href='#term-cot'>Chain-of-thought prompting</a> works by decomposing complex tasks into a series of intermediate steps. From the <a href='#term-llm'>LLM</a> architecture perspective, this extends the context window with intermediate reasoning that serves as a \"thought process\". Each step in Chain-of-Thought provides additional context for the next, allowing attention mechanisms to build a richer internal representation of the problem. Research shows that CoT activates deeper layers of reasoning in the model and reduces errors in logical and mathematical tasks by 30-50% <a href='#ref-18'>[18]</a>. This resembles how the human brain uses working memory to solve complex problems step by step. Important ethical note: When using CoT, we must be aware that the model simulates reasoning but does not \"think\" in a human way <a href='#ref-19'>[19]</a>. Results must always be validated.",
         
         sec3Sub6Title: "3.6. Self-consistency and Toolformer-style",
         sec3Sub6Para1: "Self-consistency involves generating multiple responses and choosing the most consistent one <a href='#ref-20'>[20]</a>. Toolformer-style interaction allows AI to \"call\" external tools <a href='#ref-21'>[21]</a>:",
@@ -872,7 +876,7 @@ const translations = {
         
         // Acknowledgments
         acknowledgementsTitle: "Acknowledgments",
-        acknowledgementsText: "I want to express my sincere gratitude to the anonymous reviewer whose valuable recommendations and constructive criticism led to significant improvements in the quality of this paper. In particular, the suggestion to include mathematical formalization through Markov chains (see <a href='#ref-57'>[57]</a>) enriched the theoretical foundation of the exposition and enhanced the academic value of this work. Such scholarly guidance is of paramount importance for the continuous improvement of academic research.",
+        acknowledgementsText: "I want to express my sincere gratitude to the anonymous reviewer whose valuable recommendations and constructive criticism led to significant improvements in the quality of this paper. In particular, the suggestion to include mathematical formalization through Markov chains (see <a href='#ref-57'>[57]</a>) enriched the theoretical foundation of the exposition and enhanced the academic value of this work. Such scholarly guidance is of paramount importance for the continuous improvement of academic research. Furthermore, I express special thanks to the second anonymous reviewer who directed my attention to the need for deeper theoretical explanation of why the presented techniques in <a href='#term-prompt-eng'>prompt engineering</a> work effectively. The recommendation for a stronger connection between the theoretical foundations of <a href='#term-llm'>LLM models</a> and practical techniques contributed to a more logical and convincing presentation of the material, providing readers with an evidence base for the effectiveness of the discussed approaches.",
         
         // Citations
         citationsTitle: "References",
