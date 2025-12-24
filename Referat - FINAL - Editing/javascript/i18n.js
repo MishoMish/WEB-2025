@@ -26,6 +26,7 @@ const translations = {
         navExamples: "Примери",
         navRisks: "Рискове",
         navConclusion: "Заключение",
+        navAcknowledgments: "Благодарности",
         navCitations: "Литература",
         
         // Abstract
@@ -74,12 +75,12 @@ const translations = {
         sec2Sub1Li4: "<strong>Ограничения:</strong> Дефиниране на рамки и правила",
         
         sec2Sub2Title: "2.2. Роля при взаимодействие с LLM",
-        sec2Sub2Para1: "<a href='#term-llm'>LLM моделите</a> функционират на принципа на статистическо предсказване на следващия токен в последователност <a href='#ref-11'>[11]</a>. Качеството на <a href='#term-prompt'>промпта</a> директно влияе върху:",
+        sec2Sub2Para1: "<a href='#term-llm'>LLM моделите</a> функционират на принципа на статистическо предсказване на следващия токен в последователност <a href='#ref-11'>[11]</a>. Този процес може да се разглежда като обобщение на <strong>Марковските вериги</strong> (Markov chains) <a href='#ref-57'>[57]</a>, при които моделът оценява вероятността за следващ токен на базата на предходния контекст. Математически, за дадена последователност от токени (w₁, w₂, ..., wₙ), моделът изчислява условна вероятност P(wₙ₊₁ | w₁, w₂, ..., wₙ) - вероятността за следващия токен wₙ₊₁ при дадена история. За разлика от класическите Марковски вериги, които разглеждат само ограничен брой предходни състояния, съвременните <a href='#term-llm'>LLM</a> използват трансформерна архитектура с механизми за внимание (attention mechanisms), позволяващи им да обработват целия контекст. <strong>Пример:</strong> При текста 'Столицата на България е ___', моделът анализира цялата последователност и присвоява най-висока вероятност на токена 'София', базирайки се на статистическите закономерности, научени от обучителните данни. Качеството на <a href='#term-prompt'>промпта</a> директно влияе върху:",
         sec2Sub2Li1: "<strong>Точност:</strong> Колко добре моделът разбира задачата",
         sec2Sub2Li2: "<strong>Релевантност:</strong> Доколко отговорът отговаря на нуждите",
         sec2Sub2Li3: "<strong>Консистентност:</strong> Стабилност при повторни заявки",
         sec2Sub2Li4: "<strong>Ефективност:</strong> Време и ресурси за получаване на резултат",
-        sec2Sub2Para2: "Фигура 1 илюстрира основния поток на взаимодействие между потребител, <a href='#term-prompt'>промпт</a> и <a href='#term-llm'>LLM модел</a>.",
+        sec2Sub2Para2: "Качествен <a href='#term-prompt'>промпт</a> осигурява правилния контекст и ограничения, които насочват статистическите предсказвания на модела към желаните резултати. Фигура 1 илюстрира основния поток на взаимодействие между потребител, <a href='#term-prompt'>промпт</a> и <a href='#term-llm'>LLM модел</a>.",
         
         figure1Caption: "<strong>Фигура 1.</strong> Поток на взаимодействие при <a href='#term-prompt-eng'>инженерство на промптове</a>",
         
@@ -398,7 +399,11 @@ const translations = {
         
         sec7Sub4Title: "7.4. Финални думи",
         sec7Sub4Para1: "Prompt engineering не е магическо решение, а инструмент, който изисква умение, критично мислене и професионална отговорност. Успешните разработчици ще бъдат тези, които комбинират фундаментални знания с ефективно използване на AI технологии <a href='#ref-56'>[56]</a>.",
-        sec7Sub4Para2: "Бъдещето на уеб разработката е в симбиозата между човешка креативност и AI възможности - не в замяната на едното с другото.",
+        sec7Sub4Para2: "В края на краищата, бъдещето на уеб разработката не се определя от това дали използваме AI, а от това как го използваме. Интелигентно, етично и с дълбоко разбиране на последствията от нашия избор. Prompt инженерството не е само техническа компетентност - то е начин на мислене, който ще дефинира следващото поколение софтуерни инженери.",
+        
+        // Acknowledgments
+        acknowledgementsTitle: "Благодарности",
+        acknowledgementsText: "Искам да изразя своята искрена благодарност на анонимния рецензент, чиито ценни препоръки и конструктивна критика доведоха до значително подобряване на качеството на този реферат. По-конкретно, предложението за включване на математическа формализация чрез Марковските вериги (виж <a href='#ref-57'>[57]</a>) обогати теоретичната основа на изложението и повиши академичната стойност на разработката. Подобни научни насоки са от изключителна важност за непрекъснатото усъвършенстване на академичните изследвания.",
         
         // Citations
         citationsTitle: "Цитирана литература",
@@ -458,6 +463,7 @@ const translations = {
         ref54: "[54] IEEE, \"IEEE Code of Ethics\", IEEE.",
         ref55: "[55] Brynjolfsson, E., et al., \"Generative AI at Work\", published April 2023, NBER Working Paper.",
         ref56: "[56] Hutson, M., \"Could AI help you to write better code?\", published April 2023, Nature, vol. 616.",
+        ref57: "[57] Gagniuc, P., \"Markov Chains: From Theory to Implementation and Experimentation\", published 2017, John Wiley & Sons, ISBN 978-1-119-38755-8. Основополагащ труд за математическата теория на Марковските вериги и техните приложения в областта на статистическото моделиране и вероятностните процеси.",
         
         // Footer
         footerText: "&copy; 2025 Факултет по математика и информатика, СУ \"Св. Климент Охридски\"",
@@ -487,6 +493,7 @@ const translations = {
         navExamples: "Examples",
         navRisks: "Risks",
         navConclusion: "Conclusion",
+        navAcknowledgments: "Acknowledgments",
         navCitations: "References",
         
         // Abstract
@@ -537,12 +544,12 @@ const translations = {
         sec2Sub1Li4: "<strong>Constraints:</strong> Defining boundaries and rules",
         
         sec2Sub2Title: "2.2. Role in LLM Interaction",
-        sec2Sub2Para1: "LLM models function on the principle of statistical prediction of the next token in a sequence <a href='#ref-11'>[11]</a>. The quality of the prompt directly affects:",
+        sec2Sub2Para1: "LLM models function on the principle of statistical prediction of the next token in a sequence <a href='#ref-11'>[11]</a>. This process can be viewed as a generalization of <strong>Markov chains</strong> <a href='#ref-57'>[57]</a>, where the model estimates the probability of the next token based on previous context. Mathematically, for a given sequence of tokens (w₁, w₂, ..., wₙ), the model computes the conditional probability P(wₙ₊₁ | w₁, w₂, ..., wₙ) - the probability of the next token wₙ₊₁ given the history. Unlike classical Markov chains that consider only a limited number of previous states, modern <a href='#term-llm'>LLMs</a> use transformer architecture with attention mechanisms, allowing them to process the entire context. <strong>Example:</strong> For the text 'The capital of France is ___', the model analyzes the entire sequence and assigns the highest probability to the token 'Paris', based on statistical patterns learned from training data. The quality of the prompt directly affects:",
         sec2Sub2Li1: "<strong>Accuracy:</strong> How well the model understands the task",
         sec2Sub2Li2: "<strong>Relevance:</strong> How much the response meets needs",
         sec2Sub2Li3: "<strong>Consistency:</strong> Stability across repeated queries",
         sec2Sub2Li4: "<strong>Efficiency:</strong> Time and resources to obtain results",
-        sec2Sub2Para2: "Figure 1 illustrates the basic flow of interaction between user, prompt, and LLM model.",
+        sec2Sub2Para2: "A quality prompt provides the right context and constraints that guide the model's statistical predictions toward desired results. Figure 1 illustrates the basic flow of interaction between user, prompt, and LLM model.",
         
         figure1Caption: "<strong>Figure 1.</strong> Interaction flow in prompt engineering",
         
@@ -861,7 +868,11 @@ const translations = {
         
         sec7Sub4Title: "7.4. Final Words",
         sec7Sub4Para1: "Prompt engineering is not a magic solution, but a tool that requires skill, critical thinking, and professional responsibility. Successful developers will be those who combine fundamental knowledge with effective use of AI technologies <a href='#ref-56'>[56]</a>.",
-        sec7Sub4Para2: "The future of web development lies in the symbiosis between human creativity and AI capabilities - not in replacing one with the other.",
+        sec7Sub4Para2: "Ultimately, the future of web development is not determined by whether we use AI, but by how we use it. Intelligently, ethically, and with a deep understanding of the consequences of our choices. Prompt engineering is not just a technical competence - it is a way of thinking that will define the next generation of software engineers.",
+        
+        // Acknowledgments
+        acknowledgementsTitle: "Acknowledgments",
+        acknowledgementsText: "I want to express my sincere gratitude to the anonymous reviewer whose valuable recommendations and constructive criticism led to significant improvements in the quality of this paper. In particular, the suggestion to include mathematical formalization through Markov chains (see <a href='#ref-57'>[57]</a>) enriched the theoretical foundation of the exposition and enhanced the academic value of this work. Such scholarly guidance is of paramount importance for the continuous improvement of academic research.",
         
         // Citations
         citationsTitle: "References",
@@ -921,6 +932,7 @@ const translations = {
         ref54: "[54] IEEE, \"IEEE Code of Ethics\", IEEE.",
         ref55: "[55] Brynjolfsson, E., et al., \"Generative AI at Work\", published April 2023, NBER Working Paper.",
         ref56: "[56] Hutson, M., \"Could AI help you to write better code?\", published April 2023, Nature, vol. 616.",
+        ref57: "[57] Gagniuc, P., \"Markov Chains: From Theory to Implementation and Experimentation\", published 2017, John Wiley & Sons, ISBN 978-1-119-38755-8. A foundational work on the mathematical theory of Markov chains and their applications in statistical modeling and stochastic processes.",
         
         // Footer
         footerText: "&copy; 2025 Faculty of Mathematics and Informatics, Sofia University \"St. Kliment Ohridski\"",
