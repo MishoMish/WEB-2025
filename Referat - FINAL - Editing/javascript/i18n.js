@@ -391,7 +391,27 @@ const translations = {
         
         sec7Sub4Title: "7.4. Финални думи",
         sec7Sub4Para1: "Prompt engineering не е магическо решение, а инструмент, който изисква умение, критично мислене и професионална отговорност. Успешните разработчици ще бъдат тези, които комбинират фундаментални знания с ефективно използване на AI технологии.",
-        sec7Sub4Para2: "В края на краищата, бъдещето на уеб разработката не се определя от това дали използваме AI, а от това как го използваме. Интелигентно, етично и с дълбоко разбиране на последствията от нашия избор. Prompt инженерството не е само техническа компетентност - то е начин на мислене, който ще дефинира следващото поколение софтуерни инженери.",
+        sec7Sub4Para2: "В края на краищата, бъдещето на уеб разработката не се определя от това дали използваме AI, а от това як го използваме. Интелигентно, етично и с дълбоко разбиране на последствията от нашия избор. Prompt инженерството не е само техническа компетентност - то е начин на мислене, който ще дефинира следващото поколение софтуерни инженери.",
+        
+        sec7Sub5Title: "7.5. За разработката на този проект",
+        sec7Sub5Para1: "В духа на прозрачността, която самият реферат отстоява като критична професионална практика (виж <a href='#sec5-1'>Секция 5.1</a>), считам за важно да споделя ролята на изкуствения интелект в създаването на този проект.",
+        
+        sec7Sub5Sub1Title: "Използване на AI инструменти",
+        sec7Sub5Sub1Para: "Изкуственият интелект беше използван като помощно средство в следните области:",
+        sec7Sub5Sub1Li1: "<strong>Изследователска работа:</strong> AI асистенти бяха използвани за проучване и откриване на академични ресурси, научни публикации и актуални статии в областта на <a href='#term-prompt-eng'>prompt engineering</a> и уеб разработката. Инструменти като ChatGPT и Claude помогнаха за бързото филтриране на релевантна литература от огромния обем налична информация.",
+        sec7Sub5Sub1Li2: "<strong>Стилистични решения:</strong> AI беше консултиран за избор на цветова палитра, типография и общ визуален дизайн, който да е едновременно професионален и достъпен за широка аудитория. Експериментирахме с различни подходи, докато не постигнахме балансирано решение.",
+        sec7Sub5Sub1Li3: "<strong>Код архитектура:</strong> За този университетски проект, AI инструменти асистираха при структурирането на JavaScript кода - разделянето на функционалности в отделни модули (i18n.js, main.js, code-loader.js), организацията на CSS файловете и общата файлова структура. Важно е да се отбележи, че финалните архитектурни решения са подходящи за мащаба на академичен проект, но не претендират за production-grade сложност.",
+        sec7Sub5Sub1Li4: "<strong>Коректура и форматиране:</strong> AI беше използван за проверка на правописа, граматиката и форматирането на текста. Това включва подобряване на структурата на изреченията, осигуряване на консистентна формалност в академичния стил и корекции на технически термини. Съдържателната информация и аргументацията обаче остават изцяло авторски.",
+        
+        sec7Sub5Sub2Title: "Какво НЕ беше генерирано от AI",
+        sec7Sub5Sub2Para: "Ключовите аспекти на проекта, които са изцяло авторска работа:",
+        sec7Sub5Sub2Li1: "Цялостната концепция, структура и аргументация на реферата са авторски",
+        sec7Sub5Sub2Li2: "Анализът на рисковете, етичните предизвикателства и професионалните препоръки са базирани на лично разбиране и критично мислене",
+        sec7Sub5Sub2Li3: "Примерите и казусите са внимателно подбрани и адаптирани към контекста на курса",
+        sec7Sub5Sub2Li4: "Всички цитирани източници са ръчно верифицирани за валидност и актуалност",
+        sec7Sub5Sub2Li5: "Интеграцията и тестването на функционалностите са извършени ръчно",
+        
+        sec7Sub5Para2: "Този проект демонстрира именно това, което реферата отстоява: <strong>балансирано използване на AI като инструмент</strong>, който усилва човешките способности, без да ги замества. Разработката беше итеративен процес на сътрудничество между човек и машина, където критичното мислене и професионалната отговорност останаха винаги в човешки ръце.",
         
         // Acknowledgments
         acknowledgementsTitle: "Благодарности",
@@ -452,7 +472,7 @@ const translations = {
         // Footer
         footerText: "&copy; 2025 Факултет по математика и информатика, СУ \"Св. Климент Охридски\"",
         footerCourse: "Курс по Уеб технологии, 25 издание (зимен семестър 2025-2026)",
-        footerAuthor: "Студент ФМИ • Фак. номер • <a href='https://github.com' target='_blank' rel='noopener noreferrer' class='github-link'><svg width='20' height='20' viewBox='0 0 16 16' fill='currentColor' style='vertical-align: middle; margin-right: 4px'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/></svg>GitHub</a>",
+        footerAuthor: "Михаил Доброславски • 8MI0800216 • <a href='https://github.com/MishoMish/WEB-2025/tree/main/Referat%20-%20FINAL%20-%20Editing' target='_blank' rel='noopener noreferrer' class='github-link'><svg width='20' height='20' viewBox='0 0 16 16' fill='currentColor' style='vertical-align: middle; margin-right: 4px'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/></svg>GitHub</a>",
     },
     
     en: {
@@ -847,6 +867,26 @@ const translations = {
         sec7Sub4Para1: "Prompt engineering is not a magic solution, but a tool that requires skill, critical thinking, and professional responsibility. Successful developers will be those who combine fundamental knowledge with effective use of AI technologies.",
         sec7Sub4Para2: "Ultimately, the future of web development is not determined by whether we use AI, but by how we use it. Intelligently, ethically, and with a deep understanding of the consequences of our choices. Prompt engineering is not just a technical competence - it is a way of thinking that will define the next generation of software engineers.",
         
+        sec7Sub5Title: "7.5. About This Project's Development",
+        sec7Sub5Para1: "In the spirit of transparency that this paper advocates as a critical professional practice (see <a href='#sec5-1'>Section 5.1</a>), I consider it important to share the role of artificial intelligence in creating this project.",
+        
+        sec7Sub5Sub1Title: "Use of AI Tools",
+        sec7Sub5Sub1Para: "Artificial intelligence was used as an assistive tool in the following areas:",
+        sec7Sub5Sub1Li1: "<strong>Research Work:</strong> AI assistants were used to explore and discover academic resources, scientific publications, and current articles in the field of <a href='#term-prompt-eng'>prompt engineering</a> and web development. Tools like ChatGPT and Claude helped quickly filter relevant literature from the vast amount of available information.",
+        sec7Sub5Sub1Li2: "<strong>Stylistic Decisions:</strong> AI was consulted for choosing color palettes, typography, and overall visual design that would be both professional and accessible to a wide audience. We experimented with different approaches until achieving a balanced solution.",
+        sec7Sub5Sub1Li3: "<strong>Code Architecture:</strong> For this university project, AI tools assisted in structuring the JavaScript code - separating functionalities into separate modules (i18n.js, main.js, code-loader.js), organizing CSS files, and the overall file structure. It's important to note that the final architectural decisions are appropriate for the scale of an academic project, but do not claim production-grade complexity.",
+        sec7Sub5Sub1Li4: "<strong>Proofreading and Formatting:</strong> AI was used to check spelling, grammar, and text formatting. This includes improving sentence structure, ensuring consistent formality in academic style, and corrections of technical terms. However, the substantive information and argumentation remain entirely authorial.",
+        
+        sec7Sub5Sub2Title: "What Was NOT Generated by AI",
+        sec7Sub5Sub2Para: "Key aspects of the project that are entirely authorial work:",
+        sec7Sub5Sub2Li1: "The overall concept, structure, and argumentation of the paper are authorial",
+        sec7Sub5Sub2Li2: "The analysis of risks, ethical challenges, and professional recommendations are based on personal understanding and critical thinking",
+        sec7Sub5Sub2Li3: "Examples and case studies were carefully selected and adapted to the course context",
+        sec7Sub5Sub2Li4: "All cited sources were manually verified for validity and relevance",
+        sec7Sub5Sub2Li5: "Integration and testing of functionalities were performed manually",
+        
+        sec7Sub5Para2: "This project demonstrates exactly what the paper advocates: <strong>balanced use of AI as a tool</strong> that enhances human capabilities without replacing them. Development was an iterative process of human-machine collaboration, where critical thinking and professional responsibility always remained in human hands.",
+        
         // Acknowledgments
         acknowledgementsTitle: "Acknowledgments",
         acknowledgementsText: "I want to express my sincere gratitude to the anonymous reviewer whose valuable recommendations and constructive criticism led to significant improvements in the quality of this paper. In particular, the suggestion to include mathematical formalization through Markov chains (see <a href='#ref-57'>[57]</a>) enriched the theoretical foundation of the exposition and enhanced the academic value of this work. Such scholarly guidance is of paramount importance for the continuous improvement of academic research. Furthermore, I express special thanks to the second anonymous reviewer who directed my attention to the need for deeper theoretical explanation of why the presented techniques in <a href='#term-prompt-eng'>prompt engineering</a> work effectively. The recommendation for a stronger connection between the theoretical foundations of <a href='#term-llm'>LLM models</a> and practical techniques contributed to a more logical and convincing presentation of the material, providing readers with an evidence base for the effectiveness of the discussed approaches.",
@@ -906,7 +946,7 @@ const translations = {
         // Footer
         footerText: "&copy; 2025 Faculty of Mathematics and Informatics, Sofia University \"St. Kliment Ohridski\"",
         footerCourse: "Web Technologies Course, 25th Edition (Winter Semester 2025-2026)",
-        footerAuthor: "Student FMI • Faculty number • <a href='https://github.com' target='_blank' rel='noopener noreferrer' class='github-link'><svg width='20' height='20' viewBox='0 0 16 16' fill='currentColor' style='vertical-align: middle; margin-right: 4px'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/></svg>GitHub</a>",
+        footerAuthor: "Mihail Dobroslavski • 8MI0800216 • <a href='https://github.com/MishoMish/WEB-2025/tree/main/Referat%20-%20FINAL%20-%20Editing' target='_blank' rel='noopener noreferrer' class='github-link'><svg width='20' height='20' viewBox='0 0 16 16' fill='currentColor' style='vertical-align: middle; margin-right: 4px'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/></svg>GitHub</a>",
     }
 };
 
