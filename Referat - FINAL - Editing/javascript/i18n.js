@@ -373,11 +373,11 @@ const translations = {
         
         sec7Sub2Title: "7.2. Отговорни практики",
         sec7Sub2Para1: "Препоръки за отговорно използване <a href='#ref-54'>[54]</a>:",
-        sec7Sub2Li1: "<strong>Transparency:</strong> Документирайте AI употреба",
-        sec7Sub2Li2: "<strong>Validation:</strong> Винаги проверявайте резултатите",
-        sec7Sub2Li3: "<strong>Education:</strong> Обучавайте се на основите преди да използвате AI",
-        sec7Sub2Li4: "<strong>Testing:</strong> Comprehensive test coverage",
-        sec7Sub2Li5: "<strong>Security:</strong> Regular security audits",
+        sec7Sub2Li1: "<strong>Transparency:</strong> Документирай всяка AI употреба",
+        sec7Sub2Li2: "<strong>Validation:</strong> Винаги проверявай резултатите",
+        sec7Sub2Li3: "<strong>Education:</strong> Обучавай се на основите преди да използваш AI",
+        sec7Sub2Li4: "<strong>Testing:</strong> Пиши тестове за AI генериран код",
+        sec7Sub2Li5: "<strong>Security:</strong> Сканирай за уязвимости",
         sec7Sub2Li6: "<strong>Ethics:</strong> Съобразявайте се с етичните стандарти",
         sec7Sub2Li7: "<strong>Continuous learning:</strong> AI еволюира, адаптирайте се",
         
