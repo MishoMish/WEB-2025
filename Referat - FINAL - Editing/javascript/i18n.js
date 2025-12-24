@@ -99,12 +99,8 @@ const translations = {
         sec3Sub2Para2: "<strong>Теоретично обяснение:</strong> Ограниченията работят като насочващи сигнали за декодиращия процес на модела. При генериране на текст, моделът изчислява вероятностно разпределение върху всички възможни следващи токени. Ясно дефинираните ограничения (\"не използвай inline стилове\", \"добави коментари\") модифицират това разпределение, намалявайки вероятността за нежелани изходи и увеличавайки вероятността за съответстващи на изискванията резултати. Това е форма на условна генерация, при която контекстът действа като филтър върху обученото вероятностно пространство на модела <a href='#ref-12'>[12]</a>.",
         
         sec3Sub3Title: "3.3. Итеративни промптове и усъвършенстване",
-        sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>:",
-        sec3Sub3Li1: "Първоначален <a href='#term-prompt'>промпт</a> и резултат",
-        sec3Sub3Li2: "Анализ на резултата",
-        sec3Sub3Li3: "Идентифициране на проблеми",
-        sec3Sub3Li4: "Уточняване на <a href='#term-prompt'>промпта</a>",
-        sec3Sub3Li5: "Повторение до желан резултат",
+        sec3Sub3Para1: "Рядко първият <a href='#term-prompt'>промпт</a> дава перфектен резултат. Итеративният подход включва постепенно уточняване <a href='#ref-16'>[16]</a>. Фигура 3 илюстрира цикличния процес на подобрение:",
+        figure3Caption: "<strong>Фигура 3.</strong> Итеративен цикъл на усъвършенстване на <a href='#term-prompt'>промптовете</a>",
         
         sec3Sub4Title: "3.4. Few-shot промптове",
         sec3Sub4Para1: "<a href='#term-few-shot'>Few-shot learning</a> предоставя на модела примери за желания формат и стил <a href='#ref-17'>[17]</a>. Виж Код 3:",
@@ -570,12 +566,8 @@ const translations = {
         sec3Sub2Para2: "<strong>Theoretical explanation:</strong> Constraints work as guiding signals for the model's decoding process. During text generation, the model computes a probability distribution over all possible next tokens. Clearly defined constraints (\"don't use inline styles\", \"add comments\") modify this distribution, reducing the probability of unwanted outputs and increasing the probability of compliant results. This is a form of conditional generation where context acts as a filter over the model's trained probability space <a href='#ref-12'>[12]</a>.",
         
         sec3Sub3Title: "3.3. Iterative Prompts and Refinement",
-        sec3Sub3Para1: "The first prompt rarely gives perfect results. The iterative approach involves gradual refinement <a href='#ref-16'>[16]</a>:",
-        sec3Sub3Li1: "Initial prompt and result",
-        sec3Sub3Li2: "Result analysis",
-        sec3Sub3Li3: "Problem identification",
-        sec3Sub3Li4: "Prompt refinement",
-        sec3Sub3Li5: "Repeat until desired result",
+        sec3Sub3Para1: "The first prompt rarely gives perfect results. The iterative approach involves gradual refinement <a href='#ref-16'>[16]</a>. Figure 3 illustrates the cyclical improvement process:",
+        figure3Caption: "<strong>Figure 3.</strong> Iterative cycle for prompt refinement",
         
         sec3Sub4Title: "3.4. Few-shot Prompts",
         sec3Sub4Para1: "Few-shot learning provides the model with examples of the desired format and style <a href='#ref-17'>[17]</a>. See Code 3:",
