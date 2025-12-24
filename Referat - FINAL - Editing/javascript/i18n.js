@@ -187,8 +187,8 @@ const translations = {
         sec6Sub7Para1: "\"Blind AI-coding\" (или генериране на код на сляпо) е практика, при която разработчиците директно копират и използват код, генериран от изкуствен интелект, без да го прегледат, разберат или тестват. Фигура 2 илюстрира опасностите от това некритично приемане. Основните рискове включват <a href='#ref-30'>[30]</a>:",
         sec6Sub7Li1: "<strong>Грешки:</strong> AI може да генерира синтактично верен, но логически грешен код",
         sec6Sub7Li2: "<strong>Неоптималност:</strong> Моделите не винаги генерират най-ефективното решение",
-        sec6Sub7Li3: "<strong>Липса на стандарти:</strong> AI може да не следва проектните конвенции",
-        sec6Sub7Li4: "<strong>Security:</strong> Уязвимости като XSS, SQL injection, CSRF <a href='#ref-31'>[31]</a>",
+        sec6Sub7Li3: "<strong>Нарушаване на стандарти и \"Context Drift\":</strong> Дори при стриктно зададени начални промптове, LLM моделите са склонни към \"халюциниране\" на стилове или забравяне на конвенциите при по-дълги разговори (context window limits). Това води до \"спагети код\", смесване на парадигми и трудна поддръжка.",
+        sec6Sub7Li4: "<strong>Скрити уязвимости в сигурността:</strong> Рискът надхвърля базовите XSS/SQLi. Моделите често предлагат остарели криптографски библиотеки, несигурни конфигурации по подразбиране или hallucinated пакети (supply chain attacks). Тъй като AI оптимизира за вероятност, а не за сигурност, той може да генерира работещ, но фундаментално несигурен код <a href='#ref-31'>[31]</a>",
         sec6Sub7Para2: "Особено опасен е феноменът \"vibe coding\" - когато разработчици слепо копират AI генериран код без да разбират как работи <a href='#ref-32'>[32]</a>.",
         
         sec6Sub8Title: "6.8. Етика и професионална отговорност",
@@ -655,8 +655,8 @@ const translations = {
         sec6Sub7Para1: "Figure 2 illustrates the dangers of uncritically accepting AI-generated code. Main risks include <a href='#ref-30'>[30]</a>:",
         sec6Sub7Li1: "<strong>Errors:</strong> AI can generate syntactically correct but logically incorrect code",
         sec6Sub7Li2: "<strong>Sub-optimality:</strong> Models don't always generate the most efficient solution",
-        sec6Sub7Li3: "<strong>Lack of standards:</strong> AI may not follow project conventions",
-        sec6Sub7Li4: "<strong>Security:</strong> Vulnerabilities such as XSS, SQL injection, CSRF <a href='#ref-31'>[31]</a>",
+        sec6Sub7Li3: "<strong>Violation of Standards and \"Context Drift\":</strong> Even with strictly defined initial prompts, LLM models tend to \"hallucinate\" styles or forget conventions during longer conversations (context window limits). This leads to \"spaghetti code\", mixing of paradigms, and difficult maintenance.",
+        sec6Sub7Li4: "<strong>Hidden Security Vulnerabilities:</strong> The risk goes beyond basic XSS/SQLi. Models often suggest outdated cryptographic libraries, insecure default configurations, or hallucinated packages (supply chain attacks). Since AI optimizes for probability rather than security, it can generate working but fundamentally insecure code <a href='#ref-31'>[31]</a>",
         sec6Sub7Para2: "Especially dangerous is the phenomenon of \"vibe coding\" - when developers blindly copy AI-generated code without understanding how it works <a href='#ref-32'>[32]</a>.",
         
         sec6Sub8Title: "6.8. Ethics and Professional Responsibility",
