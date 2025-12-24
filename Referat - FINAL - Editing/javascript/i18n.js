@@ -170,6 +170,7 @@ const translations = {
         sec6Sub4Li4: "<strong>Unit tests:</strong> Jest, Mocha, Pytest тест казуси",
         
         sec6Sub5Title: "6.5. i18n и локализация",
+        sec6Sub5Para0: "<strong>i18n</strong> е съкращение на <em>internationalization</em> (интернационализация) - между 'i' и 'n' има 18 букви. Това е процесът на проектиране на уеб приложения така, че да могат лесно да се адаптират към различни езици и региони без промени в кода. Основните компоненти включват текстови ресурси (translations), форматиране на дати/числа, и поддръжка на различни писмености (RTL/LTR).",
         sec6Sub5Para1: "ChatGPT може да генерира структури за интернационализация <a href='#ref-28'>[28]</a>. Код 8 показва пример:",
         code8Caption: "Код 8: Пример за i18n структура",
         
@@ -637,6 +638,7 @@ const translations = {
         sec6Sub4Li4: "<strong>Unit tests:</strong> Jest, Mocha, Pytest test cases",
         
         sec6Sub5Title: "6.5. i18n and Localization",
+        sec6Sub5Para0: "<strong>i18n</strong> is short for <em>internationalization</em> - there are 18 letters between 'i' and 'n'. It is the process of designing web applications so they can easily adapt to different languages and regions without code changes. Key components include text resources (translations), date/number formatting, and support for different writing systems (RTL/LTR).",
         sec6Sub5Para1: "ChatGPT can generate structures for internationalization <a href='#ref-28'>[28]</a>. Code 8 shows an example:",
         code8Caption: "Code 8: Example of i18n structure",
         
