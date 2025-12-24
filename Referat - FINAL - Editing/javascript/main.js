@@ -325,39 +325,51 @@
    * Smooth scroll to anchor links
    */
   function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    // Use event delegation to catch dynamically created links (e.g., in figure overlays)
+    document.addEventListener("click", function (e) {
+      // Check if clicked element is an anchor with href starting with #
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
 
-    links.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        const href = this.getAttribute("href");
+      const href = link.getAttribute("href");
+      if (href === "#") return;
 
-        if (href === "#") return;
+      e.preventDefault();
 
-        e.preventDefault();
-
-        const target = document.querySelector(href);
-        if (target) {
-          const navHeight = document.querySelector("#main-nav").offsetHeight;
-          const targetPosition =
-            target.getBoundingClientRect().top +
-            window.pageYOffset -
-            navHeight -
-            20;
-
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          });
-
-          history.pushState(null, null, href);
-
-          // Add visual feedback to target
-          target.style.animation = "none";
-          setTimeout(() => {
-            target.style.animation = "highlightSection 1s ease-out";
-          }, 10);
+      // Close any open figure overlays before navigating
+      const openOverlay = document.querySelector(".figure-expand-overlay");
+      
+      if (openOverlay) {
+        // Force close the overlay immediately
+        document.body.classList.remove("no-scroll");
+        if (openOverlay.parentNode) {
+          openOverlay.parentNode.removeChild(openOverlay);
         }
-      });
+      }
+
+      // Navigate to target
+      const target = document.querySelector(href);
+      if (target) {
+        const navHeight = document.querySelector("#main-nav").offsetHeight;
+        const targetPosition =
+          target.getBoundingClientRect().top +
+          window.pageYOffset -
+          navHeight -
+          20;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+
+        history.pushState(null, null, href);
+
+        // Add visual feedback to target
+        target.style.animation = "none";
+        setTimeout(() => {
+          target.style.animation = "highlightSection 1s ease-out";
+        }, 10);
+      }
     });
 
     // Add CSS for highlight animation
@@ -607,15 +619,18 @@
     // Track focus origin for restoration
     const previousActive = document.activeElement;
 
-    function closeOverlay() {
+    function closeOverlay(restoreFocus = true) {
       document.body.classList.remove("no-scroll");
       overlay.classList.add("closing");
       setTimeout(() => {
         if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-        if (previousActive && previousActive.focus) previousActive.focus();
+        if (restoreFocus && previousActive && previousActive.focus) previousActive.focus();
         document.removeEventListener("keydown", escHandler);
       }, 250);
     }
+
+    // Store close function on overlay for external access
+    overlay.closeOverlay = closeOverlay;
 
     const escHandler = (e) => {
       if (e.key === "Escape") {
