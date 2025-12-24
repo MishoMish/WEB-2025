@@ -383,8 +383,8 @@ const translations = {
         
         sec7Sub3Title: "7.3. Бъдещи перспективи",
         sec7Sub3Para1: "В следващите 5-10 години очаквам <a href='#ref-55'>[55]</a>:",
-        sec7Sub3Li1: "<strong>Специализирани модели:</strong> AI обучени конкретно за web frameworks",
-        sec7Sub3Li2: "<strong>IDE интеграция:</strong> Seamless AI assistance в dev tools",
+        sec7Sub3Li1: "<strong>Специализирани модели:</strong> GitHub Copilot използва базата от целия GitHub, което го прави изключително подходящ за работа с популярни frameworks",
+        sec7Sub3Li2: "<strong>IDE интеграция:</strong> Copilot вече е интегриран във VS Code, а среди като Cursor предоставят чат с директен достъп за редакции на кода",
         sec7Sub3Li3: "<strong>Автоматизация:</strong> End-to-end код генериране от design",
         sec7Sub3Li4: "<strong>Нови роли:</strong> AI prompt engineers, AI code reviewers",
         sec7Sub3Li5: "<strong>Стандарти:</strong> Industry guidelines за AI използване",
@@ -845,8 +845,8 @@ const translations = {
         
         sec7Sub3Title: "7.3. Future Perspectives",
         sec7Sub3Para1: "In the next 5-10 years, I expect <a href='#ref-55'>[55]</a>:",
-        sec7Sub3Li1: "<strong>Specialized models:</strong> AI trained specifically for web frameworks",
-        sec7Sub3Li2: "<strong>IDE integration:</strong> Seamless AI assistance in dev tools",
+        sec7Sub3Li1: "<strong>Specialized models:</strong> GitHub Copilot uses the entire GitHub database, making it extremely suitable for working with popular frameworks",
+        sec7Sub3Li2: "<strong>IDE integration:</strong> Copilot is already integrated into VS Code, and environments like Cursor provide chat with direct access for code edits",
         sec7Sub3Li3: "<strong>Automation:</strong> End-to-end code generation from design",
         sec7Sub3Li4: "<strong>New roles:</strong> AI prompt engineers, AI code reviewers",
         sec7Sub3Li5: "<strong>Standards:</strong> Industry guidelines for AI usage",
