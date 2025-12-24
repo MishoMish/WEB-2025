@@ -918,43 +918,83 @@
 
     let isSnapping = false;
     let scrollTimeout = null;
+    let lastScrollTop = window.pageYOffset;
+
+    function performSnap() {
+      if (isSnapping) return;
+
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const viewportHeight = window.innerHeight;
+      const viewportMidpoint = viewportHeight / 2;
+
+      // Check if the hero bottom is in the "in-between" zone
+      // If hero bottom is between 0 and 50% of viewport, snap down to content
+      if (heroBottom > 0 && heroBottom < viewportMidpoint) {
+        isSnapping = true;
+        window.scrollTo({
+          top: heroSection.offsetHeight,
+          behavior: 'smooth'
+        });
+        setTimeout(() => { isSnapping = false; }, 800);
+        return true;
+      } 
+      // If hero bottom is between 50% and 100% of viewport, snap up to hero
+      else if (heroBottom >= viewportMidpoint && heroBottom < viewportHeight) {
+        isSnapping = true;
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        setTimeout(() => { isSnapping = false; }, 800);
+        return true;
+      }
+      return false;
+    }
 
     function checkScrollPosition() {
       if (isSnapping) return;
 
-      // Clear any existing timeout
-      clearTimeout(scrollTimeout);
-
-      // Wait for scroll to stop (user has paused scrolling)
-      scrollTimeout = setTimeout(() => {
-        const heroBottom = heroSection.getBoundingClientRect().bottom;
-        const viewportHeight = window.innerHeight;
-        const viewportMidpoint = viewportHeight / 2;
-
-        // Check if the hero bottom is in the "in-between" zone
-        // If hero bottom is between 0 and 50% of viewport, we're in the danger zone
-        if (heroBottom > 0 && heroBottom < viewportMidpoint) {
-          // Snap up to show full hero
-          isSnapping = true;
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-          setTimeout(() => { isSnapping = false; }, 800);
-        } 
-        // If hero bottom is between 50% and 100% of viewport, snap down to content
-        else if (heroBottom >= viewportMidpoint && heroBottom < viewportHeight) {
-          isSnapping = true;
-          window.scrollTo({
-            top: heroSection.offsetHeight,
-            behavior: 'smooth'
-          });
-          setTimeout(() => { isSnapping = false; }, 800);
-        }
-      }, 150); // Wait 150ms after user stops scrolling
+      const currentScrollTop = window.pageYOffset;
+      
+      // Only set timeout if user is actually scrolling (position changed)
+      if (currentScrollTop !== lastScrollTop) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(performSnap, 150);
+        lastScrollTop = currentScrollTop;
+      }
     }
 
+    // Check on scroll
     window.addEventListener('scroll', checkScrollPosition, { passive: true });
+    
+    // Check on page load (after a brief delay to let layout settle)
+    setTimeout(performSnap, 100);
+    
+    // Check on window resize (user might end up in middle zone after resize)
+    window.addEventListener('resize', debounce(() => {
+      if (!isSnapping) {
+        setTimeout(performSnap, 100);
+      }
+    }, 250));
+    
+    // Periodically check if stuck in middle zone (safety net)
+    setInterval(() => {
+      // Only check if user hasn't scrolled recently
+      const timeSinceLastScroll = Date.now() - (window.lastScrollTime || 0);
+      if (timeSinceLastScroll > 500 && !isSnapping) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        const viewportHeight = window.innerHeight;
+        // If still in danger zone, snap
+        if (heroBottom > 0 && heroBottom < viewportHeight) {
+          performSnap();
+        }
+      }
+    }, 1000);
+    
+    // Track last scroll time for the interval check
+    window.addEventListener('scroll', () => {
+      window.lastScrollTime = Date.now();
+    }, { passive: true });
   }
 
   /**
