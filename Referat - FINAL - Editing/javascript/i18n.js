@@ -244,8 +244,8 @@ const translations = {
         sec4Sub1Para1: "Разгледахме вече четири типа промптове в предишните секции:",
         sec4Sub1Li1: "Код 1: Basic prompt",
         sec4Sub1Li2: "Код 2: Advanced prompt",
-        sec4Sub1Li3: "Код 4: Chain-of-thought",
-        sec4Sub1Li4: "Код 3: Few-shot learning",
+        sec4Sub1Li3: "Код 3: Few-shot learning",
+        sec4Sub1Li4: "Код 4: Chain-of-thought",
         
         sec4Sub2Title: "4.2. Генериран код с добра структура",
         sec4Sub2Para1: "Демонстрирахме примери на добре структуриран код:",
@@ -253,7 +253,8 @@ const translations = {
         sec4Sub2Li2: "Код 6: Модерен CSS Grid",
         sec4Sub2Li3: "Код 7: JavaScript с security best practices",
         sec4Sub2Li4: "Код 8: i18n архитектура",
-        
+        sec4Sub2Li5: "Код 9: Пример за meta tags оптимизация",
+
         sec4Sub3Title: "4.3. Мини-казуси: кога AI помага и кога пречи",
         
         sec4Sub3Case1Title: "Случай 1: Успешна помощ",
@@ -295,7 +296,7 @@ const translations = {
         
         // Section 6: Risks
         sec5Title: "5. Рискове и ограничения",
-        sec5Para1: "Въпреки предимствата, използването на AI в уеб разработката носи значителни рискове, които изискват внимание и митигация <a href='#ref-46'>[46]</a>.",
+        sec5Para1: "Въпреки предимствата, използването на AI в уеб разработката носи значителни рискове, които изискват внимание и предотвратяване <a href='#ref-46'>[46]</a>.",
         
         sec5Sub1Title: "5.1. Етически предизвикателства",
         
@@ -698,8 +699,8 @@ const translations = {
         sec4Sub1Para1: "We have already examined four types of prompts in previous sections:",
         sec4Sub1Li1: "Code 1: Basic prompt",
         sec4Sub1Li2: "Code 2: Advanced prompt",
-        sec4Sub1Li3: "Code 4: Chain-of-thought",
-        sec4Sub1Li4: "Code 3: Few-shot learning",
+        sec4Sub1Li3: "Code 3: Few-shot learning",
+        sec4Sub1Li4: "Code 4: Chain-of-thought",
         
         sec4Sub2Title: "4.2. Generated Code with Good Structure",
         sec4Sub2Para1: "We demonstrated examples of well-structured code:",
@@ -707,7 +708,8 @@ const translations = {
         sec4Sub2Li2: "Code 6: Modern CSS Grid",
         sec4Sub2Li3: "Code 7: JavaScript with security best practices",
         sec4Sub2Li4: "Code 8: i18n architecture",
-        
+        sec4Sub2Li5: "Code 9: Example of meta tags optimization",
+
         sec4Sub3Title: "4.3. Mini Case Studies: When AI Helps and When It Hinders",
         
         sec4Sub3Case1Title: "Case 1: Successful Assistance",
